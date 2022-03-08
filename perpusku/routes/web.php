@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('buku');
+});
+
+Route::get('/petugas', function () {
+    return view('petugas');
 });
