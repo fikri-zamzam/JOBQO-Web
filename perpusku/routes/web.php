@@ -14,9 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('buku');
+    return view('buku', [
+        "title" => "Buku"
+    ]);
 });
 
 Route::get('/petugas', function () {
-    return view('petugas');
+    return view('petugas', [
+        "title" => "Petugas"
+    ]);
+});
+
+Route::get('/anggota', function () {
+    return view('anggota', [
+        "title" => "Anggota"
+    ]);
 });
