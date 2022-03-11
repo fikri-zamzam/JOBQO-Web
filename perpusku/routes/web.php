@@ -29,4 +29,22 @@ Route::get('/anggota', function () {
     return view('anggota', [
         "title" => "Anggota"
     ]);
+});    
+
+Route::get('/tambahbuku', function () {
+    return view('tambahbuku', [
+        "title" => "Tambah Buku"
+    ]);
+});
+
+Route::get('/tambahanggota', function () {
+    return view('tambahanggota', [
+        "title" => "Tambah Anggota"
+    ]);
+});
+
+Route::get('/tambahpetugas', function () {
+    return view('tambahpetugas', [
+        "title" => "Tambah Petugas"
+    ]);
 });
