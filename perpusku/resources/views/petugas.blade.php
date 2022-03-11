@@ -4,6 +4,7 @@
 @section('container')
 
 {{-- table --}}
+<a href="/tambahpetugas" class="btn btn-primary mb-3"><i class="fas fa-plus-square mr-2"></i>Tambah Data {{ $title }}</a>
 <table class="table mt-3">
     <thead>
         <tr>
