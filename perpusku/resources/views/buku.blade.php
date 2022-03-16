@@ -4,8 +4,8 @@
 @section('container')
 
 {{-- table --}}
-<a href="/tambahbuku" class="btn btn-primary mb-3"><i class="fas fa-plus-square mr-2"></i>Tambah Data {{ $title }}</a>
-<table class="table mt-3">
+<a href="/tambahbuku" class="btn btn-primary mt-3"><i class="fas fa-plus-square mr-2"></i>Tambah Data {{ $title }}</a>
+<table class="table mt-5">
     <thead>
         <tr>
             <th scope="col">ID</th>
