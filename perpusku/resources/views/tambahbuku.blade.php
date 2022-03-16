@@ -4,7 +4,8 @@
 @section('container')
 
 <div class="col-12">
-    <form action="tambahbuku" method="post" enctype="multipart/form-data">
+    <form action="/tambahBuku" method="post" enctype="multipart/form-data">
+        @csrf
         <div class="form-group">
             <label for="exampleFormControlInput1">Kode Buku</label>
             <input type="text" class="form-control" name="kodebuku" required

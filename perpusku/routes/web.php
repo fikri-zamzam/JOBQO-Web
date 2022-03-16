@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BooksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('buku', [
-        "title" => "Buku"
-    ]);
-});
+Route::get('/', [BooksController::class,'index']);
+Route::get('/tambahBuku', [BooksController::class,'create']);
 
 Route::get('/petugas', function () {
     return view('petugas', [
@@ -30,12 +28,6 @@ Route::get('/anggota', function () {
         "title" => "Anggota"
     ]);
 });    
-
-Route::get('/tambahbuku', function () {
-    return view('tambahbuku', [
-        "title" => "Tambah Buku"
-    ]);
-});
 
 Route::get('/tambahanggota', function () {
     return view('tambahanggota', [

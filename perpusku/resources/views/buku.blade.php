@@ -8,32 +8,36 @@
 <table class="table mt-3">
     <thead>
         <tr>
-            <th scope="col">No</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Nim</th>
-            <th scope="col">Email</th>
-            <th scope="col">Jurusan</th>
+            <th scope="col">ID</th>
+            <th scope="col">Kode Buku</th>
+            <th scope="col">Judul Buku</th>
+            <th scope="col">Penulis</th>
+            <th scope="col">Penerbit</th>
+            <th scope="col">Tahun terbit</th>
             <th scope="col">Aksi</th>
         </tr>
     </thead>
     <tbody>
+        @foreach($books as $book)
         <tr>
             <th scope="row">Test</th>
-            <td>1</td>
-            <td>nama</td>
-            <td>Test</td>
-            <td>Test</td>
+            <td>{{ $book->kode_buku }}</td>
+            <td>{{ $book->judul_buku }}</td>
+            <td>{{ $book->Penulis }}</td>
+            <td>{{ $book->Penerbit }}</td>
+            <td>{{ $book->Tahun_terbit }}</td>
             <td>
                 <div class="row">
-                    <div class="col-2">
+                    <div class="col">
                         <button class="btn btn-warning">Edit</button>
                     </div>
-                    <div class="col-2">
+                    <div class="col">
                         <button class="btn btn-danger">Hapus</button>
                     </div>
                 </div>
             </td>
         </tr>
+        @endforeach
     </tbody>
 </table>
 
