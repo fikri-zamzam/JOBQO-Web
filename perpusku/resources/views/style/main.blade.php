@@ -25,7 +25,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link {{ ($title === "Buku") ? 'active' : '' }}" aria-current="page" href="/">Buku</a>
+                        <a class="nav-link {{ ($title === "Buku") ? 'active' : '' }}" aria-current="page"
+                            href="/">Buku</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ ($title === "Petugas") ? 'active' : '' }}" href="/petugas">Petugas</a>
@@ -33,6 +34,12 @@
                     <li class="nav-item">
                         <a class="nav-link {{ ($title === "Anggota") ? 'active' : '' }}" href="/anggota">Anggota</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ ($title === "Anggota") ? 'active' : '' }}" href="/peminjaman">Peminjaman</a>
+                    </li>
+                    
+                        
+                    
                     {{-- <li class="nav-item">
           <a class="nav-link" href="/kebali">kembali</a>
         </li> --}}

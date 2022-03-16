@@ -4,31 +4,31 @@
 @section('container')
 
 {{-- table --}}
-<a href="/tambahbuku" class="btn btn-primary mb-3"><i class="fas fa-plus-square mr-2"></i>Tambah Data {{ $title }}</a>
-<table class="table mt-3">
+<a href="/tambahbuku" class="btn btn-primary mt-3"><i class="fas fa-plus-square mr-2"></i>Tambah Data {{ $title }}</a>
+<table class="table mt-5">
     <thead>
         <tr>
-            <th scope="col">No</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Nim</th>
-            <th scope="col">Email</th>
-            <th scope="col">Jurusan</th>
+            <th scope="col">Kode buku</th>
+            <th scope="col">Judul</th>
+            <th scope="col">penulis</th>
+            <th scope="col">Penerbit</th>
+            <th scope="col">tahun terbit</th>
             <th scope="col">Aksi</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <th scope="row">Test</th>
-            <td>1</td>
-            <td>nama</td>
+            <td>Test</td>
+            <td>Test</td>
             <td>Test</td>
             <td>Test</td>
             <td>
                 <div class="row">
-                    <div class="col-2">
+                    <div class="col-3">
                         <button class="btn btn-warning">Edit</button>
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <button class="btn btn-danger">Hapus</button>
                     </div>
                 </div>
