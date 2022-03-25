@@ -1,0 +1,17 @@
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #233A64;
+    background-image: linear-gradient(45deg,#232448, #233A64);
+}
+
+h1 {
+    color: #ffffff;
+}
+
+small{
+    color: #ffffff;
+}
+
+
+@import 'component/signin';
