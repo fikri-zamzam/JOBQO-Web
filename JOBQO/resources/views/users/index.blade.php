@@ -1,0 +1,40 @@
+@extends('layouts.main')
+
+@section('content')
+    
+<a href="{{ url('user/create') }}" class="btn btn-primary mt-3"><i class="fas fa-plus-square mr-2"></i>Tambah {{ $title }}</a>
+<table class="table">
+    <thead class="table-dark">
+      <th>ID</th>
+      <th>Nama</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Aksi</th>
+    </thead>
+    <tbody>
+      @foreach ($user as $key=>$value)
+      <tr>
+        <td scope="row"> {{ $value->id }} </td>
+        <td> {{ $value->name }} </td>
+        <td> {{ $value->username }} </td>
+        <td> {{ $value->email }} </td>
+        <td>
+          <div class="row">
+            <div class="col-3">
+                <a class="btn btn-info" href="{{ url('user/'.$value->id.'/edit') }}">Edit</a>
+            </div>
+            <div class="col-3">
+                <form action="{{ url('user/'.$value->id) }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="btn btn-danger">Hapus</button>
+                </form>
+            </div>
+        </div>
+        </td>
+      </tr>
+      @endforeach
+    </tbody>
+  </table>
+
+  @endsection
