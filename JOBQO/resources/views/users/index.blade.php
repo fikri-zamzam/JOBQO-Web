@@ -2,21 +2,25 @@
 
 @section('content')
     
-<a href="{{ url('user/create') }}" class="btn btn-primary mt-3"><i class="fas fa-plus-square mr-2"></i>Tambah {{ $title }}</a>
-<table class="table">
+<a href="{{ url('user/create') }}" class="btn btn-primary mt-3"><i class="fa fa-plus-square mr-2"></i>Tambah {{ $title }}</a>
+<table class="table mt-3">
     <thead class="table-dark">
+      <th>Nomor</th>
       <th>ID</th>
       <th>Nama</th>
       <th>Username</th>
+      <th>Gender</th>
       <th>Email</th>
       <th>Aksi</th>
     </thead>
     <tbody>
       @foreach ($user as $key=>$value)
       <tr>
-        <td scope="row"> {{ $value->id }} </td>
+        <td scope="row"> {{ $key+1 }} </td>
+        <td> {{ $value->id }} </td>
         <td> {{ $value->name }} </td>
         <td> {{ $value->username }} </td>
+        <td> {{ ($value->gender == "L" ? "Laki-laki" : "Perempuan" ) }} </td>
         <td> {{ $value->email }} </td>
         <td>
           <div class="row">

@@ -47,6 +47,7 @@ class UserController extends Controller
         $model = new User;
         $model->name = $request->namaUser;
         $model->username = $request->userName;
+        $model->gender = $request->genderUser;
         $model->email = $request->emailUser;
         $model->password = $request->passUser;
         $model->save();
@@ -91,6 +92,7 @@ class UserController extends Controller
         $model = User::find($id);
         $model->name = $request->namaUser;
         $model->username = $request->userName;
+        $model->gender = $request->genderUser;
         $model->email = $request->emailUser;
         $model->password = $request->passUser;
         $model->save();
