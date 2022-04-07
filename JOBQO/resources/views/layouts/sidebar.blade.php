@@ -2,6 +2,8 @@
     <div class="menu_section">
       <h3>General</h3>
       <ul class="nav side-menu">
+      <li><a href="/"><i class="fa fa-dashboard"></i> Dashboard </a>
+      </li>
         <li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a href="/user">List User</a></li>

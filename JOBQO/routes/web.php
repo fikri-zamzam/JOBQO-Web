@@ -19,9 +19,12 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('layouts.main', [
-        "title" => "Beranda"
+        "title" => "Dashboard"
     ]);
 });
+
+
+
 
 
 Route::resource('user', UserController::class);
