@@ -16,6 +16,21 @@
             <input type="text" class="form-control" name="userName" required
                     placeholder="Username" value="{{ $model->username }}">
         </div>
+        <label for="genderLabel">Gender</label><br>
+        <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="genderUser" id="lk" value="L" 
+            {{ (($model->gender == "L" ) ? "checked" : "") }}>
+            <label class="form-check-label" for="lk">
+              Laki-laki
+            </label>
+          </div>
+          <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="genderUser" id="pr" value="P"
+            {{ (($model->gender == "P" ) ? "checked" : "") }}>
+            <label class="form-check-label" for="pr">
+              Perempuan
+            </label>
+        </div>
         <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Email </label>
             <input type="text" class="form-control" name="emailUser" required
