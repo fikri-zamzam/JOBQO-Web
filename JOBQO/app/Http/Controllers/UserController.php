@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\hash;
 
 class UserController extends Controller
 {
@@ -49,7 +50,8 @@ class UserController extends Controller
         $model->username = $request->userName;
         $model->gender = $request->genderUser;
         $model->email = $request->emailUser;
-        $model->password = $request->passUser;
+        $model->password = Hash::make($request->passUser);
+        // $validatedData['password'] = Hash::make($validatedData['password']);
         $model->save();
 
         return redirect('user');

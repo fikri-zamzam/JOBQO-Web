@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="../../templates_assets/images/favicon.ico" type="image/ico" />
 
-    <title>Gentelella Alela! | </title>
+    <title>{{ $title }} </title>
 
     <!-- Bootstrap -->
     <link href="../../templates_assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -97,10 +97,13 @@
                         <span>Settings</span>
                       </a>
                   <a class="dropdown-item"  href="javascript:;">Help</a>
-                    <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    <form action="/logout" method="POST">
+                      @csrf
+                      <button type="submit" class="dropdown-item">Logout <i class="fa fa-sign-out pull-right"></i></button>
+                    </form>
                   </div>
                 </li>
-
+                
                 <li role="presentation" class="nav-item dropdown open">
                   <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
@@ -172,27 +175,11 @@
         <!-- /top navigation -->
 
         <!-- page content -->
-        {{-- <div class="right_col" role="main">
-          <!-- top tiles -->
-          @include('layouts.top_info')
-          <!-- /top tiles -->
-
-         
-              <div class="row">
-                <div class="container">
-                  
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div> --}}
-
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Data User</h3>
+                <h3>Sub judul 1</h3>
               </div>
 
               <div class="title_right">
@@ -213,7 +200,7 @@
               <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>List Data User</h2>
+                    <h2>subjudul 2</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
