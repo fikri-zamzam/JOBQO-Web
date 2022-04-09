@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="../../templates_assets/images/favicon.ico" type="image/ico" />
 
-    <title>Gentelella Alela! | </title>
+    <title>JOBQO</title>
 
     <!-- Bootstrap -->
     <link href="../../templates_assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>JOBQO</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -192,7 +192,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Data User</h3>
+                <h3>List</h3>
               </div>
 
               <div class="title_right">
@@ -213,7 +213,7 @@
               <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>List Data User</h2>
+                    <h2>List Data </h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>

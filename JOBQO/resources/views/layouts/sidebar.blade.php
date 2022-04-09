@@ -29,10 +29,10 @@
     <div class="menu_section">
       <h3>Menu Section</h3>
       <ul class="nav side-menu">
-        <li><a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>
+        <li><a><i class="fa fa-windows"></i> Admin <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="page_403.html">403 Error</a></li>
-            <li><a href="page_404.html">404 Error</a></li>
+            <li><a href="/admin">List Admin</a></li>
+            <li><a href="/admin/create">Tambah Admin</a></li>
             <li><a href="page_500.html">500 Error</a></li>
             <li><a href="plain_page.html">Plain Page</a></li>
             <li><a href="login.html">Login Page</a></li>
