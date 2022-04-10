@@ -20,8 +20,8 @@
         </li>
         <li><a><i class="fa fa-building-o"></i>Perusahaan <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="chartjs.html">Anak menu1</a></li>
-            <li><a href="chartjs.html">Anak menu2</a></li>
+            <li><a href="/perusahaan">List Perusahaan</a></li>
+            <li><a href="/perusahaan/create">Tambah Perusahaan</a></li>
           </ul>
         </li>
       </ul>
