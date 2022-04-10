@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PerusahaanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,4 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/', [DashboardController::class, 'index']);
 Route::resource('admin', AdminController::class);
+Route::resource('perusahaan', PerusahaanController::class);
