@@ -13,15 +13,18 @@
         </li>
         <li><a><i class="fa fa-briefcase"></i> Jobs <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="chartjs.html">Anak menu1</a></li>
-            <li><a href="chartjs.html">Anak menu2</a></li>
-            <li><a href="chartjs.html">Anak menu3</a></li>
+            <li><a href="chartjs.html">List Pekerjaan</a></li>
+            <li><a href="chartjs.html">Tambah Pekerjaan</a></li>
+            <li><a href="chartjs.html">jenis pekerjaan</a></li>
+            <li><a href="chartjs.html">posisi jabatan</a></li>
           </ul>
         </li>
         <li><a><i class="fa fa-building-o"></i>Perusahaan <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a href="/perusahaan">List Perusahaan</a></li>
             <li><a href="/perusahaan/create">Tambah Perusahaan</a></li>
+            <li><a href="/perusahaan">jenis Perusahaan</a></li>
+            <li><a href="/perusahaan">Bidang Perusahaan</a></li>
           </ul>
         </li>
       </ul>
