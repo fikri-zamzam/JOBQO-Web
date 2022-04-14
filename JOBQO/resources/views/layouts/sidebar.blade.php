@@ -13,10 +13,10 @@
         </li>
         <li><a><i class="fa fa-briefcase"></i> Jobs <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="chartjs.html">List Pekerjaan</a></li>
-            <li><a href="chartjs.html">Tambah Pekerjaan</a></li>
-            <li><a href="chartjs.html">jenis pekerjaan</a></li>
-            <li><a href="chartjs.html">posisi jabatan</a></li>
+            <li><a href="/job">List Pekerjaan</a></li>
+            <li><a href="/job/create">Tambah Pekerjaan</a></li>
+            <li><a href="/job">Jenis pekerjaan</a></li>
+            <li><a href="/job">Posisi Jabatan</a></li>
           </ul>
         </li>
         <li><a><i class="fa fa-building-o"></i>Perusahaan <span class="fa fa-chevron-down"></span></a>
