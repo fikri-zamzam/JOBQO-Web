@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\PerusahaanController;
+use App\Http\Controllers\Admin_typeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +43,4 @@ Route::get('/', [DashboardController::class, 'index']);
 Route::resource('admin', AdminController::class);
 Route::resource('job', JobController::class);
 Route::resource('perusahaan', PerusahaanController::class);
+Route::resource('admin_type', Admin_typeController::class);

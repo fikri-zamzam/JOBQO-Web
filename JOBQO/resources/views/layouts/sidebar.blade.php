@@ -36,7 +36,7 @@
           <ul class="nav child_menu">
             <li><a href="/admin">List Admin</a></li>
             <li><a href="/admin/create">Tambah Admin</a></li>
-            <li><a href="page_500.html">Jenis Admin</a></li>
+            <li><a href="/admin_type">Jenis Admin</a></li>
            
             <li><a href="pricing_tables.html">Pricing Tables</a></li>
           </ul>
