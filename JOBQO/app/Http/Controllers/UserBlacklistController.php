@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Job;
+use App\Models\User;
 
-class JobController extends Controller
+class UserBlacklistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +14,12 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::all();
+        $users = User::all();
 
-        return view('jobs.jobs_main.index',[
-            "title" => "Job"
+        return view('users.users_blacklist.index',[
+            "title" => "User"
 
-        ], compact('jobs'));
+        ], compact('users'));
     }
 
     /**
@@ -29,9 +29,9 @@ class JobController extends Controller
      */
     public function create()
     {
-        $model = new Job();
-        return view('jobs.jobs_main.create',[
-            "title" => "Job"
+        $model = new User();
+        return view('users.users_blacklist.create',[
+            "title" => "User"
 
         ], compact('model'));
     }
@@ -44,11 +44,15 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new Job;
-        $model->name = $request->namaJob;
+        $model = new User;
+        $model->name = $request->namaUser;
+        $model->username = $request->userName;
+        $model->gender = $request->genderUser;
+        $model->email = $request->emailUser;
+        $model->password = $request->passUser;
         $model->save();
 
-        return redirect('jobs');
+        return redirect('users');
     }
 
     /**
@@ -70,9 +74,9 @@ class JobController extends Controller
      */
     public function edit($id)
     {
-        $model = Job::find($id);
-        return view('jobs.jobs_main.edit',[
-            "title" => "Edit Job"
+        $model = User::find($id);
+        return view('users.users_blacklist.edit',[
+            "title" => "Edit Petugas"
         ],compact('model'));
     }
 
@@ -85,11 +89,15 @@ class JobController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $model = Job::find($id);
-        $model->name = $request->namaJob;
+        $model = User::find($id);
+        $model->name = $request->namaUser;
+        $model->username = $request->userName;
+        $model->gender = $request->genderUser;
+        $model->email = $request->emailUser;
+        $model->password = $request->passUser;
         $model->save();
 
-        return redirect('jobs');
+        return redirect('users');
     }
 
     /**
@@ -100,8 +108,8 @@ class JobController extends Controller
      */
     public function destroy($id)
     {
-        $model = Job::find($id);
+        $model = User::find($id);
         $model->delete();
-        return redirect('jobs');
+        return redirect('users');
     }
 }

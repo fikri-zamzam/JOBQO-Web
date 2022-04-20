@@ -6,24 +6,24 @@
       </li>
         <li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="/user">List User</a></li>
-            <li><a href="/user/create">Tambah User</a></li>
-            <li><a href="index3.html">Blacklist</a></li>
+            <li><a href="/users">List User</a></li>
+            <li><a href="/users/create">Tambah User</a></li>
+            <li><a href="/users_blacklist">Blacklist</a></li>
           </ul>
         </li>
         <li><a><i class="fa fa-briefcase"></i> Jobs <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="/job">List Pekerjaan</a></li>
-            <li><a href="/job/create">Tambah Pekerjaan</a></li>
-            <li><a href="/job">Jenis pekerjaan</a></li>
-            <li><a href="/job">Posisi Jabatan</a></li>
+            <li><a href="/jobs">List Pekerjaan</a></li>
+            <li><a href="/jobs/create">Tambah Pekerjaan</a></li>
+            <li><a href="/jobs_type">Jenis pekerjaan</a></li>
+            <li><a href="/jobs_position">Posisi Jabatan</a></li>
           </ul>
         </li>
         <li><a><i class="fa fa-building-o"></i>Perusahaan <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a href="/perusahaan">List Perusahaan</a></li>
             <li><a href="/perusahaan/create">Tambah Perusahaan</a></li>
-            <li><a href="/perusahaan">jenis Perusahaan</a></li>
+            <li><a href="/perusahaan">Jenis Perusahaan</a></li>
             <li><a href="/perusahaan">Bidang Perusahaan</a></li>
           </ul>
         </li>

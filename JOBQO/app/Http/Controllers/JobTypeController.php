@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Job;
 
-class JobController extends Controller
+class JobTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class JobController extends Controller
     {
         $jobs = Job::all();
 
-        return view('jobs.jobs_main.index',[
+        return view('jobs.jobs_type.index',[
             "title" => "Job"
 
         ], compact('jobs'));
@@ -30,7 +30,7 @@ class JobController extends Controller
     public function create()
     {
         $model = new Job();
-        return view('jobs.jobs_main.create',[
+        return view('jobs.jobs_type.create',[
             "title" => "Job"
 
         ], compact('model'));
@@ -71,7 +71,7 @@ class JobController extends Controller
     public function edit($id)
     {
         $model = Job::find($id);
-        return view('jobs.jobs_main.edit',[
+        return view('jobs.jobs_type.edit',[
             "title" => "Edit Job"
         ],compact('model'));
     }

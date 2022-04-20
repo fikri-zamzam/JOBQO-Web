@@ -14,12 +14,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
+        $users = User::all();
 
-        return view('users.index',[
+        return view('users.users_main.index',[
             "title" => "User"
 
-        ], compact('user'));
+        ], compact('users'));
     }
 
     /**
@@ -30,7 +30,7 @@ class UserController extends Controller
     public function create()
     {
         $model = new User();
-        return view('users.create',[
+        return view('users.users_main.create',[
             "title" => "User"
 
         ], compact('model'));
@@ -52,7 +52,7 @@ class UserController extends Controller
         $model->password = $request->passUser;
         $model->save();
 
-        return redirect('user');
+        return redirect('users');
     }
 
     /**
@@ -75,7 +75,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $model = User::find($id);
-        return view('users.edit',[
+        return view('users.users_main.edit',[
             "title" => "Edit Petugas"
         ],compact('model'));
     }
@@ -97,7 +97,7 @@ class UserController extends Controller
         $model->password = $request->passUser;
         $model->save();
 
-        return redirect('user');
+        return redirect('users');
     }
 
     /**
@@ -110,6 +110,6 @@ class UserController extends Controller
     {
         $model = User::find($id);
         $model->delete();
-        return redirect('user');
+        return redirect('users');
     }
 }

@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="col-12">
-    <form action="{{ url('job') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('jobs') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Nama Job</label>
@@ -27,7 +27,7 @@
         </div> -->
         <div class="form-group mt-3">
             <button class="btn btn-primary" type="submit">Tambah</button>
-            <a href="/">
+            <a href="/jobs">
                 <button class="btn btn-danger" type="button" name="kembali">Kembali</button>
             </a>
         </div>
