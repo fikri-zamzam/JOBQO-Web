@@ -12,6 +12,7 @@ use App\Http\Controllers\JobTypeController;
 use App\Http\Controllers\JobPositionController;
 use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\Admin_typeController;
+use App\Http\Controllers\TugasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +51,7 @@ Route::resource('jobs_type', JobTypeController::class);
 Route::resource('jobs_position', JobPositionController::class);
 Route::resource('perusahaan', PerusahaanController::class);
 Route::resource('admin_type', Admin_typeController::class);
+
+//Controller untuk membenahi tampilan
+Route::get('/tugas1',[TugasController::class, 'pertama']);
+Route::get('/tugas2',[TugasController::class, 'kedua']);

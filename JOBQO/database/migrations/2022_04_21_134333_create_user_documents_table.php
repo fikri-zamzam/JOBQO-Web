@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdminTypesTable extends Migration
+class CreateUserDocumentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateAdminTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('admin_types', function (Blueprint $table) {
+        Schema::create('user_documents', function (Blueprint $table) {
             $table->id();
-            $table->string('jenis_admin');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +26,6 @@ class CreateAdminTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin_types');
+        Schema::dropIfExists('user_documents');
     }
 }

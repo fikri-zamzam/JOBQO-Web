@@ -11,7 +11,6 @@ use Illuminate\Notifications\Notifiable;
 class Admin extends Model
 {
     use HasFactory;
-    
     /**
      * The attributes that are mass assignable.
      *
@@ -39,4 +38,10 @@ class Admin extends Model
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //relasi ke kedalam tabel admin_auth
+    public function Auth(){
+        return $this->belongsTo(Admin_auths::class,'admin_auths_id');
+    }
+
 }

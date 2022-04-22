@@ -15,6 +15,7 @@ class CreateAdminsTable extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('admin_auths_id');
             $table->string('name');
             $table->string('username');
             $table->enum('gender', ['L', 'P']);
@@ -23,6 +24,7 @@ class CreateAdminsTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 
