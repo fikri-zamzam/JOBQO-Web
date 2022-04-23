@@ -24,6 +24,16 @@
         <td> {{ $value->email }} </td>
         <td>
           <div class="row">
+          <!-- <div class="col-3">
+                <form action="{{ url('users/'.$value->id) }}" method="GET">
+                    @csrf
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="btn btn-danger">Hapus</button>
+                </form>
+            </div> -->
+            <div class="col-3">
+                <a class="btn btn-success" href="{{ route('users.show', $value->id) }}">Detail</a>
+            </div>
             <div class="col-3">
                 <a class="btn btn-info" href="{{ url('users/'.$value->id.'/edit') }}">Edit</a>
             </div>

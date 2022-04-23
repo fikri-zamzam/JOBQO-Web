@@ -63,7 +63,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $model = User::find($id);
+        return view('users.users_main.show',[
+            "title" => "Detail User Profile"
+        ],compact('model'));
     }
 
     /**
@@ -74,7 +77,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $model = User::find($id);
+        $model = new User();
         return view('users.users_main.edit',[
             "title" => "Edit Petugas"
         ],compact('model'));
@@ -112,4 +115,7 @@ class UserController extends Controller
         $model->delete();
         return redirect('users');
     }
+
+    // untuk melihat detail usser
+    
 }

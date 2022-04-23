@@ -9,19 +9,24 @@
         <img class="img-responsive avatar-view" src="../../templates_assets/images/picture.jpg" alt="Avatar" title="Change the avatar">
       </div>
     </div>
-    <h3>Samuel Doe</h3>
+    <h3>Naufal</h3>
 
     <ul class="list-unstyled user_data">
       <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
       </li>
 
       <li>
-        <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer
+        <i class="fa fa-envelope user-profile-icon"></i> naufal@gmail.com
       </li>
 
       <li class="m-top-xs">
-        <i class="fa fa-external-link user-profile-icon"></i>
-        <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
+        <i class="fa fa-phone user-profile-icon"></i> 08123456789
+      </li>
+
+      <li class="m-top-xs">
+        <!-- <i class="fa fa-mars-stroke user-profile-icon"></i> -->
+        <i class="fa fa-venus-mars user-profile-icon"></i> 
+        Female
       </li>
     </ul>
 
@@ -29,7 +34,7 @@
     <br />
 
     <!-- start skills -->
-    <h4>Skills</h4>
+    <!-- <h4>Skills</h4>
     <ul class="list-unstyled user_data">
       <li>
         <p>Web Applications</p>
@@ -55,7 +60,7 @@
           <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
         </div>
       </li>
-    </ul>
+    </ul> -->
     <!-- end of skills -->
 
   </div>
@@ -63,7 +68,7 @@
 
     <div class="profile_title">
       <div class="col-md-6">
-        <h2>User Activity Report</h2>
+        <h2>Quote</h2>
       </div>
       <div class="col-md-6">
         <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
@@ -73,23 +78,30 @@
       </div>
     </div>
     <!-- start of user-activity-graph -->
-    <div id="graph_bar" style="width:100%; height:280px;"></div>
+    <!-- conten utama -->
+    <div id="" style="width:100%; height:170px;">
+    <h4>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste fugiat repellat, saepe dignissimos laudantium exercitationem modi suscipit dolore blanditiis earum, ex deleniti veniam corrupti molestiae eum reiciendis libero nesciunt tenetur?
+      </p>
+    </h4>
+    </div>
     <!-- end of user-activity-graph -->
 
     <div class="" role="tabpanel" data-example-id="togglable-tabs">
       <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Recent Activity</a>
+        <li role="presentation" class=""><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Current Job</a>
         </li>
-        <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Projects Worked on</a>
+        <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Education</a>
         </li>
-        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
+        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Document</a>
         </li>
       </ul>
       <div id="myTabContent" class="tab-content">
         <div role="tabpanel" class="tab-pane active " id="tab_content1" aria-labelledby="home-tab">
 
           <!-- start recent activity -->
-          <ul class="messages">
+          <!-- <ul class="messages">
             <li>
               <img src="../../templates_assets/images/img.jpg" class="avatar" alt="Avatar">
               <div class="message_date">
@@ -155,7 +167,7 @@
               </div>
             </li>
 
-          </ul>
+          </ul> -->
           <!-- end recent activity -->
 
         </div>
@@ -229,5 +241,4 @@
       </div>
     </div>
   </div>
-
 @endsection

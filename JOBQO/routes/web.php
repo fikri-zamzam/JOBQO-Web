@@ -53,5 +53,4 @@ Route::resource('perusahaan', PerusahaanController::class);
 Route::resource('admin_type', Admin_typeController::class);
 
 //Controller untuk membenahi tampilan
-Route::get('/tugas1',[TugasController::class, 'pertama']);
 Route::get('/tugas2',[TugasController::class, 'kedua']);
