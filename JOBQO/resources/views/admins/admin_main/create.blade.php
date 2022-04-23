@@ -38,6 +38,14 @@
             <input type="password" class="form-control" name="passAdmin" required
                     placeholder="Password Admin">
         </div>
+        <div class="form-group">
+            <label for="idAuth">Jenis Admin</label>
+            <select class="form-control" id="idAuth" name="jenisAdmin">
+            @foreach ($Admin_auths as $auth)
+            <option value="{{ $auth->id }}">{{ $auth->auth_type }}</option>
+            @endforeach
+            </select>
+        </div>
         <div class="form-group mt-3">
             <button class="btn btn-primary" type="submit">Tambah</button>
             <a href="/">

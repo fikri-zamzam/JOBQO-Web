@@ -38,6 +38,31 @@
             <input type="password" class="form-control" name="passUser" required
                     placeholder="Password User">
         </div>
+        <div class="form-group mt-2">
+            <label for="">Tanggal lahir </label>
+            <input type="date" class="form-control" name="tglUser" required>
+        </div>
+        <div class="form-group mt-2">
+            <label for="alamat">Alamat</label><br>
+            <textarea class="form-control" name="alamat" id="alamat" >
+            </textarea>
+        </div>
+        <div class="form-group mt-2">
+            <label for="exampleFormControlInput1">Pendidikan Terakhir </label>
+            <input type="text" class="form-control" name="pendidikanUser" required
+                    placeholder="contoh : Politeknik Negeri Jember">
+        </div>
+        <div class="form-group mt-2">
+            <label for="qoute">Qoute utama</label><br>
+            <textarea class="form-control" name="qoute" id="qouteUser" >
+            </textarea>
+        </div>
+        <div class="form-group mt-2">
+            <label for="notel">Nomor Telfon </label>
+            <input type="text" class="form-control" name="notelUser" required
+                    placeholder="contoh : 0822332xxxx">
+        </div>
+        {{-- Tombol Tambah --}}
         <div class="form-group mt-3">
             <button class="btn btn-primary" type="submit">Tambah</button>
             <a href="/users">

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Admin_auths extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
 }

@@ -16,6 +16,7 @@ class CreateAdminAuthsTable extends Migration
         Schema::create('admin_auths', function (Blueprint $table) {
             $table->id();
             $table->string('auth_type');
+            $table->string('deskripsi');
             $table->timestamps();
         });
     }

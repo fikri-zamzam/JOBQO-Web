@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Admin_type;
+use App\Models\Admin_auths;
 
 class Admin_typeController extends Controller
 {
@@ -14,9 +14,9 @@ class Admin_typeController extends Controller
      */
     public function index()
     {
-        $admin_type = Admin_type::all();
+        $admin_type = Admin_auths::all();
 
-        return view('admin_type.index',[
+        return view('admins.admin_type.index',[
             "title" => "Admin"
 
         ], compact('admin_type'));
@@ -29,9 +29,9 @@ class Admin_typeController extends Controller
      */
     public function create()
     {
-        $model = new Admin_type();
-        return view('admin_type.create',[
-            "title" => "Admin"
+        $model = new Admin_auths();
+        return view('admins.admin_type.create',[
+            "title" => "Admin Authentifikasi"
 
         ], compact('model'));
     }
@@ -44,9 +44,9 @@ class Admin_typeController extends Controller
      */
     public function store(Request $request)
     {
-        $model = Admin_type::find($id);
-        $model->id = $request->$id;
-        $model->jenis_admin = $request->jenis_admin;
+        $model = new Admin_auths();
+        $model->auth_type = $request->jenis_admin;
+        $model->deskripsi = $request->deskripsi;
         $model->save();
 
         return redirect('admin_type');
@@ -71,8 +71,8 @@ class Admin_typeController extends Controller
      */
     public function edit($id)
     {
-        $model = Admin_type::find($id);
-        return view('admin_type.edit',[
+        $model = Admin_auths::find($id);
+        return view('admins.admin_type.edit',[
             "title" => "Edit Jenis Admin"
         ],compact('model'));
     }
@@ -86,9 +86,9 @@ class Admin_typeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $model = Admin_type::find($id);
-        $model->id = $request->$id;
-        $model->jenis_admin = $request->jenis_admin;
+        $model = Admin_auths::find($id);
+        $model->auth_type = $request->jenis_admin;
+        $model->deskripsi = $request->deskripsi;
         
         $model->save();
 
@@ -103,7 +103,7 @@ class Admin_typeController extends Controller
      */
     public function destroy($id)
     {
-        $model = Admin_type::find($id);
+        $model = Admin_auths::find($id);
         $model->delete();
         return redirect('admin_type');
     }

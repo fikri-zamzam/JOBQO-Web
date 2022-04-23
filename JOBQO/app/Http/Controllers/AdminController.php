@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use App\Models\Admin_auths;
 
 class AdminController extends Controller
 {
@@ -16,8 +17,8 @@ class AdminController extends Controller
     {
         $admin = Admin::all();
 
-        return view('admins.index',[
-            "title" => "Admin"
+        return view('admins.admin_main.index',[
+            "title" => "Admin",
 
         ], compact('admin'));
     }
@@ -30,9 +31,9 @@ class AdminController extends Controller
     public function create()
     {
         $model = new Admin();
-        return view('admins.create',[
-            "title" => "Admin"
-
+        return view('admins.admin_main.create',[
+            "title" => "Admin",
+            "Admin_auths" => Admin_auths::all()
         ], compact('model'));
     }
 
@@ -50,6 +51,7 @@ class AdminController extends Controller
         $model->gender = $request->genderAdmin;
         $model->email = $request->emailAdmin;
         $model->password = $request->passAdmin;
+        $model->admin_auths_id = $request->jenisAdmin;
         $model->save();
 
         return redirect('admin');
@@ -75,7 +77,7 @@ class AdminController extends Controller
     public function edit($id)
     {
         $model = Admin::find($id);
-        return view('admins.edit',[
+        return view('admins.admin_main.edit',[
             "title" => "Edit Admin"
         ],compact('model'));
     }
@@ -95,6 +97,7 @@ class AdminController extends Controller
         $model->gender = $request->genderAdmin;
         $model->email = $request->emailAdmin;
         $model->password = $request->passAdmin;
+        $model->admin_auths_id = $request->jenisAdmin;
         $model->save();
 
         return redirect('admin');
