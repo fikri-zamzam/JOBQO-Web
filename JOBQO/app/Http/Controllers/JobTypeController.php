@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Job;
+use App\Models\Job_categories;
 
 class JobTypeController extends Controller
 {
@@ -14,12 +14,12 @@ class JobTypeController extends Controller
      */
     public function index()
     {
-        $jobs = Job::all();
+        $jobs_type = Job_categories::all();
 
         return view('jobs.jobs_type.index',[
             "title" => "Job"
 
-        ], compact('jobs'));
+        ], compact('jobs_type'));
     }
 
     /**
@@ -29,7 +29,7 @@ class JobTypeController extends Controller
      */
     public function create()
     {
-        $model = new Job();
+        $model = new Job_categories();
         return view('jobs.jobs_type.create',[
             "title" => "Job"
 
@@ -44,11 +44,12 @@ class JobTypeController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new Job;
-        $model->name = $request->namaJob;
+        $model = new Job_categories;
+        $model->name = $request->namaCategories;
+        $model->deskripsi = $request->deskripsi;
         $model->save();
 
-        return redirect('jobs');
+        return redirect('jobs_type');
     }
 
     /**
@@ -70,7 +71,7 @@ class JobTypeController extends Controller
      */
     public function edit($id)
     {
-        $model = Job::find($id);
+        $model = Job_categories::find($id);
         return view('jobs.jobs_type.edit',[
             "title" => "Edit Job"
         ],compact('model'));
@@ -85,11 +86,12 @@ class JobTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $model = Job::find($id);
-        $model->name = $request->namaJob;
+        $model = Job_categories::find($id);
+        $model->name = $request->namaCategories;
+        $model->deskripsi = $request->deskripsi;
         $model->save();
 
-        return redirect('jobs');
+        return redirect('jobs_type');
     }
 
     /**
@@ -100,8 +102,8 @@ class JobTypeController extends Controller
      */
     public function destroy($id)
     {
-        $model = Job::find($id);
+        $model = Job_categories::find($id);
         $model->delete();
-        return redirect('jobs');
+        return redirect('jobs_type');
     }
 }

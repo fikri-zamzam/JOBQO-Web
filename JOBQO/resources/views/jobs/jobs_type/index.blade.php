@@ -7,21 +7,17 @@
     <thead class="table-dark">
       <th>Nomor</th>
       <th>ID</th>
-      <th>Nama Job</th>
-      <!-- <th>Bidang</th>
-      <th>No Telepon</th>
-      <th>Alamat</th> -->
+      <th>Nama Kategori</th>
+      <th>Deskripsi</th>
       <th>Aksi</th>
     </thead>
     <tbody>
-      @foreach ($jobs as $key=>$value)
+      @foreach ($jobs_type as $key=>$value)
       <tr>
         <td scope="row"> {{ $key+1 }} </td>
         <td> {{ $value->id }} </td>
         <td> {{ $value->name }} </td>
-        <!-- <td> {{ $value->bidang }} </td>
-        <td> {{ $value->no_telp }} </td>
-        <td> {{ $value->address }} </td> -->
+        <td> {{ $value->deskripsi }} </td>
         <td>
           <div class="row">
             <div class="col-3">

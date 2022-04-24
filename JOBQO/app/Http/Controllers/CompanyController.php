@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Company;
 
-class PerusahaanController extends Controller
+class CompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +14,12 @@ class PerusahaanController extends Controller
      */
     public function index()
     {
-        $perusahaan = Company::all();
+        $company = Company::all();
 
         return view('companies.companies_main.index',[
             "title" => "Perusahaan"
 
-        ], compact('perusahaan'));
+        ], compact('company'));
     }
 
     /**
@@ -46,12 +46,18 @@ class PerusahaanController extends Controller
     {
         $model = new Company;
         $model->name = $request->namaPerusahaan;
-        $model->bidang = $request->bidangPerusahaan;
-        $model->no_telp = $request->notelpPerusahaan;
-        $model->address = $request->alamatPerusahaan;
+        $model->alamat = $request->alamat;
+        $model->kode_pos = $request->kodePos;
+        $model->email = $request->email;
+        $model->contact = $request->contact;
+        $model->izin_usaha = $request->izinUsaha;
+        $model->img_logo = $request->imgLogo;
+        $model->company_sector = $request->bidangPerusahaan;
+        $model->company_type = $request->jenisPerusahaan;
+        $model->website = $request->website;
         $model->save();
 
-        return redirect('perusahaan');
+        return redirect('company');
     }
 
     /**
@@ -90,12 +96,18 @@ class PerusahaanController extends Controller
     {
         $model = Company::find($id);
         $model->name = $request->namaPerusahaan;
-        $model->bidang = $request->bidangPerusahaan;
-        $model->no_telp = $request->notelpPerusahaan;
-        $model->address = $request->alamatPerusahaan;
+        $model->alamat = $request->alamat;
+        $model->kode_pos = $request->kodePos;
+        $model->email = $request->email;
+        $model->contact = $request->contact;
+        $model->izin_usaha = $request->izinUsaha;
+        $model->img_logo = $request->imgLogo;
+        $model->company_sector = $request->bidangPerusahaan;
+        $model->company_type = $request->jenisPerusahaan;
+        $model->website = $request->website;
         $model->save();
 
-        return redirect('perusahaan');
+        return redirect('company');
     }
 
     /**
@@ -108,6 +120,6 @@ class PerusahaanController extends Controller
     {
         $model = Company::find($id);
         $model->delete();
-        return redirect('perusahaan');
+        return redirect('company');
     }
 }

@@ -7,10 +7,13 @@
     <thead class="table-dark">
       <th>Nomor</th>
       <th>ID</th>
-      <th>Nama Job</th>
-      <!-- <th>Bidang</th>
-      <th>No Telepon</th>
-      <th>Alamat</th> -->
+      <th>Nama Pekerjaan</th>
+      <th>Deskripsi Pekerjaan</th>
+      <th>Gaji</th>
+      <th>Perusahaan</th>
+      <th>Kategori Pekerjaan</th>
+      <th>Posisi Pekerjaan</th>
+      <th>Persyaratan Pekerjaan</th>
       <th>Aksi</th>
     </thead>
     <tbody>
@@ -19,9 +22,12 @@
         <td scope="row"> {{ $key+1 }} </td>
         <td> {{ $value->id }} </td>
         <td> {{ $value->name }} </td>
-        <!-- <td> {{ $value->bidang }} </td>
-        <td> {{ $value->no_telp }} </td>
-        <td> {{ $value->address }} </td> -->
+        <td> {{ $value->deskripsi }} </td>
+        <td> {{ $value->gaji }} </td>
+        <td> {{ $value->perusahaan }} </td>
+        <td> {{ $value->kategori_perusahaan }} </td>
+        <td> {{ $value->posisi_pekerjaan }} </td>
+        <td> {{ $value->persyaratan }} </td>
         <td>
           <div class="row">
             <div class="col-3">

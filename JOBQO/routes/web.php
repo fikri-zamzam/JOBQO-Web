@@ -10,7 +10,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobTypeController;
 use App\Http\Controllers\JobPositionController;
-use App\Http\Controllers\PerusahaanController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\CompanySectorController;
+use App\Http\Controllers\CompanyTypeController;
 use App\Http\Controllers\Admin_typeController;
 use App\Http\Controllers\TugasController;
 
@@ -49,7 +51,9 @@ Route::resource('admin', AdminController::class);
 Route::resource('jobs', JobController::class);
 Route::resource('jobs_type', JobTypeController::class);
 Route::resource('jobs_position', JobPositionController::class);
-Route::resource('perusahaan', PerusahaanController::class);
+Route::resource('companies', CompanyController::class);
+Route::resource('companies_sector', CompanySectorController::class);
+Route::resource('companies_type', CompanyTypeController::class);
 Route::resource('admin_type', Admin_typeController::class);
 
 //Controller untuk membenahi tampilan

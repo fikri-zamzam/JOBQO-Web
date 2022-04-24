@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Job_positions;
+use App\Models\Company_sectors;
 
-class JobPositionController extends Controller
+class CompanySectorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +14,12 @@ class JobPositionController extends Controller
      */
     public function index()
     {
-        $jobs_position = Job_positions::all();
+        $company_sector = Company_sectors::all();
 
-        return view('jobs.jobs_position.index',[
-            "title" => "Job"
+        return view('companies.companies_sector.index',[
+            "title" => "Perusahaan"
 
-        ], compact('jobs_position'));
+        ], compact('company_sector'));
     }
 
     /**
@@ -29,9 +29,9 @@ class JobPositionController extends Controller
      */
     public function create()
     {
-        $model = new Job_positions();
-        return view('jobs.jobs_position.create',[
-            "title" => "Job"
+        $model = new Company_sectors();
+        return view('companies.companies_sector.create',[
+            "title" => "Perusahaan"
 
         ], compact('model'));
     }
@@ -44,12 +44,11 @@ class JobPositionController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new Job_positions;
-        $model->name = $request->namaPosition;
-        $model->deskripsi = $request->deskripsi;
+        $model = new Company_sectors;
+        $model->name = $request->bidangPerusahaan;
         $model->save();
 
-        return redirect('jobs_position');
+        return redirect('company_sector');
     }
 
     /**
@@ -71,9 +70,9 @@ class JobPositionController extends Controller
      */
     public function edit($id)
     {
-        $model = Job_positions::find($id);
-        return view('jobs.jobs_position.edit',[
-            "title" => "Edit Job"
+        $model = Company_sectors::find($id);
+        return view('companies.companies_sector.edit',[
+            "title" => "Edit Perusahaan"
         ],compact('model'));
     }
 
@@ -86,12 +85,11 @@ class JobPositionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $model = Job_positions::find($id);
-        $model->name = $request->namaPosition;
-        $model->deskripsi = $request->deskripsi;
+        $model = new Company_sectors;
+        $model->name = $request->bidangPerusahaan;
         $model->save();
 
-        return redirect('jobs_position');
+        return redirect('company_sector');
     }
 
     /**
@@ -102,8 +100,8 @@ class JobPositionController extends Controller
      */
     public function destroy($id)
     {
-        $model = Job_positions::find($id);
+        $model = Company_sectors::find($id);
         $model->delete();
-        return redirect('jobs_position');
+        return redirect('company_sector');
     }
 }

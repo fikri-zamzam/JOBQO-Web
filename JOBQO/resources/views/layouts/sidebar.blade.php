@@ -21,10 +21,10 @@
         </li>
         <li><a><i class="fa fa-building-o"></i>Perusahaan <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="/perusahaan">List Perusahaan</a></li>
-            <li><a href="/perusahaan/create">Tambah Perusahaan</a></li>
-            <li><a href="/perusahaan">Jenis Perusahaan</a></li>
-            <li><a href="/perusahaan">Bidang Perusahaan</a></li>
+            <li><a href="/companies">List Perusahaan</a></li>
+            <li><a href="/companies/create">Tambah Perusahaan</a></li>
+            <li><a href="/companies_type">Jenis Perusahaan</a></li>
+            <li><a href="/companies_sector">Bidang Perusahaan</a></li>
           </ul>
         </li>
       </ul>
@@ -39,14 +39,14 @@
             <li><a href="/admin_type">Jenis Admin</a></li>
           </ul>
         </li>
-        {{-- perbaiki tampilan --}}
+        <!-- {{-- perbaiki tampilan --}}
         <li><a><i class="fa fa-tasks"></i> Tugas <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a href="/tugas1">Profile</a></li>
             <li><a href="/tugas2">Form wizard</a></li>
             <li><a href="/">--</a></li>
           </ul>
-        </li>
+        </li> -->
                 
         <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
       </ul>
