@@ -17,7 +17,7 @@ class CreateJobsTable extends Migration
             $table->id();
             $table->string('nameJob');
             $table->string('deskJob');
-            $table->int('gaji',10);
+            $table->integer('gaji');
             $table->string('reqJob');
             $table->foreignId('company_id')->nullable ();
             $table->foreignId('category_id')->nullable ();
