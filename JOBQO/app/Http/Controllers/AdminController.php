@@ -45,15 +45,32 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new Admin;
-        $model->name = $request->namaAdmin;
-        $model->username = $request->userName;
-        $model->gender = $request->genderAdmin;
-        $model->email = $request->emailAdmin;
-        $model->password = $request->passAdmin;
-        $model->admin_auths_id = $request->jenisAdmin;
-        $model->save();
+        // return $request->file('imageAdmin')->store('Admin-profile');
 
+        // $model = new Admin;
+        // $model->name = $request->namaAdmin;
+        // $model->username = $request->userName;
+        // $model->gender = $request->genderAdmin;
+        // $model->email = $request->emailAdmin;
+        // $model->password = $request->passAdmin;
+        // $model->admin_auths_id = $request->jenisAdmin;
+        // $model->save();
+        
+
+        $validatedData = $request->validate([
+            'name' => 'required|min:10',
+            'username' => 'required|unique:admins',
+            'email' => 'required|unique:admins',
+            'password' => 'required|min:5|',
+            'admin_auths_id' => 'required',
+            'img' => 'image|file|max:2048'
+        ]);
+
+        if($request->file('img')){
+            $validatedData['img'] = $request->file('img')->store('Admin-profile');
+        }
+
+        Admin::create($validatedData);
         return redirect('admin');
     }
 

@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-    
 <a href="{{ url('admin/create') }}" class="btn btn-primary mt-3"><i class="fa fa-plus-square mr-2"></i>Tambah {{ $title }}</a>
 <table class="table mt-3">
     <thead class="table-dark">
@@ -12,6 +11,7 @@
       <th>Gender</th>
       <th>Email</th>
       <th>Jenis Admin</th>
+      <th>Foto</th>
       <th>Aksi</th>
     </thead>
     <tbody>
@@ -24,6 +24,8 @@
         <td> {{ ($value->gender == "L" ? "Laki-laki" : "Perempuan" ) }} </td>
         <td> {{ $value->email }} </td>
         <td> {{ $value->Auth->auth_type }} </td>
+        <td></td>
+        {{-- <td class="img-fluid img-thumbnail" > <img src="{{ asset('storage/'. $value->img) }}" alt=""> </td> --}}
         <td>
           <div class="row">
             <div class="col-3">
