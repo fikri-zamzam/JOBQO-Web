@@ -24,8 +24,8 @@
         <td> {{ ($value->gender == "L" ? "Laki-laki" : "Perempuan" ) }} </td>
         <td> {{ $value->email }} </td>
         <td> {{ $value->Auth->auth_type }} </td>
-        <td></td>
-        {{-- <td class="img-fluid img-thumbnail" > <img src="{{ asset('storage/'. $value->img) }}" alt=""> </td> --}}
+        <!-- <td></td> -->
+        <td class="img-circle profile_img" > <img src="{{ asset('storage/'. $value->img) }}" alt=""> </td>
         <td>
           <div class="row">
             <div class="col-3">

@@ -48,7 +48,7 @@ class CompanySectorController extends Controller
         $model->name = $request->bidangPerusahaan;
         $model->save();
 
-        return redirect('company_sector');
+        return redirect('companies_sector');
     }
 
     /**
@@ -89,7 +89,7 @@ class CompanySectorController extends Controller
         $model->name = $request->bidangPerusahaan;
         $model->save();
 
-        return redirect('company_sector');
+        return redirect('companies_sector');
     }
 
     /**
@@ -102,6 +102,6 @@ class CompanySectorController extends Controller
     {
         $model = Company_sectors::find($id);
         $model->delete();
-        return redirect('company_sector');
+        return redirect('companies_sector');
     }
 }

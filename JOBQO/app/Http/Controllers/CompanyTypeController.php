@@ -48,7 +48,7 @@ class CompanyTypeController extends Controller
         $model->name = $request->jenisPerusahaan;
         $model->save();
 
-        return redirect('company_type');
+        return redirect('companies_type');
     }
 
     /**
@@ -89,7 +89,7 @@ class CompanyTypeController extends Controller
         $model->name = $request->jenisPerusahaan;
         $model->save();
 
-        return redirect('company_type');
+        return redirect('companies_type');
     }
 
     /**
@@ -102,6 +102,6 @@ class CompanyTypeController extends Controller
     {
         $model = Company_types::find($id);
         $model->delete();
-        return redirect('company_type');
+        return redirect('companies_type');
     }
 }
