@@ -15,14 +15,13 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->string('nameJob');
-            $table->string('deskJob');
+            $table->string('name_job');
+            $table->string('desk_job');
             $table->integer('gaji');
-            $table->string('reqJob');
-            $table->foreignId('company_id')->nullable();
-            $table->foreignId('category_id')->nullable();
-            $table->foreignId('position_id')->nullable();
-            $table->string('img');
+            $table->foreignId('company_id')->nullable ();
+            $table->foreignId('job_category_id')->nullable ();
+            $table->foreignId('job_position_id')->nullable ();
+            $table->string('job_requirement');
             $table->timestamps();
         });
     }

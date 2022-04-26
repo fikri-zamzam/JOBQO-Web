@@ -45,7 +45,13 @@ class JobController extends Controller
     public function store(Request $request)
     {
         $model = new Job;
-        $model->name = $request->namaJob;
+        $model->name_job = $request->namaJob;
+        $model->desk_job = $request->deskJob;
+        $model->gaji = $request->gaji;
+        $model->company_id = $request->companyId;
+        $model->job_category_id = $request->jobCategory;
+        $model->job_position_id = $request->jobPosition;
+        $model->job_requirement = $request->jobReq;
         $model->save();
 
         return redirect('jobs');
@@ -86,7 +92,13 @@ class JobController extends Controller
     public function update(Request $request, $id)
     {
         $model = Job::find($id);
-        $model->name = $request->namaJob;
+        $model->name_job = $request->namaJob;
+        $model->desk_job = $request->deskJob;
+        $model->gaji = $request->gaji;
+        $model->company_id = $request->companyId;
+        $model->job_category_id = $request->jobCategory;
+        $model->job_position_id = $request->jobPosition;
+        $model->job_requirement = $request->jobReq;
         $model->save();
 
         return redirect('jobs');

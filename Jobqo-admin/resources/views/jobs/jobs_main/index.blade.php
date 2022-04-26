@@ -21,13 +21,13 @@
       <tr>
         <td scope="row"> {{ $key+1 }} </td>
         <td> {{ $value->id }} </td>
-        <td> {{ $value->name }} </td>
-        <td> {{ $value->deskripsi }} </td>
+        <td> {{ $value->name_job }} </td>
+        <td> {{ $value->desk_job }} </td>
         <td> {{ $value->gaji }} </td>
-        <td> {{ $value->perusahaan }} </td>
-        <td> {{ $value->kategori_perusahaan }} </td>
-        <td> {{ $value->posisi_pekerjaan }} </td>
-        <td> {{ $value->persyaratan }} </td>
+        <td> {{ $value->company_id }} </td>
+        <td> {{ $value->job_category_id }} </td>
+        <td> {{ $value->job_position_id }} </td>
+        <td> {{ $value->job_requirement }} </td>
         <td>
           <div class="row">
             <div class="col-3">

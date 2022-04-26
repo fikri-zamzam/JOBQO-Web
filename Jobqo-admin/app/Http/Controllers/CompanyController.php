@@ -14,12 +14,12 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $company = Company::all();
+        $companies = Company::all();
 
         return view('companies.companies_main.index',[
             "title" => "Perusahaan"
 
-        ], compact('company'));
+        ], compact('companies'));
     }
 
     /**
@@ -45,19 +45,20 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $model = new Company;
-        $model->name = $request->namaPerusahaan;
+        $model->name_company = $request->namaPerusahaan;
         $model->alamat = $request->alamat;
         $model->kode_pos = $request->kodePos;
         $model->email = $request->email;
         $model->contact = $request->contact;
         $model->izin_usaha = $request->izinUsaha;
         $model->img_logo = $request->imgLogo;
-        $model->company_sector = $request->bidangPerusahaan;
-        $model->company_type = $request->jenisPerusahaan;
+        $model->company_sector_id = $request->bidangPerusahaan;
+        $model->company_type_id = $request->jenisPerusahaan;
+        $model->company_place_id = $request->tempatPerusahaan;
         $model->website = $request->website;
         $model->save();
 
-        return redirect('company');
+        return redirect('companies');
     }
 
     /**
@@ -95,19 +96,20 @@ class CompanyController extends Controller
     public function update(Request $request, $id)
     {
         $model = Company::find($id);
-        $model->name = $request->namaPerusahaan;
+        $model->name_company = $request->namaPerusahaan;
         $model->alamat = $request->alamat;
         $model->kode_pos = $request->kodePos;
         $model->email = $request->email;
         $model->contact = $request->contact;
         $model->izin_usaha = $request->izinUsaha;
         $model->img_logo = $request->imgLogo;
-        $model->company_sector = $request->bidangPerusahaan;
-        $model->company_type = $request->jenisPerusahaan;
+        $model->company_sector_id = $request->bidangPerusahaan;
+        $model->company_type_id = $request->jenisPerusahaan;
+        $model->company_place_id = $request->tempatPerusahaan;
         $model->website = $request->website;
         $model->save();
 
-        return redirect('company');
+        return redirect('companies');
     }
 
     /**
@@ -120,6 +122,6 @@ class CompanyController extends Controller
     {
         $model = Company::find($id);
         $model->delete();
-        return redirect('company');
+        return redirect('companies');
     }
 }

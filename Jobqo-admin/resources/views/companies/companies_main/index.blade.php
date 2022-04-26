@@ -19,19 +19,20 @@
       <th>Aksi</th>
     </thead>
     <tbody>
-      @foreach ($company as $key=>$value)
+      @foreach ($companies as $key=>$value)
       <tr>
         <td scope="row"> {{ $key+1 }} </td>
         <td> {{ $value->id }} </td>
-        <td> {{ $value->name }} </td>
+        <td> {{ $value->name_company }} </td>
         <td> {{ $value->alamat }} </td>
         <td> {{ $value->kode_pos }} </td>
         <td> {{ $value->email }} </td>
         <td> {{ $value->contact }} </td>
         <td> {{ $value->izin_usaha }} </td>
         <td> {{ $value->img_logo }} </td>
-        <td> {{ $value->company_sector }} </td>
-        <td> {{ $value->company_type }} </td>
+        <td> {{ $value->company_sector_id }} </td>
+        <td> {{ $value->company_type_id }} </td>
+        <td> {{ $value->company_place_id }} </td>
         <td> {{ $value->website }} </td>
         <td>
           <div class="row">

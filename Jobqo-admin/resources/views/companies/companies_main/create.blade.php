@@ -51,6 +51,11 @@
                     placeholder="Jenis Perusahaan">
         </div>
         <div class="form-group mt-2">
+            <label for="exampleFormControlInput1">Tempat Perusahaan</label>
+            <input type="text" class="form-control" name="tempatPerusahaan" required
+                    placeholder="Tempat Perusahaan">
+        </div>
+        <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Website Perusahaan</label>
             <input type="text" class="form-control" name="website" required
                     placeholder="Website Perusahaan">
