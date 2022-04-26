@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class AdminSeeder extends Seeder
 {
@@ -16,12 +17,14 @@ class AdminSeeder extends Seeder
     {
         DB::table('admin_auths')->insert([
         	'auth_type' => 'Super Admin',
-        	'deskripsi' => 'Contoh seeder 1',
+        	'deskripsi' => 'Melakukan modifikasi di seluruh data termasuk data admin',
+            'created_at'=> now()
         ]);
 
         DB::table('admin_auths')->insert([
         	'auth_type' => 'Admin',
-        	'deskripsi' => 'Contoh seeder 2',
+        	'deskripsi' => 'melakukan proses data pada saat tahap production',
+            'created_at'=> now()
         ]);
 
         // php artisan migrate:fresh --seed

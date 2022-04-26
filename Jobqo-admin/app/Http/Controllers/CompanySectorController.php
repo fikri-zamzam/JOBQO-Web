@@ -44,9 +44,13 @@ class CompanySectorController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new Company_sectors;
-        $model->name = $request->bidangPerusahaan;
-        $model->save();
+        $validatedData = $request->validate([
+            'nameSector' => 'required|min:10',
+            'deskripsi' => 'required|'
+
+        ]);
+
+        Company_sectors::create($validatedData);
 
         return redirect('companies_sector');
     }
@@ -85,9 +89,16 @@ class CompanySectorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $model = new Company_sectors;
-        $model->name = $request->bidangPerusahaan;
-        $model->save();
+        $ComSector = Company_sectors::find($id);
+
+        $validatedData = $request->validate([
+            'nameSector' => 'required|min:10',
+            'deskripsi' => 'required|'
+
+        ]);
+
+        Company_sectors::where('id', $ComSector->id)
+               ->update($validatedData);
 
         return redirect('companies_sector');
     }

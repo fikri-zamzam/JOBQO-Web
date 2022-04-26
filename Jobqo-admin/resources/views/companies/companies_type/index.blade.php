@@ -8,6 +8,7 @@
       <th>Nomor</th>
       <th>ID</th>
       <th>Jenis Perusahaan</th>
+      <th>Deskripsi</th>
       <th>Aksi</th>
     </thead>
     <tbody>
@@ -15,7 +16,8 @@
       <tr>
         <td scope="row"> {{ $key+1 }} </td>
         <td> {{ $value->id }} </td>
-        <td> {{ $value->name }} </td>
+        <td> {{ $value->nameType }} </td>
+        <td> {{ $value->deskripsi }} </td>
         <td>
           <div class="row">
             <div class="col-3">

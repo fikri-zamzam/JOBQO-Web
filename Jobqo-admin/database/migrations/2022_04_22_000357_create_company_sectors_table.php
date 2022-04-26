@@ -15,7 +15,8 @@ class CreateCompanySectorsTable extends Migration
     {
         Schema::create('company_sectors', function (Blueprint $table) {
             $table->id();
-            $table->String('name');
+            $table->String('nameSector');
+            $table->String('deskripsi');
             $table->timestamps();
         });
     }

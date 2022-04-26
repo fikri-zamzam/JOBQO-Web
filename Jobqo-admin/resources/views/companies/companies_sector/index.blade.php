@@ -9,13 +9,15 @@
       <th>ID</th>
       <th>Bidang Perusahaan</th>
       <th>Aksi</th>
+      <th>Deskripsi</th>
     </thead>
     <tbody>
       @foreach ($company_sector as $key=>$value)
       <tr>
         <td scope="row"> {{ $key+1 }} </td>
         <td> {{ $value->id }} </td>
-        <td> {{ $value->name }} </td>
+        <td> {{ $value->nameSector }} </td>
+        <td> {{ $value->deskripsi }} </td>
         <td>
           <div class="row">
             <div class="col-3">

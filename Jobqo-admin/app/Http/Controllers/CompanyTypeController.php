@@ -44,10 +44,13 @@ class CompanyTypeController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new Company_types;
-        $model->name = $request->jenisPerusahaan;
-        $model->save();
+        $validatedData = $request->validate([
+            'nameType' => 'required|min:5',
+            'deskripsi' => 'required|'
 
+        ]);
+
+        Company_types::create($validatedData);
         return redirect('companies_type');
     }
 
@@ -85,9 +88,15 @@ class CompanyTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $model = new Company_types;
-        $model->name = $request->jenisPerusahaan;
-        $model->save();
+        $ComType = Company_types::find($id);
+        $validatedData = $request->validate([
+            'nameType' => 'required|min:5',
+            'deskripsi' => 'required|'
+
+        ]);
+
+        Company_types::where('id', $ComType->id)
+               ->update($validatedData);
 
         return redirect('companies_type');
     }

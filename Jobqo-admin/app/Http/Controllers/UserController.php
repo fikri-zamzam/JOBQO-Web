@@ -54,8 +54,13 @@ class UserController extends Controller
             'education' => 'required|min:10',
             'quote' => 'required|min:10',
             'phone' => 'required|min:10',
-            'current_job' => 'required'
+            'current_job' => 'required',
+            'img' => 'image|file|max:2048'
         ]);
+
+        if($request->file('img')){
+            $validatedData['img'] = $request->file('img')->store('User-profile');
+        }
 
 
         User::create($validatedData);

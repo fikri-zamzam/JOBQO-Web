@@ -97,6 +97,15 @@
         @error('current_job')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
+        <label for="image">Pilih Foto Profile</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="image" name="img">
+            <label class="custom-file-label" for="image">Choose file</label>
+        </div>
+        @error('img')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
         {{-- Tombol Tambah --}}
         <div class="form-group mt-3">
             <button class="btn btn-primary" type="submit">Tambah</button>

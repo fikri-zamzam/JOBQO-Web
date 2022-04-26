@@ -6,7 +6,7 @@
     <div class="profile_img">
       <div id="crop-avatar">
         <!-- Current avatar -->
-        <img class="img-responsive avatar-view" src="../../templates_assets/images/picture.jpg" alt="Avatar" title="Change the avatar">
+        <img style="display:block;" width="150px" height="150px" class="img-responsive avatar-view" src="{{ asset('storage/'. $model->img) }}" alt="Avatar" title="Change the avatar">
       </div>
     </div>
     <h3>{{ $model->name }}</h3>
