@@ -31,8 +31,7 @@ class CompanyTypeController extends Controller
     {
         $model = new Company_types();
         return view('companies.companies_type.create',[
-            "title" => "Perusahaan"
-
+            "title" => "Bidang Perusahaan",
         ], compact('model'));
     }
 

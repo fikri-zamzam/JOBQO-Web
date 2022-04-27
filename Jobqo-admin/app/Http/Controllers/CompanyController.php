@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Company_sectors;
 use Illuminate\Http\Request;
 use App\Models\Company;
+use App\Models\Company_types;
 
 class CompanyController extends Controller
 {
@@ -31,7 +32,9 @@ class CompanyController extends Controller
     {
         $model = new Company();
         return view('companies.companies_main.create',[
-            "title" => "Perusahaan"
+            "title" => "Perusahaan",
+            "CompanySector" => Company_sectors::all(),
+            "CompanyType" => Company_types::all()
 
         ], compact('model'));
     }
@@ -82,7 +85,9 @@ class CompanyController extends Controller
     {
         $model = Company::find($id);
         return view('companies.companies_main.edit',[
-            "title" => "Edit Perusahaan"
+            "title" => "Edit Perusahaan",
+            "CompanySector" => Company_sectors::all(),
+            "CompanyType" => Company_types::all()
         ],compact('model'));
     }
 

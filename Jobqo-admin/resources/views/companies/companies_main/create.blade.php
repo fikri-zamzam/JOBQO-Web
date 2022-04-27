@@ -40,16 +40,24 @@
             <input type="text" class="form-control" name="imgLogo" required
                     placeholder="Logo Perusahaan">
         </div>
-        <div class="form-group mt-2">
-            <label for="exampleFormControlInput1">Bidang Perusahaan</label>
-            <input type="text" class="form-control" name="bidangPerusahaan" required
-                    placeholder="Bidang Perusahaan">
+        <div class="form-group">
+            <label for="idAuth">Bidang Perusahaan</label>
+            <select class="form-control" id="idAuth" name="admin_auths_id">
+            @foreach ($CompanySector as $sector)
+            <option value="{{ $sector->id }}">{{ $sector->nameSector }}</option>
+            @endforeach
+            </select>
         </div>
-        <div class="form-group mt-2">
-            <label for="exampleFormControlInput1">Jenis Perusahaan</label>
-            <input type="text" class="form-control" name="jenisPerusahaan" required
-                    placeholder="Jenis Perusahaan">
+
+        <div class="form-group">
+            <label for="idType">Jenis Perusahaan</label>
+            <select class="form-control" id="idType" name="admin_auths_id">
+            @foreach ($CompanyType as $type)
+            <option value="{{ $type->id }}">{{ $type->nameType }}</option>
+            @endforeach
+            </select>
         </div>
+
         <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Tempat Perusahaan</label>
             <input type="text" class="form-control" name="tempatPerusahaan" required
