@@ -47,20 +47,21 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new Company;
-        $model->name_company = $request->namaPerusahaan;
-        $model->alamat = $request->alamat;
-        $model->kode_pos = $request->kodePos;
-        $model->email = $request->email;
-        $model->contact = $request->contact;
-        $model->izin_usaha = $request->izinUsaha;
-        $model->img_logo = $request->imgLogo;
-        $model->company_sector_id = $request->bidangPerusahaan;
-        $model->company_type_id = $request->jenisPerusahaan;
-        $model->company_place_id = $request->tempatPerusahaan;
-        $model->website = $request->website;
-        $model->save();
+        $validatedData = $request->validate([
+            'name_company' => 'required|min:5',
+            'alamat' => 'required',
+            'kode_pos' => 'required|max:6',
+            'email' => 'required|min:5|unique:companies',
+            'contact' => 'required',
+            'company_sector_id' => 'required',
+            'company_type_id' => 'required',
+            'website' => 'required',
+            'status_izin' => 'required',
+            'img_logo' => 'required',
+            'company_place_id' => 'required'
+        ]);
 
+        Company::create($validatedData);
         return redirect('companies');
     }
 
@@ -100,19 +101,23 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $model = Company::find($id);
-        $model->name_company = $request->namaPerusahaan;
-        $model->alamat = $request->alamat;
-        $model->kode_pos = $request->kodePos;
-        $model->email = $request->email;
-        $model->contact = $request->contact;
-        $model->izin_usaha = $request->izinUsaha;
-        $model->img_logo = $request->imgLogo;
-        $model->company_sector_id = $request->bidangPerusahaan;
-        $model->company_type_id = $request->jenisPerusahaan;
-        $model->company_place_id = $request->tempatPerusahaan;
-        $model->website = $request->website;
-        $model->save();
+        $comp = Company::find($id);
+        $validatedData = $request->validate([
+            'name_company' => 'required|min:5',
+            'alamat' => 'required',
+            'kode_pos' => 'required|max:6',
+            'email' => 'required|min:5|unique:companies',
+            'contact' => 'required',
+            'company_sector_id' => 'required',
+            'company_type_id' => 'required',
+            'website' => 'required',
+            'status_izin' => 'required',
+            'img_logo' => 'required',
+            'company_place_id' => 'required'
+        ]);
+
+        Company::where('id',$comp->id)
+                ->update($validatedData);
 
         return redirect('companies');
     }

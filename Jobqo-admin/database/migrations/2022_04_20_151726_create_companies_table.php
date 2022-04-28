@@ -25,7 +25,7 @@ class CreateCompaniesTable extends Migration
             $table->String('website');
             $table->integer('jumlah_job')->nullable();
             $table->enum('status_izin', ['Y', 'N']);
-            $table->String('img_logo');
+            $table->String('img_logo')->nullable();
             $table->foreignId('company_place_id')->nullable();
             $table->timestamps();
         });
