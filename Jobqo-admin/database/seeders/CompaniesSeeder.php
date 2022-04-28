@@ -38,5 +38,21 @@ class CompaniesSeeder extends Seeder
         	'deskripsi' => 'Perusahaan yang bergerak di kesehatan',
             'created_at'=> now()
         ]);
+
+        DB::table('companies')->insert([
+        	'name_company' => 'Kentir Corp',
+        	'alamat' => 'Jember,Slawu',
+            'kode_pos' => '280212',
+            'email' => 'kentir@gmail.com',
+            'contact' => '082244993707',
+            'company_sector_id' => '1',
+            'company_type_id' => '1',
+            'website' => 'www.kentir.com',
+            'jumlah_job' => '0',
+            'status_izin' => 'N',
+            'img_logo' => 'www.logo.com',
+            'company_place_id' => '1',
+            'created_at'=> now()
+        ]);
     }
 }

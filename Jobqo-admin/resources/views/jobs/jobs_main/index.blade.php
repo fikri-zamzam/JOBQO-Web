@@ -5,29 +5,23 @@
 <a href="{{ url('jobs/create') }}" class="btn btn-primary mt-3"><i class="fa fa-plus-square mr-2"></i>Tambah {{ $title }}</a>
 <table class="table mt-3">
     <thead class="table-dark">
-      <th>Nomor</th>
-      <th>ID</th>
+      <th>Kode Pekerjaan</th>
       <th>Nama Pekerjaan</th>
-      <th>Deskripsi Pekerjaan</th>
       <th>Gaji</th>
       <th>Perusahaan</th>
-      <th>Kategori Pekerjaan</th>
+      <th>Kategori </th>
       <th>Posisi Pekerjaan</th>
-      <th>Persyaratan Pekerjaan</th>
       <th>Aksi</th>
     </thead>
     <tbody>
       @foreach ($jobs as $key=>$value)
       <tr>
-        <td scope="row"> {{ $key+1 }} </td>
-        <td> {{ $value->id }} </td>
+        <td scope="row"> {{ $value->id }} </td>
         <td> {{ $value->name_job }} </td>
-        <td> {{ $value->desk_job }} </td>
         <td> {{ $value->gaji }} </td>
-        <td> {{ $value->company_id }} </td>
-        <td> {{ $value->job_category_id }} </td>
-        <td> {{ $value->job_position_id }} </td>
-        <td> {{ $value->job_requirement }} </td>
+        <td> {{ $value->AsalJob->name_company }} </td>
+        <td> {{ $value->Categories->name }} </td>
+        <td> {{ $value->Positions->name }} </td>
         <td>
           <div class="row">
             <div class="col-3">

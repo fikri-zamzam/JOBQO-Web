@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use Illuminate\Http\Request;
 use App\Models\Job;
+use App\Models\Job_categories;
+use App\Models\Job_positions;
 
 class JobController extends Controller
 {
@@ -31,7 +34,10 @@ class JobController extends Controller
     {
         $model = new Job();
         return view('jobs.jobs_main.create',[
-            "title" => "Job"
+            "title" => "Job",
+            "Categories" => Job_categories::all(),
+            "Positions" => Job_positions::all(),
+            "Companies" => Company::all()
 
         ], compact('model'));
     }
@@ -44,16 +50,17 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new Job;
-        $model->name_job = $request->namaJob;
-        $model->desk_job = $request->deskJob;
-        $model->gaji = $request->gaji;
-        $model->company_id = $request->companyId;
-        $model->job_category_id = $request->jobCategory;
-        $model->job_position_id = $request->jobPosition;
-        $model->job_requirement = $request->jobReq;
-        $model->save();
+        $validatedData = $request->validate([
+            'name_job' => 'required|min:5',
+            'desk_job' => 'required',
+            'gaji' => 'required',
+            'company_id' => 'required',
+            'job_category_id' => 'required',
+            'job_position_id' => 'required',
+            'job_requirement' => 'required'
+        ]);
 
+        Job::create($validatedData);
         return redirect('jobs');
     }
 
@@ -78,7 +85,10 @@ class JobController extends Controller
     {
         $model = Job::find($id);
         return view('jobs.jobs_main.edit',[
-            "title" => "Edit Job"
+            "title" => "Edit Job",
+            "Categories" => Job_categories::all(),
+            "Positions" => Job_positions::all(),
+            "Companies" => Company::all()
         ],compact('model'));
     }
 
@@ -91,15 +101,18 @@ class JobController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $model = Job::find($id);
-        $model->name_job = $request->namaJob;
-        $model->desk_job = $request->deskJob;
-        $model->gaji = $request->gaji;
-        $model->company_id = $request->companyId;
-        $model->job_category_id = $request->jobCategory;
-        $model->job_position_id = $request->jobPosition;
-        $model->job_requirement = $request->jobReq;
-        $model->save();
+        $job = Job::find($id);
+        $validatedData = $request->validate([
+            'name_job' => 'required|min:5',
+            'desk_job' => 'required',
+            'gaji' => 'required',
+            'company_id' => 'required',
+            'job_category_id' => 'required',
+            'job_position_id' => 'required',
+            'job_requirement' => 'required'
+        ]);
+        Job::where('id',$job->id)
+             ->update($validatedData);
 
         return redirect('jobs');
     }
