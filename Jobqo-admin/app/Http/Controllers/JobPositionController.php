@@ -17,7 +17,9 @@ class JobPositionController extends Controller
         $jobs_position = Job_positions::all();
 
         return view('jobs.jobs_position.index',[
-            "title" => "Job"
+            "title" => "Posisi Pekerjaan",
+            "subtitle1" => "Posisi Pekerjaan",
+            "subtitle2" => "List Posisi Pekerjaan"
 
         ], compact('jobs_position'));
     }
@@ -31,7 +33,9 @@ class JobPositionController extends Controller
     {
         $model = new Job_positions();
         return view('jobs.jobs_position.create',[
-            "title" => "Job"
+            "title" => "Tambah Posisi Pekerjaan",
+            "subtitle1" => "Posisi Pekerjaan",
+            "subtitle2" => "Tambah Posisi Pekerjaan"
 
         ], compact('model'));
     }
@@ -73,7 +77,9 @@ class JobPositionController extends Controller
     {
         $model = Job_positions::find($id);
         return view('jobs.jobs_position.edit',[
-            "title" => "Edit Job"
+            "title" => "Edit Posisi Pekerjaan",
+            "subtitle1" => "Posisi Pekerjaan",
+            "subtitle2" => "Edit Posisi Pekerjaan"
         ],compact('model'));
     }
 

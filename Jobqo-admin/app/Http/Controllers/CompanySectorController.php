@@ -17,7 +17,9 @@ class CompanySectorController extends Controller
         $company_sector = Company_sectors::all();
 
         return view('companies.companies_sector.index',[
-            "title" => "Perusahaan"
+            "title" => "Sektor Perusahaan",
+            "subtitle1" => "Sektor Perusahaan",
+            "subtitle2" => "List Sektor Perusahaan"
 
         ], compact('company_sector'));
     }
@@ -31,7 +33,9 @@ class CompanySectorController extends Controller
     {
         $model = new Company_sectors();
         return view('companies.companies_sector.create',[
-            "title" => "Perusahaan"
+            "title" => "Tambah Sektor Perusahaan",
+            "subtitle1" => "Sektor Perusahaan",
+            "subtitle2" => "Tambah Sektor Perusahaan"
 
         ], compact('model'));
     }
@@ -76,7 +80,9 @@ class CompanySectorController extends Controller
     {
         $model = Company_sectors::find($id);
         return view('companies.companies_sector.edit',[
-            "title" => "Edit Perusahaan"
+            "title" => "Edit Sektor Perusahaan",
+            "subtitle1" => "Sektor Perusahaan",
+            "subtitle2" => "Edit Sektor Perusahaan"
         ],compact('model'));
     }
 

@@ -17,7 +17,9 @@ class CompanyTypeController extends Controller
         $company_type = Company_types::all();
 
         return view('companies.companies_type.index',[
-            "title" => "Perusahaan"
+            "title" => "Jenis Perusahaan",
+            "subtitle1" => "Jenis Perusahaan",
+            "subtitle2" => "List Jenis Perusahaan"
 
         ], compact('company_type'));
     }
@@ -31,7 +33,9 @@ class CompanyTypeController extends Controller
     {
         $model = new Company_types();
         return view('companies.companies_type.create',[
-            "title" => "Bidang Perusahaan",
+            "title" => "Tambah Jenis Perusahaan",
+            "subtitle1" => "Jenis Perusahaan",
+            "subtitle2" => "Tambah Jenis Perusahaan"
         ], compact('model'));
     }
 
@@ -74,7 +78,9 @@ class CompanyTypeController extends Controller
     {
         $model = Company_types::find($id);
         return view('companies.companies_type.edit',[
-            "title" => "Edit Perusahaan"
+            "title" => "Edit Jenis Perusahaan",
+            "subtitle1" => "Jenis Perusahaan",
+            "subtitle2" => "Edit Jenis Perusahaan"
         ],compact('model'));
     }
 

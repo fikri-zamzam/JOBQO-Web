@@ -54,7 +54,8 @@ Route::resource('jobs_position', JobPositionController::class);
 Route::resource('companies', CompanyController::class);
 Route::resource('companies_sector', CompanySectorController::class);
 Route::resource('companies_type', CompanyTypeController::class);
-Route::resource('admin_type', Admin_typeController::class);
+// Berfungsi untuk mencegah orang lain untuk mengakses fungsi show yang tidak diperlukan
+Route::resource('admin_type', Admin_typeController::class)->except('show');
 
 //Controller untuk membenahi tampilan
 Route::get('/tugas2',[TugasController::class, 'kedua']);

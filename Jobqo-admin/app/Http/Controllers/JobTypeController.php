@@ -17,7 +17,9 @@ class JobTypeController extends Controller
         $jobs_type = Job_categories::all();
 
         return view('jobs.jobs_type.index',[
-            "title" => "Job"
+            "title" => "Jenis Pekerjaan",
+            "subtitle1" => "Jenis Pekerjaan",
+            "subtitle2" => "List Jenis Pekerjaan"
 
         ], compact('jobs_type'));
     }
@@ -31,7 +33,9 @@ class JobTypeController extends Controller
     {
         $model = new Job_categories();
         return view('jobs.jobs_type.create',[
-            "title" => "Job"
+            "title" => "Tambah Jenis Pekerjaan",
+            "subtitle1" => "Jenis Pekerjaan",
+            "subtitle2" => "Tambah Jenis Pekerjaan"
 
         ], compact('model'));
     }
@@ -73,7 +77,9 @@ class JobTypeController extends Controller
     {
         $model = Job_categories::find($id);
         return view('jobs.jobs_type.edit',[
-            "title" => "Edit Job"
+            "title" => "Edit Jenis Pekerjaan",
+            "subtitle1" => "Jenis Pekerjaan",
+            "subtitle2" => "Edit Jenis Pekerjaan"
         ],compact('model'));
     }
 

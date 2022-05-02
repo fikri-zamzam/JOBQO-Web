@@ -17,7 +17,9 @@ class UserController extends Controller
         $users = User::all();
 
         return view('users.users_main.index',[
-            "title" => "User"
+            "title" => "Pekerja",
+            "subtitle1" => "Pekerja",
+            "subtitle2" => "List Data Pekerja"
 
         ], compact('users'));
     }
@@ -31,7 +33,9 @@ class UserController extends Controller
     {
         $model = new User();
         return view('users.users_main.create',[
-            "title" => "User"
+            "title" => "Tambah Pekerja",
+            "subtitle1" => "Pekerja",
+            "subtitle2" => "Tambah Data Pekerja"
 
         ], compact('model'));
     }
@@ -91,7 +95,9 @@ class UserController extends Controller
     {
         $model = User::find($id);
         return view('users.users_main.edit',[
-            "title" => "Edit Petugas"
+            "title" => "Edit Pekerja",
+            "subtitle1" => "Pekerja",
+            "subtitle2" => "Edit Data Pekerja"
         ],compact('model'));
     }
 

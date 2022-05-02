@@ -6,7 +6,6 @@
     <form action="{{ url('admin/'.$model->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="_method" value="PATCH">
-        <h1>belum jadi</h1>
         <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Nama User</label>
             <input type="text" class="form-control" name="name" required
@@ -73,7 +72,7 @@
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <div class="form-group mt-3">
-            <button class="btn btn-primary" type="submit">Tambah</button>
+            <button class="btn btn-primary" type="submit">Edit Perubahan</button>
             <a href="/">
                 <button class="btn btn-danger" type="button" name="kembali">Kembali</button>
             </a>

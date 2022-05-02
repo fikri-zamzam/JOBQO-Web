@@ -20,7 +20,9 @@ class JobController extends Controller
         $jobs = Job::all();
 
         return view('jobs.jobs_main.index',[
-            "title" => "Job"
+            "title" => "Pekerjaan",
+            "subtitle1" => "Pekerjaan",
+            "subtitle2" => "List Data Pekerjaan"
 
         ], compact('jobs'));
     }
@@ -34,7 +36,9 @@ class JobController extends Controller
     {
         $model = new Job();
         return view('jobs.jobs_main.create',[
-            "title" => "Job",
+            "title" => "Tambah Pekerjaan",
+            "subtitle1" => "Pekerjaan",
+            "subtitle2" => "Tambah Data Pekerjaan",
             "Categories" => Job_categories::all(),
             "Positions" => Job_positions::all(),
             "Companies" => Company::all()
@@ -85,7 +89,9 @@ class JobController extends Controller
     {
         $model = Job::find($id);
         return view('jobs.jobs_main.edit',[
-            "title" => "Edit Job",
+            "title" => "Edit Pekerjaan",
+            "subtitle1" => "Pekerjaan",
+            "subtitle2" => "Ubah Data Pekerjaan",
             "Categories" => Job_categories::all(),
             "Positions" => Job_positions::all(),
             "Companies" => Company::all()

@@ -19,6 +19,8 @@ class AdminController extends Controller
 
         return view('admins.admin_main.index',[
             "title" => "Admin",
+            "subtitle1" => "Admin",
+            "subtitle2" => "List Data Admin"
 
         ], compact('admin'));
     }
@@ -32,7 +34,9 @@ class AdminController extends Controller
     {
         $model = new Admin();
         return view('admins.admin_main.create',[
-            "title" => "Admin",
+            "title" => "Tambah Admin",
+            "subtitle1" => "Admin",
+            "subtitle2" => "Tambah Data Admin",
             "Admin_auths" => Admin_auths::all()
         ], compact('model'));
     }
@@ -96,6 +100,8 @@ class AdminController extends Controller
         $model = Admin::find($id);
         return view('admins.admin_main.edit',[
             "title" => "Edit Admin",
+            "subtitle1" => "Admin",
+            "subtitle2" => "Ubah Data Admin",
             "Admin_auths" => Admin_auths::all()
         ],compact('model'));
     }

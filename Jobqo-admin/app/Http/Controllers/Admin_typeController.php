@@ -17,7 +17,9 @@ class Admin_typeController extends Controller
         $admin_type = Admin_auths::all();
 
         return view('admins.admin_type.index',[
-            "title" => "Admin"
+            "title" => "Jenis Admin",
+            "subtitle1" => "Jenis Admin",
+            "subtitle2" => "List Jenis Admin"
 
         ], compact('admin_type'));
     }
@@ -31,7 +33,9 @@ class Admin_typeController extends Controller
     {
         $model = new Admin_auths();
         return view('admins.admin_type.create',[
-            "title" => "Admin Authentifikasi"
+            "title" => "Tambah Jenis Admin",
+            "subtitle1" => "Jenis Admin",
+            "subtitle2" => "Tambah Jenis Admin"
 
         ], compact('model'));
     }
@@ -73,7 +77,9 @@ class Admin_typeController extends Controller
     {
         $model = Admin_auths::find($id);
         return view('admins.admin_type.edit',[
-            "title" => "Edit Jenis Admin"
+            "title" => "Edit Jenis Admin",
+            "subtitle1" => "Jenis Admin",
+            "subtitle2" => "Edit Jenis Admin"
         ],compact('model'));
     }
 

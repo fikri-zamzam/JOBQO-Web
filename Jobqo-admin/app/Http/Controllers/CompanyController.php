@@ -18,7 +18,9 @@ class CompanyController extends Controller
         $companies = Company::all();
 
         return view('companies.companies_main.index',[
-            "title" => "Perusahaan"
+            "title" => "Perusahaan",
+            "subtitle1" => "Perusahaan",
+            "subtitle2" => "List Data Perusahaan"
 
         ], compact('companies'));
     }
@@ -32,7 +34,9 @@ class CompanyController extends Controller
     {
         $model = new Company();
         return view('companies.companies_main.create',[
-            "title" => "Perusahaan",
+            "title" => "Tambah Perusahaan",
+            "subtitle1" => "Perusahaan",
+            "subtitle2" => "Tambah Data Perusahaan",
             "CompanySector" => Company_sectors::all(),
             "CompanyType" => Company_types::all()
 
@@ -87,6 +91,8 @@ class CompanyController extends Controller
         $model = Company::find($id);
         return view('companies.companies_main.edit',[
             "title" => "Edit Perusahaan",
+            "subtitle1" => "Perusahaan",
+            "subtitle2" => "Ubah Data Perusahaan",
             "CompanySector" => Company_sectors::all(),
             "CompanyType" => Company_types::all()
         ],compact('model'));
