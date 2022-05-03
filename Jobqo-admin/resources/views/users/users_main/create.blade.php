@@ -75,7 +75,7 @@
         @enderror
         <div class="form-group mt-2">
             <label for="qoute">Qoute utama</label><br>
-            <textarea class="form-control" name="quote" id="qouteUser" >
+            <textarea class="form-control" value="{{ old('quote') }}" name="quote" id="qouteUser" >
             </textarea>
         </div>
         @error('quote')
@@ -83,7 +83,7 @@
         @enderror
         <div class="form-group mt-2">
             <label for="notel">Nomor Telfon </label>
-            <input type="number" class="form-control" name="phone" required
+            <input type="number" class="form-control" name="phone" value="{{ old('phone') }}" required
                     placeholder="contoh : 0822332xxxx">
         </div>
         @error('phone')
@@ -91,7 +91,7 @@
         @enderror
         <div class="form-group mt-2">
             <label for="curJob">Current Job</label>
-            <input type="text" class="form-control" name="current_job" required
+            <input type="text" class="form-control" value="{{ old('current_job') }}" name="current_job" required
                     placeholder="contoh : Freelance">
         </div>
         @error('current_job')

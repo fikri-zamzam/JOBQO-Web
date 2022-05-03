@@ -192,7 +192,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Data {{ $subtitle1 }}</h3>
+                <h3>{{ $subtitle1 }}</h3>
               </div>
 
               <div class="title_right">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -66,6 +67,8 @@ class UserController extends Controller
             $validatedData['img'] = $request->file('img')->store('User-profile');
         }
 
+        $validatedData['password'] =Hash::make($validatedData['password']);
+
 
         User::create($validatedData);
         return redirect('users');
@@ -124,6 +127,8 @@ class UserController extends Controller
             'current_job' => 'required'
             // 'avatar' => 'dimensions:min_width=100,min_height=200'
         ]);
+
+        $validatedData['password'] =Hash::make($validatedData['password']);
 
         User::where('id', $user->id)
                ->update($validatedData);

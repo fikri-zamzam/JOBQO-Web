@@ -16,6 +16,8 @@ use App\Http\Controllers\CompanyTypeController;
 use App\Http\Controllers\Admin_typeController;
 use App\Http\Controllers\TugasController;
 
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,3 +61,6 @@ Route::resource('admin_type', Admin_typeController::class)->except('show');
 
 //Controller untuk membenahi tampilan
 Route::get('/tugas2',[TugasController::class, 'kedua']);
+
+// login admin 
+
