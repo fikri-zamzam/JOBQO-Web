@@ -24,6 +24,13 @@
             <li><a href="/companies_sector">Bidang Perusahaan</a></li>
           </ul>
         </li>
+        <li><a><i class="fa fa-file-text-o"></i>Lamaran <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="/">List Lamaran</a></li>
+            <li><a href="/">List Kuisoner</a></li>
+            <li><a href="/">Bidang Perusahaan</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
     <div class="menu_section">

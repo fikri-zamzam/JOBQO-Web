@@ -97,7 +97,10 @@
                         <span>Settings</span>
                       </a>
                   <a class="dropdown-item"  href="javascript:;">Help</a>
-                    <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  <form action="/logout" method="POST">
+                    @csrf
+                    <button type="submit" class="dropdown-item">Logout <i class="fa fa-sign-out pull-right"></i></button>
+                  </form>
                   </div>
                 </li>
 
@@ -195,16 +198,6 @@
                 <h3>{{ $subtitle1 }}</h3>
               </div>
 
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5   form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div class="clearfix"></div>

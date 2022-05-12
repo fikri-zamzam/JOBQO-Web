@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -42,14 +41,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function index()
-    {
-        return view('auth.login', [
-            "title" => "Login"
-        ]);
-    }
-
-    public function authenticate(Request $request){
+    public function login(Request $request){
         $credentials = $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required'
@@ -58,11 +50,11 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
             if(Auth::user()->roles == "Admin") {
-                return redirect()->intended('/Admin');
+                redirect('Admin');
             } else if(Auth::user()->roles == "HRD") {
-                return redirect()->intended('/HRD');
+                redirect('HRD');
             } else if(Auth::user()->roles == "Pekerja") {
-                return redirect()->intended('/Pekerja');
+                redirect('Pekerja');
             }
 
         } else {
@@ -74,14 +66,8 @@ class LoginController extends Controller
 
         // mengirim user ke tempat dia inginkan
         // return redirect()->intended('/');
-    }
 
-    public function logout(){
-        Session::flush();
-        
-        Auth::logout();
 
-        return redirect('login');
     }
 
     //bisa ditambah function logout

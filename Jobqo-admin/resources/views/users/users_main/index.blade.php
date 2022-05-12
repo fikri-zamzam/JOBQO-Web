@@ -21,8 +21,8 @@
         <td> {{ $value->id }} </td>
         <td> {{ $value->name }} </td>
         <td> {{ $value->username }} </td>
-        <td> {{ $value->tgl_lahir }} </td>
         <td> {{ ($value->gender == "L" ? "Laki-laki" : "Perempuan" ) }} </td>
+        <td> {{ $value->tgl_lahir }} </td>
         <td> {{ $value->email }} </td>
         <td>
           <div class="row">
