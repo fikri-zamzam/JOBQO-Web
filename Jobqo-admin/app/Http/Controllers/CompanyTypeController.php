@@ -16,7 +16,7 @@ class CompanyTypeController extends Controller
     {
         $company_type = Company_types::all();
 
-        return view('companies.companies_type.index',[
+        return view('_AdminPage.companies.companies_type.index',[
             "title" => "Jenis Perusahaan",
             "subtitle1" => "Jenis Perusahaan",
             "subtitle2" => "List Jenis Perusahaan"
@@ -32,7 +32,7 @@ class CompanyTypeController extends Controller
     public function create()
     {
         $model = new Company_types();
-        return view('companies.companies_type.create',[
+        return view('_AdminPage.companies.companies_type.create',[
             "title" => "Tambah Jenis Perusahaan",
             "subtitle1" => "Jenis Perusahaan",
             "subtitle2" => "Tambah Jenis Perusahaan"
@@ -54,7 +54,7 @@ class CompanyTypeController extends Controller
         ]);
 
         Company_types::create($validatedData);
-        return redirect('companies_type');
+        return redirect('admin/companies_type');
     }
 
     /**
@@ -77,7 +77,7 @@ class CompanyTypeController extends Controller
     public function edit($id)
     {
         $model = Company_types::find($id);
-        return view('companies.companies_type.edit',[
+        return view('_AdminPage.companies.companies_type.edit',[
             "title" => "Edit Jenis Perusahaan",
             "subtitle1" => "Jenis Perusahaan",
             "subtitle2" => "Edit Jenis Perusahaan"
@@ -103,7 +103,7 @@ class CompanyTypeController extends Controller
         Company_types::where('id', $ComType->id)
                ->update($validatedData);
 
-        return redirect('companies_type');
+        return redirect('admin/companies_type');
     }
 
     /**
@@ -116,6 +116,6 @@ class CompanyTypeController extends Controller
     {
         $model = Company_types::find($id);
         $model->delete();
-        return redirect('companies_type');
+        return redirect('admin/companies_type');
     }
 }

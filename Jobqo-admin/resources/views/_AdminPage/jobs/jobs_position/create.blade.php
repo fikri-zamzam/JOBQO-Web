@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="col-12">
-    <form action="{{ url('jobs_position') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('admin/jobs_position') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Nama Job</label>

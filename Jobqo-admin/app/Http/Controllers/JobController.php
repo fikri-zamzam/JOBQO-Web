@@ -16,10 +16,10 @@ class JobController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
         $jobs = Job::all();
 
-        return view('jobs.jobs_main.index',[
+        return view('_AdminPage.jobs.jobs_main.index',[
             "title" => "Pekerjaan",
             "subtitle1" => "Pekerjaan",
             "subtitle2" => "List Data Pekerjaan"
@@ -35,7 +35,7 @@ class JobController extends Controller
     public function create()
     {
         $model = new Job();
-        return view('jobs.jobs_main.create',[
+        return view('_AdminPage.jobs.jobs_main.create',[
             "title" => "Tambah Pekerjaan",
             "subtitle1" => "Pekerjaan",
             "subtitle2" => "Tambah Data Pekerjaan",
@@ -65,7 +65,7 @@ class JobController extends Controller
         ]);
 
         Job::create($validatedData);
-        return redirect('jobs');
+        return redirect('admin/jobs');
     }
 
     /**
@@ -88,7 +88,7 @@ class JobController extends Controller
     public function edit($id)
     {
         $model = Job::find($id);
-        return view('jobs.jobs_main.edit',[
+        return view('_AdminPage.jobs.jobs_main.edit',[
             "title" => "Edit Pekerjaan",
             "subtitle1" => "Pekerjaan",
             "subtitle2" => "Ubah Data Pekerjaan",
@@ -120,7 +120,7 @@ class JobController extends Controller
         Job::where('id',$job->id)
              ->update($validatedData);
 
-        return redirect('jobs');
+        return redirect('admin/jobs');
     }
 
     /**

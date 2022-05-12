@@ -16,7 +16,7 @@ class JobPositionController extends Controller
     {
         $jobs_position = Job_positions::all();
 
-        return view('jobs.jobs_position.index',[
+        return view('_AdminPage.jobs.jobs_position.index',[
             "title" => "Posisi Pekerjaan",
             "subtitle1" => "Posisi Pekerjaan",
             "subtitle2" => "List Posisi Pekerjaan"
@@ -32,7 +32,7 @@ class JobPositionController extends Controller
     public function create()
     {
         $model = new Job_positions();
-        return view('jobs.jobs_position.create',[
+        return view('_AdminPage.jobs.jobs_position.create',[
             "title" => "Tambah Posisi Pekerjaan",
             "subtitle1" => "Posisi Pekerjaan",
             "subtitle2" => "Tambah Posisi Pekerjaan"
@@ -53,7 +53,7 @@ class JobPositionController extends Controller
         $model->deskripsi = $request->deskripsi;
         $model->save();
 
-        return redirect('jobs_position');
+        return redirect('admin/jobs_position');
     }
 
     /**
@@ -76,7 +76,7 @@ class JobPositionController extends Controller
     public function edit($id)
     {
         $model = Job_positions::find($id);
-        return view('jobs.jobs_position.edit',[
+        return view('_AdminPage.jobs.jobs_position.edit',[
             "title" => "Edit Posisi Pekerjaan",
             "subtitle1" => "Posisi Pekerjaan",
             "subtitle2" => "Edit Posisi Pekerjaan"
@@ -97,7 +97,7 @@ class JobPositionController extends Controller
         $model->deskripsi = $request->deskripsi;
         $model->save();
 
-        return redirect('jobs_position');
+        return redirect('admin/jobs_position');
     }
 
     /**
@@ -110,6 +110,6 @@ class JobPositionController extends Controller
     {
         $model = Job_positions::find($id);
         $model->delete();
-        return redirect('jobs_position');
+        return redirect('admin/jobs_position');
     }
 }

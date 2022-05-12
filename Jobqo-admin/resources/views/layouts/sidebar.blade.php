@@ -2,7 +2,7 @@
     <div class="menu_section">
       <h3>General</h3>
       <ul class="nav side-menu">
-      <li><a href="/"><i class="fa fa-dashboard"></i> Dashboard </a>
+      <li><a href="/admin"><i class="fa fa-dashboard"></i> Dashboard </a>
       </li>
         <li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
@@ -12,16 +12,16 @@
         </li>
         <li><a><i class="fa fa-briefcase"></i> Jobs <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="/jobs">List Pekerjaan</a></li>
-            <li><a href="/jobs_type">Jenis pekerjaan</a></li>
-            <li><a href="/jobs_position">Posisi Jabatan</a></li>
+            <li><a href="/admin/jobs">List Pekerjaan</a></li>
+            <li><a href="/admin/jobs_type">Jenis pekerjaan</a></li>
+            <li><a href="/admin/jobs_position">Posisi Jabatan</a></li>
           </ul>
         </li>
         <li><a><i class="fa fa-building-o"></i>Perusahaan <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="/companies">List Perusahaan</a></li>
-            <li><a href="/companies_type">Jenis Perusahaan</a></li>
-            <li><a href="/companies_sector">Bidang Perusahaan</a></li>
+            <li><a href="/admin/companies">List Perusahaan</a></li>
+            <li><a href="/admin/companies_type">Jenis Perusahaan</a></li>
+            <li><a href="/admin/companies_sector">Bidang Perusahaan</a></li>
           </ul>
         </li>
         <li><a><i class="fa fa-file-text-o"></i>Lamaran <span class="fa fa-chevron-down"></span></a>
@@ -38,7 +38,7 @@
       <ul class="nav side-menu">
         <li><a><i class="fa fa-windows"></i> Admin <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="/admin">List Admin</a></li>
+            <li><a href="/admin/admin">List Admin</a></li>
             <li><a href="/admin_type">Jenis Admin</a></li>
           </ul>
         </li>

@@ -17,11 +17,10 @@ class AdminController extends Controller
     {
         $admin = Admin::all();
 
-        return view('admins.admin_main.index',[
+        return view('_AdminPage.admins.admin_main.index',[
             "title" => "Admin",
             "subtitle1" => "Admin",
             "subtitle2" => "List Data Admin"
-
         ], compact('admin'));
     }
 
@@ -33,7 +32,7 @@ class AdminController extends Controller
     public function create()
     {
         $model = new Admin();
-        return view('admins.admin_main.create',[
+        return view('_AdminPage.admins.admin_main.create',[
             "title" => "Tambah Admin",
             "subtitle1" => "Admin",
             "subtitle2" => "Tambah Data Admin",
@@ -75,7 +74,7 @@ class AdminController extends Controller
         }
 
         Admin::create($validatedData);
-        return redirect('admin');
+        return redirect('/admin/admin');
     }
 
     /**
@@ -98,7 +97,7 @@ class AdminController extends Controller
     public function edit($id)
     {
         $model = Admin::find($id);
-        return view('admins.admin_main.edit',[
+        return view('_AdminPage.admins.admin_main.edit',[
             "title" => "Edit Admin",
             "subtitle1" => "Admin",
             "subtitle2" => "Ubah Data Admin",

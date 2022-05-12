@@ -16,7 +16,7 @@ class CompanySectorController extends Controller
     {
         $company_sector = Company_sectors::all();
 
-        return view('companies.companies_sector.index',[
+        return view('_AdminPage.companies.companies_sector.index',[
             "title" => "Sektor Perusahaan",
             "subtitle1" => "Sektor Perusahaan",
             "subtitle2" => "List Sektor Perusahaan"
@@ -32,7 +32,7 @@ class CompanySectorController extends Controller
     public function create()
     {
         $model = new Company_sectors();
-        return view('companies.companies_sector.create',[
+        return view('_AdminPage.companies.companies_sector.create',[
             "title" => "Tambah Sektor Perusahaan",
             "subtitle1" => "Sektor Perusahaan",
             "subtitle2" => "Tambah Sektor Perusahaan"
@@ -56,7 +56,7 @@ class CompanySectorController extends Controller
 
         Company_sectors::create($validatedData);
 
-        return redirect('companies_sector');
+        return redirect('admin/companies_sector');
     }
 
     /**
@@ -79,7 +79,7 @@ class CompanySectorController extends Controller
     public function edit($id)
     {
         $model = Company_sectors::find($id);
-        return view('companies.companies_sector.edit',[
+        return view('_AdminPage.companies.companies_sector.edit',[
             "title" => "Edit Sektor Perusahaan",
             "subtitle1" => "Sektor Perusahaan",
             "subtitle2" => "Edit Sektor Perusahaan"
@@ -106,7 +106,7 @@ class CompanySectorController extends Controller
         Company_sectors::where('id', $ComSector->id)
                ->update($validatedData);
 
-        return redirect('companies_sector');
+        return redirect('admin/companies_sector');
     }
 
     /**
@@ -119,6 +119,6 @@ class CompanySectorController extends Controller
     {
         $model = Company_sectors::find($id);
         $model->delete();
-        return redirect('companies_sector');
+        return redirect('admin/companies_sector');
     }
 }

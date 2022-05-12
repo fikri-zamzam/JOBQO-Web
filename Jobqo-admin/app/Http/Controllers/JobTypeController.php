@@ -16,7 +16,7 @@ class JobTypeController extends Controller
     {
         $jobs_type = Job_categories::all();
 
-        return view('jobs.jobs_type.index',[
+        return view('_AdminPage.jobs.jobs_type.index',[
             "title" => "Jenis Pekerjaan",
             "subtitle1" => "Jenis Pekerjaan",
             "subtitle2" => "List Jenis Pekerjaan"
@@ -32,7 +32,7 @@ class JobTypeController extends Controller
     public function create()
     {
         $model = new Job_categories();
-        return view('jobs.jobs_type.create',[
+        return view('_AdminPage.jobs.jobs_type.create',[
             "title" => "Tambah Jenis Pekerjaan",
             "subtitle1" => "Jenis Pekerjaan",
             "subtitle2" => "Tambah Jenis Pekerjaan"
@@ -53,7 +53,7 @@ class JobTypeController extends Controller
         $model->deskripsi = $request->deskripsi;
         $model->save();
 
-        return redirect('jobs_type');
+        return redirect('admin/jobs_type');
     }
 
     /**
@@ -76,7 +76,7 @@ class JobTypeController extends Controller
     public function edit($id)
     {
         $model = Job_categories::find($id);
-        return view('jobs.jobs_type.edit',[
+        return view('_AdminPage.jobs.jobs_type.edit',[
             "title" => "Edit Jenis Pekerjaan",
             "subtitle1" => "Jenis Pekerjaan",
             "subtitle2" => "Edit Jenis Pekerjaan"
@@ -97,7 +97,7 @@ class JobTypeController extends Controller
         $model->deskripsi = $request->deskripsi;
         $model->save();
 
-        return redirect('jobs_type');
+        return redirect('admin/jobs_type');
     }
 
     /**
@@ -110,6 +110,6 @@ class JobTypeController extends Controller
     {
         $model = Job_categories::find($id);
         $model->delete();
-        return redirect('jobs_type');
+        return redirect('admin/jobs_type');
     }
 }

@@ -17,7 +17,7 @@ class CompanyController extends Controller
     {
         $companies = Company::all();
 
-        return view('companies.companies_main.index',[
+        return view('_AdminPage.companies.companies_main.index',[
             "title" => "Perusahaan",
             "subtitle1" => "Perusahaan",
             "subtitle2" => "List Data Perusahaan"
@@ -33,7 +33,7 @@ class CompanyController extends Controller
     public function create()
     {
         $model = new Company();
-        return view('companies.companies_main.create',[
+        return view('_AdminPage.companies.companies_main.create',[
             "title" => "Tambah Perusahaan",
             "subtitle1" => "Perusahaan",
             "subtitle2" => "Tambah Data Perusahaan",
@@ -66,7 +66,7 @@ class CompanyController extends Controller
         ]);
 
         Company::create($validatedData);
-        return redirect('companies');
+        return redirect('admin/companies');
     }
 
     /**
@@ -89,7 +89,7 @@ class CompanyController extends Controller
     public function edit($id)
     {
         $model = Company::find($id);
-        return view('companies.companies_main.edit',[
+        return view('_AdminPage.companies.companies_main.edit',[
             "title" => "Edit Perusahaan",
             "subtitle1" => "Perusahaan",
             "subtitle2" => "Ubah Data Perusahaan",
@@ -112,7 +112,7 @@ class CompanyController extends Controller
             'name_company' => 'required|min:5',
             'alamat' => 'required',
             'kode_pos' => 'required|max:6',
-            'email' => 'required|min:5|unique:companies',
+            'email' => 'required|min:5|unique:companies,email,'.$comp->id,
             'contact' => 'required',
             'company_sector_id' => 'required',
             'company_type_id' => 'required',
@@ -125,7 +125,7 @@ class CompanyController extends Controller
         Company::where('id',$comp->id)
                 ->update($validatedData);
 
-        return redirect('companies');
+        return redirect('admin/companies');
     }
 
     /**
@@ -138,6 +138,6 @@ class CompanyController extends Controller
     {
         $model = Company::find($id);
         $model->delete();
-        return redirect('companies');
+        return redirect('admin/companies');
     }
 }

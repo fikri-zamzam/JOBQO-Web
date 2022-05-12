@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<a href="{{ url('admin/create') }}" class="btn btn-primary mt-3"><i class="fa fa-plus-square mr-2"></i>Tambah {{ $title }}</a>
+<a href="{{ url('admin/admin/create') }}" class="btn btn-primary mt-3"><i class="fa fa-plus-square mr-2"></i>Tambah {{ $title }}</a>
 <table class="table mt-3">
     <thead class="table-dark">
       <th>Nomor</th>
