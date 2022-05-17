@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Company_sectors;
 use Illuminate\Http\Request;
 use App\Models\Company;
 use App\Models\Company_types;
+use App\Models\Company_sectors;
 
 class CompanyController extends Controller
 {

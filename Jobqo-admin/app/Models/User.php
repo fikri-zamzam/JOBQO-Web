@@ -39,5 +39,11 @@ class user extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAdmin() {
+
+        // $user = User::all();
+        // $user = User::where('roles', 'LIKE', '%Admin%')->get();
+    }
 }
 

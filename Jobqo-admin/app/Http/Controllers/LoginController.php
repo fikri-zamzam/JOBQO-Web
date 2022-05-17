@@ -51,7 +51,7 @@ class LoginController extends Controller
 
     public function authenticate(Request $request){
         $credentials = $request->validate([
-            'email' => 'required|email:dns',
+            'email' => 'required',
             'password' => 'required'
         ]);
 
@@ -60,7 +60,7 @@ class LoginController extends Controller
             if(Auth::user()->roles == "Admin") {
                 return redirect()->intended('/admin');
             } else if(Auth::user()->roles == "HRD") {
-                return redirect()->intended('/HRD');
+                return redirect()->intended('/hrd');
             } else if(Auth::user()->roles == "Pekerja") {
                 return redirect()->intended('/Pekerja');
             }

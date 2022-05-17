@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="col-12">
-    <form action="{{ url('admin/'.$model->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('admin/admin/'.$model->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="_method" value="PATCH">
         <div class="form-group mt-2">
@@ -54,23 +54,28 @@
         @error('password')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
-        <div class="form-group">
-            <label for="idAuth">Jenis Admin</label>
-            <select class="form-control" id="idAuth" name="admin_auths_id">
-            @foreach ($Admin_auths as $auth)
-            <option value="{{ $auth->id }}" {{ (($model->admin_auths_id == $auth->id ) ? "selected" : "") }} >{{ $auth->auth_type }}</option>
-            @endforeach
-            </select>
+
+        <div class="form-group mt-2">
+            <label for="">Tanggal lahir </label>
+            <input type="date" class="form-control" name="tgl_lahir" value="{{ old('tgl_lahir',$model->tgl_lahir) }}" required>
+        </div>
+        @error('tgl_lahir')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <div class="form-group mt-2">
+            <label for="alamat">Alamat</label><br>
+            <textarea class="form-control" name="alamat" id="alamat" >{{ old('alamat',$model->alamat) }}</textarea>
         </div>
 
-        <label for="image">Pilih Foto Profile</label>
+        {{-- <label for="image">Pilih Foto Profile</label>
         <div class="custom-file">
             <input type="file" class="custom-file-input" id="image" name="img">
             <label class="custom-file-label" for="image">Choose file</label>
         </div>
         @error('img')
             <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+        @enderror --}}
+
         <div class="form-group mt-3">
             <button class="btn btn-primary" type="submit">Edit Perubahan</button>
             <a href="/">

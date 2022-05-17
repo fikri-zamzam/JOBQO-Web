@@ -15,6 +15,7 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
+        
         DB::table('admin_auths')->insert([
         	'auth_type' => 'Super Admin',
         	'deskripsi' => 'Melakukan modifikasi di seluruh data termasuk data admin',

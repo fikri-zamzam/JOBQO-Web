@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use illuminate\Support\Facades\Response;
 
-class UserController extends Controller
+class ApplicantController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +15,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-
-        return view('users.users_main.index',[
-            "title" => "Pekerja",
-            "subtitle1" => "Pekerja",
-            "subtitle2" => "List Data Pekerja"
-
-        ], compact('users'));
+        $applicant = User::all();
+        $applicant = User::where('roles', 'LIKE', '%Pekerja%')->get();
+        return view('_AdminPage.users.role_applicant.index',[
+            "title" => "Applicant",
+            "subtitle1" => "Applicant",
+            "subtitle2" => "List Data applicant",
+        ], compact('applicant'));
     }
 
     /**
@@ -34,11 +32,10 @@ class UserController extends Controller
     public function create()
     {
         $model = new User();
-        return view('users.users_main.create',[
-            "title" => "Tambah Pekerja",
-            "subtitle1" => "Pekerja",
-            "subtitle2" => "Tambah Data Pekerja"
-
+        return view('_AdminPage.users.role_applicant.create',[
+            "title" => "Tambah Pelamar",
+            "subtitle1" => "Applicant",
+            "subtitle2" => "Tambah Data Applicant"
         ], compact('model'));
     }
 
@@ -53,26 +50,20 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|min:10',
             'username' => 'required|unique:users',
-            'tgl_lahir' => 'required|date', 
             'email' => 'required|unique:users',
-            'alamat' => 'required',
             'password' => 'required|min:5|',
-            'education' => 'required|min:10',
-            'quote' => 'required|min:10',
-            'phone' => 'required|min:10',
-            'current_job' => 'required',
+            'tgl_lahir' => 'date',
+            'alamat' => 'required',
+            'gender' => 'required',
             'img' => 'image|file|max:2048'
         ]);
-
-        if($request->file('img')){
-            $validatedData['img'] = $request->file('img')->store('User-profile');
-        }
-
-        $validatedData['password'] =Hash::make($validatedData['password']);
-
-
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        $validatedData['roles'] = "Pekerja";
+        // if($request->file('img')){
+        //     $validatedData['img'] = $request->file('img')->store('Admin-profile');
+        // }
         User::create($validatedData);
-        return redirect('users');
+        return redirect('/admin/applicant');
     }
 
     /**
@@ -83,10 +74,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $model = User::find($id);
-        return view('users.users_main.show',[
-            "title" => "Detail User Profile"
-        ],compact('model'));
+        //
     }
 
     /**
@@ -98,10 +86,10 @@ class UserController extends Controller
     public function edit($id)
     {
         $model = User::find($id);
-        return view('users.users_main.edit',[
-            "title" => "Edit Pekerja",
-            "subtitle1" => "Pekerja",
-            "subtitle2" => "Edit Data Pekerja"
+        return view('_AdminPage.users.role_applicant.edit',[
+            "title" => "Edit Pelamar",
+            "subtitle1" => "Applicant",
+            "subtitle2" => "Ubah Data Applicant"
         ],compact('model'));
     }
 
@@ -114,27 +102,23 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
+        $applicant = User::find($id);
         $validatedData = $request->validate([
             'name' => 'required|min:10',
-            'username' => 'required',
-            'tgl_lahir' => 'required|date', 
-            'email' => 'required',
-            'alamat' => 'required',
+            'username' => 'required|unique:users,username,'.$applicant->id,
+            'email' => 'required|unique:users,email,'.$applicant->id,
             'password' => 'required|min:5|',
-            'education' => 'required|min:10',
-            'quote' => 'required|min:10',
-            'phone' => 'required|min:10|numeric',
-            'current_job' => 'required'
-            // 'avatar' => 'dimensions:min_width=100,min_height=200'
+            'tgl_lahir' => 'date',
+            'gender' => 'required',
+            'alamat' => 'required',
+            'img' => 'image|file|max:2048'
         ]);
+        $validatedData['password'] = Hash::make($validatedData['password']);
 
-        $validatedData['password'] =Hash::make($validatedData['password']);
-
-        User::where('id', $user->id)
+        User::where('id', $applicant->id)
                ->update($validatedData);
 
-        return redirect('users');
+        return redirect('/admin/applicant');
     }
 
     /**
@@ -147,11 +131,6 @@ class UserController extends Controller
     {
         $model = User::find($id);
         $model->delete();
-        return redirect('users');
+        return redirect('/admin/applicant');
     }
-
-    // untuk melihat detail usser
-
-    
-    
 }

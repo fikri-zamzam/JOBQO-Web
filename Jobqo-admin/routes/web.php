@@ -2,19 +2,22 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HRDController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TugasController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\JobTypeController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Admin_typeController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\CompanyTypeController;
 
+use App\Http\Controllers\Admin_typeController;
+use App\Http\Controllers\CheckdocHRDController;
+use App\Http\Controllers\CompanyTypeController;
 use App\Http\Controllers\JobPositionController;
 use App\Http\Controllers\CompanySectorController;
 use App\Http\Controllers\UserBlacklistController;
@@ -68,14 +71,27 @@ Route::get('/logout', [LoginController::class, 'logout']);
 // Route untuk role admin
 
 Route::group(['prefix' => 'admin','middleware' => ['auth'],['checkRole:Admin']], function() {
-    Route::get('/', [DashboardController::class,'index']);
+    Route::get('/', [DashboardController::class,'indexAdmin']);
     Route::resource('jobs', JobController::class);
         Route::resource('jobs_type', JobTypeController::class);
         Route::resource('jobs_position', JobPositionController::class);
     Route::resource('companies', CompanyController::class);
         Route::resource('companies_sector', CompanySectorController::class);
         Route::resource('companies_type', CompanyTypeController::class);
+    // route untuk user
+    Route::resource('applicant', ApplicantController::class);
+    Route::resource('hrd', HRDController::class);
     Route::resource('admin', AdminController::class);
+    // Route::resource('users', UserController::class);
+ });
+
+ Route::group(['prefix' => 'hrd','middleware' => ['auth'],['checkRole:HRD']], function() {
+    Route::get('/', [DashboardController::class,'indexHRD']);
+        // multi step form hrd
+        Route::get('/check-step-one', [CheckdocHRDController::class,'step_one_show'])->name('step-one-show');
+        Route::post('/check-step-one', [CheckdocHRDController::class,'step_one_post'])->name('step-one-post');
+        Route::get('/check-step-two', [CheckdocHRDController::class,'step_two_show'])->name('step-two-show');
+        Route::post('/check-step-two', [CheckdocHRDController::class,'step_two_post'])->name('step-two-post');
     // Route::resource('users', UserController::class);
  });
 
@@ -92,3 +108,4 @@ Route::group(['middleware' => ['auth']], function() {
 //     */
 //     Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
 //  });
+

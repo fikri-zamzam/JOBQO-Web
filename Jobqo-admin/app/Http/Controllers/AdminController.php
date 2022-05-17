@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Admin;
-use App\Models\Admin_auths;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -15,12 +15,12 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admin = Admin::all();
-
+        $admin = User::all();
+        $admin = User::where('roles', 'LIKE', '%Admin%')->get();
         return view('_AdminPage.admins.admin_main.index',[
             "title" => "Admin",
             "subtitle1" => "Admin",
-            "subtitle2" => "List Data Admin"
+            "subtitle2" => "List Data Admin",
         ], compact('admin'));
     }
 
@@ -31,12 +31,11 @@ class AdminController extends Controller
      */
     public function create()
     {
-        $model = new Admin();
+        $model = new User();
         return view('_AdminPage.admins.admin_main.create',[
             "title" => "Tambah Admin",
             "subtitle1" => "Admin",
-            "subtitle2" => "Tambah Data Admin",
-            "Admin_auths" => Admin_auths::all()
+            "subtitle2" => "Tambah Data Admin"
         ], compact('model'));
     }
 
@@ -65,15 +64,17 @@ class AdminController extends Controller
             'username' => 'required|unique:admins',
             'email' => 'required|unique:admins',
             'password' => 'required|min:5|',
-            'admin_auths_id' => 'required',
+            'gender' => 'required',
+            'tgl_lahir' => 'date',
+            'alamat' => 'required',
             'img' => 'image|file|max:2048'
         ]);
-
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        $validatedData['roles'] = "Admin";
         if($request->file('img')){
             $validatedData['img'] = $request->file('img')->store('Admin-profile');
         }
-
-        Admin::create($validatedData);
+        User::create($validatedData);
         return redirect('/admin/admin');
     }
 
@@ -96,12 +97,11 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $model = Admin::find($id);
+        $model = User::find($id);
         return view('_AdminPage.admins.admin_main.edit',[
             "title" => "Edit Admin",
             "subtitle1" => "Admin",
-            "subtitle2" => "Ubah Data Admin",
-            "Admin_auths" => Admin_auths::all()
+            "subtitle2" => "Ubah Data Admin"
         ],compact('model'));
     }
 
@@ -114,20 +114,23 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $admin = Admin::find($id);
+        $admin = User::find($id);
         $validatedData = $request->validate([
             'name' => 'required|min:10',
-            'username' => 'required|unique:admins',
-            'email' => 'required|unique:admins',
+            'username' => 'required|unique:users,username,'.$admin->id,
+            'email' => 'required|unique:users,email,'.$admin->id,
             'password' => 'required|min:5|',
-            'admin_auths_id' => 'required',
+            'gender' => 'required',
+            'tgl_lahir' => 'date',
+            'alamat' => 'required',
             'img' => 'image|file|max:2048'
         ]);
+        $validatedData['password'] = Hash::make($validatedData['password']);
 
-        Admin::where('id', $admin->id)
+        User::where('id', $admin->id)
                ->update($validatedData);
 
-        return redirect('admin');
+        return redirect('/admin/admin');
     }
 
     /**
@@ -138,8 +141,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $model = Admin::find($id);
+        $model = User::find($id);
         $model->delete();
-        return redirect('admin');
+        return redirect('/admin/admin');
     }
 }
