@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Job;
 use App\Models\Job_categories;
 use App\Models\Job_positions;
+use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
@@ -22,7 +23,9 @@ class JobController extends Controller
         return view('_AdminPage.jobs.jobs_main.index',[
             "title" => "Pekerjaan",
             "subtitle1" => "Pekerjaan",
-            "subtitle2" => "List Data Pekerjaan"
+            "subtitle2" => "List Data Pekerjaan",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('jobs'));
     }
@@ -41,7 +44,9 @@ class JobController extends Controller
             "subtitle2" => "Tambah Data Pekerjaan",
             "Categories" => Job_categories::all(),
             "Positions" => Job_positions::all(),
-            "Companies" => Company::all()
+            "Companies" => Company::all(),
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('model'));
     }
@@ -94,7 +99,9 @@ class JobController extends Controller
             "subtitle2" => "Ubah Data Pekerjaan",
             "Categories" => Job_categories::all(),
             "Positions" => Job_positions::all(),
-            "Companies" => Company::all()
+            "Companies" => Company::all(),
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ],compact('model'));
     }
 

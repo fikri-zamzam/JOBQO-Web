@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use App\Models\Company;
 use App\Models\Company_types;
 use App\Models\Company_sectors;
+use Illuminate\Support\Facades\Auth;
+
 
 class CompanyController extends Controller
 {
@@ -20,7 +22,9 @@ class CompanyController extends Controller
         return view('_AdminPage.companies.companies_main.index',[
             "title" => "Perusahaan",
             "subtitle1" => "Perusahaan",
-            "subtitle2" => "List Data Perusahaan"
+            "subtitle2" => "List Data Perusahaan",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('companies'));
     }
@@ -38,7 +42,9 @@ class CompanyController extends Controller
             "subtitle1" => "Perusahaan",
             "subtitle2" => "Tambah Data Perusahaan",
             "CompanySector" => Company_sectors::all(),
-            "CompanyType" => Company_types::all()
+            "CompanyType" => Company_types::all(),
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('model'));
     }
@@ -94,7 +100,9 @@ class CompanyController extends Controller
             "subtitle1" => "Perusahaan",
             "subtitle2" => "Ubah Data Perusahaan",
             "CompanySector" => Company_sectors::all(),
-            "CompanyType" => Company_types::all()
+            "CompanyType" => Company_types::all(),
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ],compact('model'));
     }
 

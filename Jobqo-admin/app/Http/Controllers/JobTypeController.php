@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Job_categories;
+use Illuminate\Support\Facades\Auth;
 
 class JobTypeController extends Controller
 {
@@ -19,7 +20,9 @@ class JobTypeController extends Controller
         return view('_AdminPage.jobs.jobs_type.index',[
             "title" => "Jenis Pekerjaan",
             "subtitle1" => "Jenis Pekerjaan",
-            "subtitle2" => "List Jenis Pekerjaan"
+            "subtitle2" => "List Jenis Pekerjaan",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('jobs_type'));
     }
@@ -35,7 +38,9 @@ class JobTypeController extends Controller
         return view('_AdminPage.jobs.jobs_type.create',[
             "title" => "Tambah Jenis Pekerjaan",
             "subtitle1" => "Jenis Pekerjaan",
-            "subtitle2" => "Tambah Jenis Pekerjaan"
+            "subtitle2" => "Tambah Jenis Pekerjaan",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('model'));
     }
@@ -79,7 +84,9 @@ class JobTypeController extends Controller
         return view('_AdminPage.jobs.jobs_type.edit',[
             "title" => "Edit Jenis Pekerjaan",
             "subtitle1" => "Jenis Pekerjaan",
-            "subtitle2" => "Edit Jenis Pekerjaan"
+            "subtitle2" => "Edit Jenis Pekerjaan",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ],compact('model'));
     }
 

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
 class ApplicantController extends Controller
 {
     /**
@@ -21,6 +21,8 @@ class ApplicantController extends Controller
             "title" => "Applicant",
             "subtitle1" => "Applicant",
             "subtitle2" => "List Data applicant",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ], compact('applicant'));
     }
 
@@ -35,7 +37,9 @@ class ApplicantController extends Controller
         return view('_AdminPage.users.role_applicant.create',[
             "title" => "Tambah Pelamar",
             "subtitle1" => "Applicant",
-            "subtitle2" => "Tambah Data Applicant"
+            "subtitle2" => "Tambah Data Applicant",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ], compact('model'));
     }
 
@@ -89,7 +93,9 @@ class ApplicantController extends Controller
         return view('_AdminPage.users.role_applicant.edit',[
             "title" => "Edit Pelamar",
             "subtitle1" => "Applicant",
-            "subtitle2" => "Ubah Data Applicant"
+            "subtitle2" => "Ubah Data Applicant",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ],compact('model'));
     }
 

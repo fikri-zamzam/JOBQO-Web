@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
@@ -21,6 +22,8 @@ class AdminController extends Controller
             "title" => "Admin",
             "subtitle1" => "Admin",
             "subtitle2" => "List Data Admin",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username,
         ], compact('admin'));
     }
 
@@ -35,7 +38,9 @@ class AdminController extends Controller
         return view('_AdminPage.admins.admin_main.create',[
             "title" => "Tambah Admin",
             "subtitle1" => "Admin",
-            "subtitle2" => "Tambah Data Admin"
+            "subtitle2" => "Tambah Data Admin",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ], compact('model'));
     }
 
@@ -101,7 +106,9 @@ class AdminController extends Controller
         return view('_AdminPage.admins.admin_main.edit',[
             "title" => "Edit Admin",
             "subtitle1" => "Admin",
-            "subtitle2" => "Ubah Data Admin"
+            "subtitle2" => "Ubah Data Admin",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ],compact('model'));
     }
 

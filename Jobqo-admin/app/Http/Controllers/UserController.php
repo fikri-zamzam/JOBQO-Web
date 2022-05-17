@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use illuminate\Support\Facades\Response;
-
 class UserController extends Controller
 {
     /**
@@ -21,7 +21,9 @@ class UserController extends Controller
         return view('users.users_main.index',[
             "title" => "Pekerja",
             "subtitle1" => "Pekerja",
-            "subtitle2" => "List Data Pekerja"
+            "subtitle2" => "List Data Pekerja",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('users'));
     }
@@ -37,7 +39,9 @@ class UserController extends Controller
         return view('users.users_main.create',[
             "title" => "Tambah Pekerja",
             "subtitle1" => "Pekerja",
-            "subtitle2" => "Tambah Data Pekerja"
+            "subtitle2" => "Tambah Data Pekerja",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('model'));
     }
@@ -101,7 +105,9 @@ class UserController extends Controller
         return view('users.users_main.edit',[
             "title" => "Edit Pekerja",
             "subtitle1" => "Pekerja",
-            "subtitle2" => "Edit Data Pekerja"
+            "subtitle2" => "Edit Data Pekerja",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ],compact('model'));
     }
 

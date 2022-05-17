@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
 class HRDController extends Controller
 {
     /**
@@ -21,6 +21,8 @@ class HRDController extends Controller
             "title" => "HRD",
             "subtitle1" => "HRD",
             "subtitle2" => "List Data HRD",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ], compact('HRD'));
     }
 
@@ -35,7 +37,9 @@ class HRDController extends Controller
         return view('_AdminPage.users.role_hrd.create',[
             "title" => "Tambah HRD",
             "subtitle1" => "HRD",
-            "subtitle2" => "Tambah Data HRD"
+            "subtitle2" => "Tambah Data HRD",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ], compact('model'));
     }
 
@@ -89,7 +93,9 @@ class HRDController extends Controller
         return view('_AdminPage.users.role_hrd.edit',[
             "title" => "Edit HRD",
             "subtitle1" => "HRD",
-            "subtitle2" => "Ubah Data HRD"
+            "subtitle2" => "Ubah Data HRD",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ],compact('model'));
     }
 

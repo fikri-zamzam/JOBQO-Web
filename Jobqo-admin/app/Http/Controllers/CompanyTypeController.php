@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Company_types;
+use Illuminate\Support\Facades\Auth;
 
 class CompanyTypeController extends Controller
 {
@@ -19,7 +20,9 @@ class CompanyTypeController extends Controller
         return view('_AdminPage.companies.companies_type.index',[
             "title" => "Jenis Perusahaan",
             "subtitle1" => "Jenis Perusahaan",
-            "subtitle2" => "List Jenis Perusahaan"
+            "subtitle2" => "List Jenis Perusahaan",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('company_type'));
     }
@@ -35,7 +38,9 @@ class CompanyTypeController extends Controller
         return view('_AdminPage.companies.companies_type.create',[
             "title" => "Tambah Jenis Perusahaan",
             "subtitle1" => "Jenis Perusahaan",
-            "subtitle2" => "Tambah Jenis Perusahaan"
+            "subtitle2" => "Tambah Jenis Perusahaan",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ], compact('model'));
     }
 
@@ -80,7 +85,9 @@ class CompanyTypeController extends Controller
         return view('_AdminPage.companies.companies_type.edit',[
             "title" => "Edit Jenis Perusahaan",
             "subtitle1" => "Jenis Perusahaan",
-            "subtitle2" => "Edit Jenis Perusahaan"
+            "subtitle2" => "Edit Jenis Perusahaan",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ],compact('model'));
     }
 

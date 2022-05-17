@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserBlacklistController extends Controller
 {
@@ -17,7 +18,9 @@ class UserBlacklistController extends Controller
         $users = User::all();
 
         return view('users.users_blacklist.index',[
-            "title" => "User"
+            "title" => "User",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('users'));
     }
@@ -31,7 +34,9 @@ class UserBlacklistController extends Controller
     {
         $model = new User();
         return view('users.users_blacklist.create',[
-            "title" => "User"
+            "title" => "User",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('model'));
     }
@@ -76,7 +81,9 @@ class UserBlacklistController extends Controller
     {
         $model = User::find($id);
         return view('users.users_blacklist.edit',[
-            "title" => "Edit Petugas"
+            "title" => "Edit Petugas",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ],compact('model'));
     }
 

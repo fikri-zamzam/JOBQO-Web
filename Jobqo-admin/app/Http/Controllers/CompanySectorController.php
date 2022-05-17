@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Company_sectors;
+use Illuminate\Support\Facades\Auth;
 
 class CompanySectorController extends Controller
 {
@@ -19,7 +20,9 @@ class CompanySectorController extends Controller
         return view('_AdminPage.companies.companies_sector.index',[
             "title" => "Sektor Perusahaan",
             "subtitle1" => "Sektor Perusahaan",
-            "subtitle2" => "List Sektor Perusahaan"
+            "subtitle2" => "List Sektor Perusahaan",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('company_sector'));
     }
@@ -35,7 +38,9 @@ class CompanySectorController extends Controller
         return view('_AdminPage.companies.companies_sector.create',[
             "title" => "Tambah Sektor Perusahaan",
             "subtitle1" => "Sektor Perusahaan",
-            "subtitle2" => "Tambah Sektor Perusahaan"
+            "subtitle2" => "Tambah Sektor Perusahaan",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('model'));
     }
@@ -82,7 +87,9 @@ class CompanySectorController extends Controller
         return view('_AdminPage.companies.companies_sector.edit',[
             "title" => "Edit Sektor Perusahaan",
             "subtitle1" => "Sektor Perusahaan",
-            "subtitle2" => "Edit Sektor Perusahaan"
+            "subtitle2" => "Edit Sektor Perusahaan",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ],compact('model'));
     }
 

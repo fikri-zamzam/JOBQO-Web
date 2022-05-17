@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin_auths;
+use Illuminate\Support\Facades\Auth;
 
 class Admin_typeController extends Controller
 {
@@ -19,7 +20,9 @@ class Admin_typeController extends Controller
         return view('admins.admin_type.index',[
             "title" => "Jenis Admin",
             "subtitle1" => "Jenis Admin",
-            "subtitle2" => "List Jenis Admin"
+            "subtitle2" => "List Jenis Admin",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('admin_type'));
     }
@@ -35,7 +38,9 @@ class Admin_typeController extends Controller
         return view('admins.admin_type.create',[
             "title" => "Tambah Jenis Admin",
             "subtitle1" => "Jenis Admin",
-            "subtitle2" => "Tambah Jenis Admin"
+            "subtitle2" => "Tambah Jenis Admin",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('model'));
     }
@@ -79,7 +84,9 @@ class Admin_typeController extends Controller
         return view('admins.admin_type.edit',[
             "title" => "Edit Jenis Admin",
             "subtitle1" => "Jenis Admin",
-            "subtitle2" => "Edit Jenis Admin"
+            "subtitle2" => "Edit Jenis Admin",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ],compact('model'));
     }
 

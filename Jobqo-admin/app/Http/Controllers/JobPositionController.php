@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Job_positions;
+use Illuminate\Support\Facades\Auth;
 
 class JobPositionController extends Controller
 {
@@ -19,7 +20,9 @@ class JobPositionController extends Controller
         return view('_AdminPage.jobs.jobs_position.index',[
             "title" => "Posisi Pekerjaan",
             "subtitle1" => "Posisi Pekerjaan",
-            "subtitle2" => "List Posisi Pekerjaan"
+            "subtitle2" => "List Posisi Pekerjaan",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('jobs_position'));
     }
@@ -35,7 +38,9 @@ class JobPositionController extends Controller
         return view('_AdminPage.jobs.jobs_position.create',[
             "title" => "Tambah Posisi Pekerjaan",
             "subtitle1" => "Posisi Pekerjaan",
-            "subtitle2" => "Tambah Posisi Pekerjaan"
+            "subtitle2" => "Tambah Posisi Pekerjaan",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
 
         ], compact('model'));
     }
@@ -79,7 +84,9 @@ class JobPositionController extends Controller
         return view('_AdminPage.jobs.jobs_position.edit',[
             "title" => "Edit Posisi Pekerjaan",
             "subtitle1" => "Posisi Pekerjaan",
-            "subtitle2" => "Edit Posisi Pekerjaan"
+            "subtitle2" => "Edit Posisi Pekerjaan",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username
         ],compact('model'));
     }
 
