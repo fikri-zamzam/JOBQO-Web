@@ -22,7 +22,8 @@ class CompanySectorController extends Controller
             "subtitle1" => "Sektor Perusahaan",
             "subtitle2" => "List Sektor Perusahaan",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
 
         ], compact('company_sector'));
     }
@@ -40,7 +41,8 @@ class CompanySectorController extends Controller
             "subtitle1" => "Sektor Perusahaan",
             "subtitle2" => "Tambah Sektor Perusahaan",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
 
         ], compact('model'));
     }
@@ -89,7 +91,8 @@ class CompanySectorController extends Controller
             "subtitle1" => "Sektor Perusahaan",
             "subtitle2" => "Edit Sektor Perusahaan",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
         ],compact('model'));
     }
 

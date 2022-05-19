@@ -24,7 +24,8 @@ class CompanyController extends Controller
             "subtitle1" => "Perusahaan",
             "subtitle2" => "List Data Perusahaan",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
 
         ], compact('companies'));
     }
@@ -44,7 +45,8 @@ class CompanyController extends Controller
             "CompanySector" => Company_sectors::all(),
             "CompanyType" => Company_types::all(),
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
 
         ], compact('model'));
     }
@@ -102,7 +104,8 @@ class CompanyController extends Controller
             "CompanySector" => Company_sectors::all(),
             "CompanyType" => Company_types::all(),
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
         ],compact('model'));
     }
 

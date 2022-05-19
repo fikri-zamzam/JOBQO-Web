@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 class HRDController extends Controller
 {
     /**
@@ -22,7 +23,8 @@ class HRDController extends Controller
             "subtitle1" => "HRD",
             "subtitle2" => "List Data HRD",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
         ], compact('HRD'));
     }
 
@@ -39,7 +41,8 @@ class HRDController extends Controller
             "subtitle1" => "HRD",
             "subtitle2" => "Tambah Data HRD",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
         ], compact('model'));
     }
 
@@ -59,13 +62,15 @@ class HRDController extends Controller
             'tgl_lahir' => 'date',
             'alamat' => 'required',
             'gender' => 'required',
-            'img' => 'image|file|max:2048'
+            'img' => 'image|file|max:2048|dimensions:max_width=500,max_height=500'
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
         $validatedData['roles'] = "HRD";
-        // if($request->file('img')){
-        //     $validatedData['img'] = $request->file('img')->store('Admin-profile');
-        // }
+
+        if($request->file('img')){
+            $validatedData['img'] = $request->file('img')->store('HRD-profile');
+        }
+
         User::create($validatedData);
         return redirect('/admin/hrd');
     }
@@ -95,7 +100,8 @@ class HRDController extends Controller
             "subtitle1" => "HRD",
             "subtitle2" => "Ubah Data HRD",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
         ],compact('model'));
     }
 
@@ -113,13 +119,20 @@ class HRDController extends Controller
             'name' => 'required|min:10',
             'username' => 'required|unique:users,username,'.$HRD->id,
             'email' => 'required|unique:users,email,'.$HRD->id,
-            'password' => 'required|min:5|',
+            'password' => '',
             'tgl_lahir' => 'date',
             'gender' => 'required',
             'alamat' => 'required',
-            'img' => 'image|file|max:2048'
+            'img' => 'image|file|max:2048|dimensions:max_width=500,max_height=500'
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
+
+        if($request->file('img')){
+            if($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['img'] = $request->file('img')->store('HRD-profile');
+        }
 
         User::where('id', $HRD->id)
                ->update($validatedData);
@@ -136,6 +149,9 @@ class HRDController extends Controller
     public function destroy($id)
     {
         $model = User::find($id);
+        if($model->img) {
+            Storage::delete($model->img);
+        }
         $model->delete();
         return redirect('/admin/hrd');
     }

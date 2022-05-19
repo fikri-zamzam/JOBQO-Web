@@ -48,7 +48,7 @@
         @enderror
         <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Password</label>
-            <input type="password" class="form-control" name="password" required
+            <input type="password" class="form-control" name="password"
                     placeholder="Password Admin">
         </div>
         @error('password')
@@ -67,14 +67,22 @@
             <textarea class="form-control" name="alamat" id="alamat" >{{ old('alamat',$model->alamat) }}</textarea>
         </div>
 
-        {{-- <label for="image">Pilih Foto Profile</label>
+        <label for="image">Pilih Foto Profile</label><br>
+        <input type="hidden" name="oldImage" value="{{ $model->img }}">
+        @if ($model->img != NULL)
+            <img class="img-fluid mb-3" src="{{ asset('storage/'.$model->img) }}" id="img-preview" alt="preview" style="height: 150px">
+        @else
+            <img class="img-fluid mb-3" src="../../../img/image-preview.png" id="img-preview" style="height: 150px">
+        @endif
+
         <div class="custom-file">
-            <input type="file" class="custom-file-input" id="image" name="img">
+            <input type="file" class="custom-file-input" id="image" name="img" onchange="document.getElementById('img-preview').src = window.URL.createObjectURL(this.files[0])">
             <label class="custom-file-label" for="image">Choose file</label>
         </div>
+
         @error('img')
             <div class="alert alert-danger">{{ $message }}</div>
-        @enderror --}}
+        @enderror 
 
         <div class="form-group mt-3">
             <button class="btn btn-primary" type="submit">Edit Perubahan</button>

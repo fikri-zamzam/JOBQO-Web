@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -24,6 +25,7 @@ class AdminController extends Controller
             "subtitle2" => "List Data Admin",
             "fullname"  => Auth::user()->name,
             "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
         ], compact('admin'));
     }
 
@@ -40,7 +42,8 @@ class AdminController extends Controller
             "subtitle1" => "Admin",
             "subtitle2" => "Tambah Data Admin",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
         ], compact('model'));
     }
 
@@ -54,16 +57,6 @@ class AdminController extends Controller
     {
         // return $request->file('imageAdmin')->store('Admin-profile');
 
-        // $model = new Admin;
-        // $model->name = $request->namaAdmin;
-        // $model->username = $request->userName;
-        // $model->gender = $request->genderAdmin;
-        // $model->email = $request->emailAdmin;
-        // $model->password = $request->passAdmin;
-        // $model->admin_auths_id = $request->jenisAdmin;
-        // $model->save();
-        
-
         $validatedData = $request->validate([
             'name' => 'required|min:10',
             'username' => 'required|unique:admins',
@@ -72,7 +65,7 @@ class AdminController extends Controller
             'gender' => 'required',
             'tgl_lahir' => 'date',
             'alamat' => 'required',
-            'img' => 'image|file|max:2048'
+            'img' => 'image|file|max:2048|dimensions:max_width=500,max_height=500'
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
         $validatedData['roles'] = "Admin";
@@ -108,7 +101,8 @@ class AdminController extends Controller
             "subtitle1" => "Admin",
             "subtitle2" => "Ubah Data Admin",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
         ],compact('model'));
     }
 
@@ -126,13 +120,20 @@ class AdminController extends Controller
             'name' => 'required|min:10',
             'username' => 'required|unique:users,username,'.$admin->id,
             'email' => 'required|unique:users,email,'.$admin->id,
-            'password' => 'required|min:5|',
+            'password' => '',
             'gender' => 'required',
             'tgl_lahir' => 'date',
             'alamat' => 'required',
-            'img' => 'image|file|max:2048'
+            'img' => 'image|file|max:2048|dimensions:max_width=500,max_height=500'
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
+
+        if($request->file('img')){
+            if($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['img'] = $request->file('img')->store('Admin-profile');
+        }
 
         User::where('id', $admin->id)
                ->update($validatedData);
@@ -148,7 +149,11 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
+
         $model = User::find($id);
+        if($model->img) {
+            Storage::delete($model->img);
+        }
         $model->delete();
         return redirect('/admin/admin');
     }

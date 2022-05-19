@@ -22,7 +22,8 @@ class JobPositionController extends Controller
             "subtitle1" => "Posisi Pekerjaan",
             "subtitle2" => "List Posisi Pekerjaan",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
 
         ], compact('jobs_position'));
     }
@@ -40,7 +41,8 @@ class JobPositionController extends Controller
             "subtitle1" => "Posisi Pekerjaan",
             "subtitle2" => "Tambah Posisi Pekerjaan",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
 
         ], compact('model'));
     }
@@ -86,7 +88,8 @@ class JobPositionController extends Controller
             "subtitle1" => "Posisi Pekerjaan",
             "subtitle2" => "Edit Posisi Pekerjaan",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
         ],compact('model'));
     }
 

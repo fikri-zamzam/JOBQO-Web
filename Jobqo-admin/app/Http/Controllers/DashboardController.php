@@ -14,7 +14,9 @@ class DashboardController extends Controller
             "subtitle1" => "Dashboard",
             "subtitle2" => "",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
+            // "imgProfile" => ""
 
         ]);
     }
@@ -26,7 +28,9 @@ class DashboardController extends Controller
             "subtitle1" => "Dashboard",
             "subtitle2" => "",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
+            // "imgProfile" => ""
 
         ]);
     }

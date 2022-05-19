@@ -22,7 +22,8 @@ class CompanyTypeController extends Controller
             "subtitle1" => "Jenis Perusahaan",
             "subtitle2" => "List Jenis Perusahaan",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
 
         ], compact('company_type'));
     }
@@ -40,7 +41,8 @@ class CompanyTypeController extends Controller
             "subtitle1" => "Jenis Perusahaan",
             "subtitle2" => "Tambah Jenis Perusahaan",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
         ], compact('model'));
     }
 
@@ -87,7 +89,8 @@ class CompanyTypeController extends Controller
             "subtitle1" => "Jenis Perusahaan",
             "subtitle2" => "Edit Jenis Perusahaan",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
         ],compact('model'));
     }
 

@@ -67,14 +67,17 @@
             </textarea>
         </div>
 
-        {{-- <label for="image">Pilih Foto Profile</label>
+        <label for="image">Pilih Foto Profile</label><br>
+        <img class="img-fluid mb-3" src="../../../img/image-preview.png" id="img-preview" style="height: 150px">
         <div class="custom-file">
-            <input type="file" class="custom-file-input" id="image" name="img">
+            <input type="file" class="custom-file-input" id="image" name="img" onchange="document.getElementById('img-preview').src = window.URL.createObjectURL(this.files[0])">
             <label class="custom-file-label" for="image">Choose file</label>
         </div>
+
+
         @error('img')
             <div class="alert alert-danger">{{ $message }}</div>
-        @enderror --}}
+        @enderror
 
         <div class="form-group mt-3">
             <button class="btn btn-primary" type="submit">Tambah</button>
@@ -84,5 +87,24 @@
         </div>
     </form>
 </div>
+
+<script>
+
+    // function previewImage() {
+
+    //     const image = document.querySelector('#image');
+    //     const imgPreview = document.querySelector('.img-preview');
+
+    //     imgPreview.style.display = 'block';
+
+    //     const oFReader = new FileReader();
+    //     oFReader.readAsDataURL(image.file[0]);
+
+    //     oFReader.onload = function(oFREvent){
+    //         imgPreview.src = oFREvent.target.result;
+    //     }
+    // }
+    
+</script>
 
 @endsection

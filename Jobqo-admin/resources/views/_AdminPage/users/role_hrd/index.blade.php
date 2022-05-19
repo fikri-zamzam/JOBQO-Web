@@ -12,6 +12,7 @@
       <th>Gender</th>
       <th>Tgl lahir</th>
       <th>Email</th>
+      <th>Foto</th>
       <th>Aksi</th>
     </thead>
     <tbody>
@@ -24,6 +25,7 @@
         <td> {{ ($value->gender == "L" ? "Laki-laki" : "Perempuan" ) }} </td>
         <td> {{ $value->tgl_lahir }} </td>
         <td> {{ $value->email }} </td>
+        <td><img style="display:block;" width="50px" height="50px" class="img-circle" src="{{ asset('storage/'. $value->img) }}" /></td>
         <td>
           <div class="row">
           <!-- <div class="col-3">

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 class ApplicantController extends Controller
 {
     /**
@@ -22,7 +23,8 @@ class ApplicantController extends Controller
             "subtitle1" => "Applicant",
             "subtitle2" => "List Data applicant",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
         ], compact('applicant'));
     }
 
@@ -39,7 +41,8 @@ class ApplicantController extends Controller
             "subtitle1" => "Applicant",
             "subtitle2" => "Tambah Data Applicant",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
         ], compact('model'));
     }
 
@@ -59,13 +62,13 @@ class ApplicantController extends Controller
             'tgl_lahir' => 'date',
             'alamat' => 'required',
             'gender' => 'required',
-            'img' => 'image|file|max:2048'
+            'img' => 'image|file|max:2048|dimensions:max_width=500,max_height=500'
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
         $validatedData['roles'] = "Pekerja";
-        // if($request->file('img')){
-        //     $validatedData['img'] = $request->file('img')->store('Admin-profile');
-        // }
+        if($request->file('img')){
+            $validatedData['img'] = $request->file('img')->store('Applicant-profile');
+        }
         User::create($validatedData);
         return redirect('/admin/applicant');
     }
@@ -95,7 +98,8 @@ class ApplicantController extends Controller
             "subtitle1" => "Applicant",
             "subtitle2" => "Ubah Data Applicant",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
         ],compact('model'));
     }
 
@@ -113,13 +117,20 @@ class ApplicantController extends Controller
             'name' => 'required|min:10',
             'username' => 'required|unique:users,username,'.$applicant->id,
             'email' => 'required|unique:users,email,'.$applicant->id,
-            'password' => 'required|min:5|',
+            'password' => '',
             'tgl_lahir' => 'date',
             'gender' => 'required',
             'alamat' => 'required',
-            'img' => 'image|file|max:2048'
+            'img' => 'image|file|max:2048|dimensions:max_width=500,max_height=500'
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
+
+        if($request->file('img')){
+            if($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['img'] = $request->file('img')->store('Applicant-profile');
+        }
 
         User::where('id', $applicant->id)
                ->update($validatedData);
@@ -136,6 +147,9 @@ class ApplicantController extends Controller
     public function destroy($id)
     {
         $model = User::find($id);
+        if($model->img) {
+            Storage::delete($model->img);
+        }
         $model->delete();
         return redirect('/admin/applicant');
     }

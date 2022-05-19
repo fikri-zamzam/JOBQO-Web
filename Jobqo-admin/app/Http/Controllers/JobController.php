@@ -25,7 +25,8 @@ class JobController extends Controller
             "subtitle1" => "Pekerjaan",
             "subtitle2" => "List Data Pekerjaan",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
 
         ], compact('jobs'));
     }
@@ -46,7 +47,8 @@ class JobController extends Controller
             "Positions" => Job_positions::all(),
             "Companies" => Company::all(),
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
 
         ], compact('model'));
     }
@@ -101,7 +103,8 @@ class JobController extends Controller
             "Positions" => Job_positions::all(),
             "Companies" => Company::all(),
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "username"  => Auth::user()->username,
+            "imgProfile" => Auth::user()->img
         ],compact('model'));
     }
 

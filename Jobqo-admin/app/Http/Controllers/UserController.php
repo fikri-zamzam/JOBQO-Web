@@ -23,7 +23,7 @@ class UserController extends Controller
             "subtitle1" => "Pekerja",
             "subtitle2" => "List Data Pekerja",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "imgProfile" => Auth::user()->img
 
         ], compact('users'));
     }
@@ -41,7 +41,7 @@ class UserController extends Controller
             "subtitle1" => "Pekerja",
             "subtitle2" => "Tambah Data Pekerja",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "imgProfile" => Auth::user()->img
 
         ], compact('model'));
     }
@@ -107,7 +107,7 @@ class UserController extends Controller
             "subtitle1" => "Pekerja",
             "subtitle2" => "Edit Data Pekerja",
             "fullname"  => Auth::user()->name,
-            "username"  => Auth::user()->username
+            "imgProfile" => Auth::user()->img
         ],compact('model'));
     }
 

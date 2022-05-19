@@ -33,6 +33,12 @@
             <li><a href="/">Bidang Perusahaan</a></li>
           </ul>
         </li>
+        <li><a><i class="fa fa-check-circle"></i>Permohonan <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="/">Apply HRD</a></li>
+            <li><a href="/">Data Perusahaan</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
     <div class="menu_section">
@@ -51,6 +57,7 @@
   </div>
   @endif
 
+  @if (Auth::user()->roles == "HRD")
   {{-- Sidebar HRD --}}
   <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
     <div class="menu_section">
@@ -76,3 +83,4 @@
       </ul>
     </div>
   </div>
+  @endif

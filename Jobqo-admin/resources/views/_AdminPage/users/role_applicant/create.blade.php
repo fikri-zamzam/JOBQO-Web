@@ -66,14 +66,15 @@
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
 
-        {{-- <label for="image">Pilih Foto Profile</label>
+        <label for="image">Pilih Foto Profile</label><br>
+        <img class="img-fluid mb-3" src="../../../img/image-preview.png" id="img-preview" style="height: 150px">
         <div class="custom-file">
-            <input type="file" class="custom-file-input" id="image" name="img">
+            <input type="file" class="custom-file-input" id="image" name="img" onchange="document.getElementById('img-preview').src = window.URL.createObjectURL(this.files[0])">
             <label class="custom-file-label" for="image">Choose file</label>
         </div>
         @error('img')
             <div class="alert alert-danger">{{ $message }}</div>
-        @enderror --}}
+        @enderror 
 
         {{-- Tombol Tambah --}}
         <div class="form-group mt-3">
