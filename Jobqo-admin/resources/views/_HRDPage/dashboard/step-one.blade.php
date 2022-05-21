@@ -72,14 +72,15 @@
                             <div class="col-md-6 col-sm-6 ">
                                 <input id="idEmail" class="form-control col" type="email" value="{{ $hrd_doc->email ?? old('email') }}" name="email">
                             </div>
-                            </div>
-                            <div class="form-group row">
+                        </div>
+                        <div class="form-group row">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="password1">Password <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 ">
                                 <input type="password" id="password1" name="password" required="required" class="form-control  ">
                             </div>
                         </div>  
+                        
                     </div>
                     <div class="card-footer text-right">
                         <button type="submit" class="btn btn-primary">Next</button>
