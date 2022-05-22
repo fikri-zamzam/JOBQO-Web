@@ -67,7 +67,7 @@
                                 <textarea class="form-control" name="alamat" id="idAlamat" >{{ $hrd_doc->alamat ?? old('alamat') }}</textarea>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="idEmail" class="col-form-label col-md-3 col-sm-3 label-align">Email</label>
                             <div class="col-md-6 col-sm-6 ">
                                 <input id="idEmail" class="form-control col" type="email" value="{{ $hrd_doc->email ?? old('email') }}" name="email">
@@ -79,7 +79,7 @@
                             <div class="col-md-6 col-sm-6 ">
                                 <input type="password" id="password1" name="password" required="required" class="form-control  ">
                             </div>
-                        </div>  
+                        </div>   --}}
                         
                     </div>
                     <div class="card-footer text-right">

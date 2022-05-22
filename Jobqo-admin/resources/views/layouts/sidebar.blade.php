@@ -35,8 +35,8 @@
         </li>
         <li><a><i class="fa fa-check-circle"></i>Permohonan <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="/">Apply HRD</a></li>
-            <li><a href="/">Data Perusahaan</a></li>
+            <li><a href="/admin/verifyhrd">Apply HRD</a></li>
+            <li><a href="/admin/verifycompany">Data Perusahaan</a></li>
           </ul>
         </li>
       </ul>
@@ -47,7 +47,6 @@
         <li><a><i class="fa fa-windows"></i> Admin <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a href="/admin/admin">List Admin</a></li>
-            <li><a href="/admin_type">Jenis Admin</a></li>
           </ul>
         </li>
                 
@@ -64,7 +63,6 @@
       <h3>General</h3>
       <ul class="nav side-menu">
       <li><a href="/hrd"><i class="fa fa-dashboard"></i> Dashboard </a>
-        <li><a href="hrd/check-step-one"><i class="fa fa-books"></i> Check dokumen </a>
       </li>
         <li><a><i class="fa fa-briefcase"></i> Jobs <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">

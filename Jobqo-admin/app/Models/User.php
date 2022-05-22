@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class user extends Authenticatable
+class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
@@ -40,10 +40,15 @@ class user extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getAdmin() {
+    public function getDetail() {
 
-        // $user = User::all();
-        // $user = User::where('roles', 'LIKE', '%Admin%')->get();
+        return $this->belongsTo(User_detail::class,'user_details_id');
+    }
+
+    public function getCompany()
+    {
+        // return $this->belongsTo('Model', 'foreign_key', 'owner_key'); 
+        return $this->belongsTo(Company::class,'companies_id');
     }
 }
 

@@ -28,6 +28,8 @@
 
     <!-- Custom Theme Style -->
     <link href="../../../templates_assets/build/css/custom.min.css" rel="stylesheet">
+
+    {{-- bootstrap 4 --}}
   </head>
 
   <body class="nav-md">
@@ -75,7 +77,7 @@
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="/logout">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -103,13 +105,7 @@
                     {{ $fullname }}
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item"  href="javascript:;"> Profile</a>
-                      <a class="dropdown-item"  href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Settings</span>
-                      </a>
-                  <a class="dropdown-item"  href="javascript:;">Help</a>
-                  <form action="/logout" method="POST">
+                  <form action="/logout" method="GET">
                     @csrf
                     <button type="submit" class="dropdown-item">Logout <i class="fa fa-sign-out pull-right"></i></button>
                   </form>

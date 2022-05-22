@@ -29,19 +29,13 @@ class DashboardController extends Controller
             "subtitle2" => "",
             "fullname"  => Auth::user()->name,
             "username"  => Auth::user()->username,
-            "imgProfile" => Auth::user()->img
-            // "imgProfile" => ""
+            "imgProfile"=> Auth::user()->img,
 
         ]);
     }
 
-    public function checkDoc()
-    {
-        return view('_HRDPage.dashboard.confirmDoc',[
-            // "title" => "Dashboard",
-            // "subtitle1" => "Dashboard",
-            // "subtitle2" => ""
-
-        ]);
+    public function waitingRoom(){
+        return view('_HRDPage.dashboard.waiting_room');
     }
+
 }

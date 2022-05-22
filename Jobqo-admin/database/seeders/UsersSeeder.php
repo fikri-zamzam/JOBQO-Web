@@ -27,5 +27,30 @@ class UsersSeeder extends Seeder
             'roles' => 'Admin',
             'created_at'=> now()
         ]);
+
+        // satu set hrd
+
+        DB::table('users')->insert([
+        	'name' => 'Muhammad Kholil',
+            'user_details_id' => '1',
+            'companies_id' => '1',
+        	'username' => 'm_kholil',
+            'gender' => 'L',
+            'tgl_lahir' => '2002-06-21',
+            'email' => 'kholil@gmail.com',
+            'password' => '$2y$10$bNdqaiGdQ3gK55yDoGoa1O76w75Mu7OWa8K6CK8BjKLxqUGnngPN6',
+            //password
+            'alamat' => 'Jelbuk',
+            'roles' => 'HRD',
+            'created_at'=> now()
+        ]);
+
+        DB::table('user_details')->insert([
+        	'education' => 'Universitas Terbuka',
+            'quote' => 'Semua adalah all',
+            'current_job' => 'Kang HRD',
+            'phone' => '082233291212',
+            'created_at'=> now()
+        ]);
     }
 }

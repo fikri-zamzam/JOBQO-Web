@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdminAuthsTable extends Migration
+class CreateUserDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateAdminAuthsTable extends Migration
      */
     public function up()
     {
-        Schema::create('admin_auths', function (Blueprint $table) {
+        Schema::create('user_details', function (Blueprint $table) {
             $table->id();
-            $table->string('auth_type');
-            $table->string('deskripsi');
+            $table->string('education')->nullable();
+            $table->string('quote')->nullable();
+            $table->string('current_job')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('cv_doc')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateAdminAuthsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin_auths');
+        Schema::dropIfExists('user_details');
     }
 }

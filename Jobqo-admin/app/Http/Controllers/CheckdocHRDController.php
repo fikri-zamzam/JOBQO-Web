@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Company;
 use App\Models\Company_types;
 use App\Models\Company_sectors;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -31,19 +32,21 @@ class CheckdocHRDController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|min:10',
             'username' => 'required|unique:users',
-            'email' => 'required|unique:users|email:dns',
-            'password' => 'required|min:5|',
+            // 'email' => 'required|unique:users|email:dns',
+            // 'password' => 'required|min:5|',
             'tgl_lahir' => 'date',
             'alamat' => 'required',
             'gender' => 'required',
             'img' => 'image|file|max:2048'
         ]);
 
-        $validatedData['password'] = Hash::make($validatedData['password']);
+        // $validatedData['password'] = Hash::make($validatedData['password']);
         $validatedData['roles'] = "HRD";
 
+        $id = Auth::user()->id;
+
         if(empty($request->session()->get('hrd_doc'))){
-            $hrd_doc = new User();
+            $hrd_doc = User::find($id);
             $hrd_doc->fill($validatedData);
             $request->session()->put('hrd_doc', $hrd_doc);
         }else{
@@ -78,13 +81,17 @@ class CheckdocHRDController extends Controller
             // 'company_place_id' => 'required'
         ]);
 
+        $validatedData['users_id'] = Auth::user()->id;
 
+
+        //menyimpan data perusahaan
         Company::create($validatedData);
 
+        // menyimpan data hrd
         $hrd_doc = $request->session()->get('hrd_doc');
         $hrd_doc->save();
         $request->session()->forget('hrd_doc');
 
-        // return redirect()->route('/');
+        return redirect('/hrd');
     }
 }

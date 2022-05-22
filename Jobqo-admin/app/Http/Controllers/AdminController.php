@@ -73,7 +73,7 @@ class AdminController extends Controller
             $validatedData['img'] = $request->file('img')->store('Admin-profile');
         }
         User::create($validatedData);
-        return redirect('/admin/admin');
+        return redirect('/admin/admin')->with('success', 'Selamat! Data berhasil Ditambah');
     }
 
     /**
@@ -138,8 +138,8 @@ class AdminController extends Controller
         User::where('id', $admin->id)
                ->update($validatedData);
 
-        return redirect('/admin/admin');
-    }
+        return redirect('/admin/admin')->with('success', 'Selamat! Data berhasil diperbarui');
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -155,6 +155,6 @@ class AdminController extends Controller
             Storage::delete($model->img);
         }
         $model->delete();
-        return redirect('/admin/admin');
+        return redirect('/admin/admin')->with('success', 'Data berhasil dihapus');
     }
 }

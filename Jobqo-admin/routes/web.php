@@ -21,6 +21,7 @@ use App\Http\Controllers\CompanyTypeController;
 use App\Http\Controllers\JobPositionController;
 use App\Http\Controllers\CompanySectorController;
 use App\Http\Controllers\UserBlacklistController;
+use App\Http\Controllers\VerifyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,12 +83,21 @@ Route::group(['prefix' => 'admin','middleware' => ['auth'],['checkRole:Admin']],
     Route::resource('applicant', ApplicantController::class);
     Route::resource('hrd', HRDController::class);
     Route::resource('admin', AdminController::class);
-    // Route::resource('users', UserController::class);
+
+    // non resource controller 
+    Route::get('/verifycompany',[VerifyController::class,'index']);
+        Route::post('/verifycompany/{id}',[VerifyController::class,'Accept']);
+        Route::delete('/verifycompany/{id}',[VerifyController::class,'destroy']);
+
+    Route::get('/verifyhrd',[VerifyController::class,'indexHRD']);
+    Route::get('/verifyhrd/create',[VerifyController::class,'createHRD']);
+        Route::post('/verifyhrd/create',[VerifyController::class,'storeHRD']);
  });
 
  Route::group(['prefix' => 'hrd','middleware' => ['auth'],['checkRole:HRD']], function() {
-    Route::get('/', [DashboardController::class,'indexHRD']);
-        // multi step form hrd
+    Route::get('/', [DashboardController::class,'indexHRD'])->middleware('checkDoc');
+    Route::get('/waiting-room', [DashboardController::class,'waitingRoom']);
+    
         Route::get('/check-step-one', [CheckdocHRDController::class,'step_one_show'])->name('step-one-show');
         Route::post('/check-step-one', [CheckdocHRDController::class,'step_one_post'])->name('step-one-post');
         Route::get('/check-step-two', [CheckdocHRDController::class,'step_two_show'])->name('step-two-show');
