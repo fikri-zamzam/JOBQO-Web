@@ -56,8 +56,10 @@
         </div>
         <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Persyaratan Pekerjaan</label>
-            <input type="text" class="form-control" name="job_requirement" required
-                    placeholder="Persyaratan Pekerjaan" value="{{ old('job_requirement') }}">
+            <p>
+                <input id="x" type="hidden" name="job_requirement" value="{{ old('job_requirement') }}" />
+                <trix-editor input="x" class="trix-content"></trix-editor>
+            </p>
         </div>
         @error('job_requirement')
             <div class="alert alert-danger">{{ $message }}</div>

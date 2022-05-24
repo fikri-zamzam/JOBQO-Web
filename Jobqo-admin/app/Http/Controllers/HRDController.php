@@ -119,13 +119,11 @@ class HRDController extends Controller
             'name' => 'required|min:10',
             'username' => 'required|unique:users,username,'.$HRD->id,
             'email' => 'required|unique:users,email,'.$HRD->id,
-            'password' => '',
             'tgl_lahir' => 'date',
             'gender' => 'required',
             'alamat' => 'required',
             'img' => 'image|file|max:2048|dimensions:max_width=500,max_height=500'
         ]);
-        $validatedData['password'] = Hash::make($validatedData['password']);
 
         if($request->file('img')){
             if($request->oldImage) {

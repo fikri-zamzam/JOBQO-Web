@@ -120,13 +120,11 @@ class AdminController extends Controller
             'name' => 'required|min:10',
             'username' => 'required|unique:users,username,'.$admin->id,
             'email' => 'required|unique:users,email,'.$admin->id,
-            'password' => '',
             'gender' => 'required',
             'tgl_lahir' => 'date',
             'alamat' => 'required',
             'img' => 'image|file|max:2048|dimensions:max_width=500,max_height=500'
         ]);
-        $validatedData['password'] = Hash::make($validatedData['password']);
 
         if($request->file('img')){
             if($request->oldImage) {

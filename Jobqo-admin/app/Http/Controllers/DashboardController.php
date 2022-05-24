@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\user;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function indexAdmin()
-    {
+    {   
         return view('_AdminPage.dashboard.main',[
             "title" => "Dashboard",
             "subtitle1" => "Dashboard",
@@ -22,7 +22,7 @@ class DashboardController extends Controller
     }
 
     public function indexHRD()
-    {
+    {   $user = User::find(2);
         return view('_HRDPage.dashboard.main',[
             "title" => "Dashboard",
             "subtitle1" => "Dashboard",
@@ -30,6 +30,7 @@ class DashboardController extends Controller
             "fullname"  => Auth::user()->name,
             "username"  => Auth::user()->username,
             "imgProfile"=> Auth::user()->img,
+            "company" => $user->getCompany->name_company
 
         ]);
     }

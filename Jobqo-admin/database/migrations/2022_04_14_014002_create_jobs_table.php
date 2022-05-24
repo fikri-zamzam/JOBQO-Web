@@ -21,7 +21,7 @@ class CreateJobsTable extends Migration
             $table->foreignId('company_id')->nullable();
             $table->foreignId('job_category_id')->nullable();
             $table->foreignId('job_position_id')->nullable();
-            $table->string('job_requirement');
+            $table->text('job_requirement');
             $table->timestamps();
         });
     }

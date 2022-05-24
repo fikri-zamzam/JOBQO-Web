@@ -7,21 +7,22 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HRD_Application;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TugasController;
+use App\Http\Controllers\VerifyController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\JobTypeController;
 use App\Http\Controllers\RegisterController;
+
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\DashboardController;
-
 use App\Http\Controllers\Admin_typeController;
 use App\Http\Controllers\CheckdocHRDController;
 use App\Http\Controllers\CompanyTypeController;
 use App\Http\Controllers\JobPositionController;
 use App\Http\Controllers\CompanySectorController;
 use App\Http\Controllers\UserBlacklistController;
-use App\Http\Controllers\VerifyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,7 +98,11 @@ Route::group(['prefix' => 'admin','middleware' => ['auth'],['checkRole:Admin']],
  Route::group(['prefix' => 'hrd','middleware' => ['auth'],['checkRole:HRD']], function() {
     Route::get('/', [DashboardController::class,'indexHRD'])->middleware('checkDoc');
     Route::get('/waiting-room', [DashboardController::class,'waitingRoom']);
-    
+    // HRD_Application
+
+    Route::resource('lamaran', HRD_Application::class);
+
+
         Route::get('/check-step-one', [CheckdocHRDController::class,'step_one_show'])->name('step-one-show');
         Route::post('/check-step-one', [CheckdocHRDController::class,'step_one_post'])->name('step-one-post');
         Route::get('/check-step-two', [CheckdocHRDController::class,'step_two_show'])->name('step-two-show');

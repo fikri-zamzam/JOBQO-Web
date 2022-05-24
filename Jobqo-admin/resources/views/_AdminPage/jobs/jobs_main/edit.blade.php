@@ -8,7 +8,7 @@
         <input type="hidden" name="_method" value="PATCH">
         <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Nama Pekerjaan</label>
-            <input type="text" class="form-control" name="name_job" required
+            <input type="text" class="form-control" name="name_job" 
                     placeholder="Nama Pekerjaan" value="{{ old('name_job',$model->name_job) }}" >
         </div>
         @error('name_job')
@@ -16,7 +16,7 @@
         @enderror
         <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Deskripsi Pekerjaan</label>
-            <input type="text" class="form-control" name="desk_job" required
+            <input type="text" class="form-control" name="desk_job" 
                     placeholder="Deskripsi Pekerjaan" value="{{ old('desk_job',$model->desk_job) }}">
         </div>
         @error('desk_job')
@@ -24,7 +24,7 @@
         @enderror
         <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Gaji</label>
-            <input type="number" class="form-control" name="gaji" required
+            <input type="number" class="form-control" name="gaji" 
                     placeholder="Gaji" value="{{ old('gaji',$model->gaji) }}">
         </div>
         @error('gaji')
@@ -57,8 +57,10 @@
         </div>
         <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Persyaratan Pekerjaan</label>
-            <input type="text" class="form-control" name="job_requirement" required
-                    placeholder="Persyaratan Pekerjaan" value="{{ old('job_requirement',$model->job_requirement) }}">
+            <p>
+                <input id="x" type="hidden" name="job_requirement" value="{{ old('job_requirement',$model->job_requirement) }}" />
+                <trix-editor input="x" class="trix-content"></trix-editor>
+            </p>
         </div>
         @error('job_requirement')
             <div class="alert alert-danger">{{ $message }}</div>

@@ -29,6 +29,10 @@
     <!-- Custom Theme Style -->
     <link href="../../../templates_assets/build/css/custom.min.css" rel="stylesheet">
 
+    {{-- Trix css --}}
+
+    <link rel="stylesheet" href="../../../js/trix/trix.css">
+
     {{-- bootstrap 4 --}}
   </head>
 
@@ -224,7 +228,10 @@
     <!-- bootstrap-daterangepicker -->
     <script src="../../../templates_assets/vendors/moment/min/moment.min.js"></script>
     <script src="../../../templates_assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
+    
+    {{-- trix Rich Editor --}}
+    <script src="{{ asset('js/trix/trix.js') }}"></script>
+    <script src="{{ asset('js/trix/attachments.js') }}"></script>
     <!-- Custom Theme Scripts -->
     <script src="../../../templates_assets/build/js/custom.min.js"></script>
 	
