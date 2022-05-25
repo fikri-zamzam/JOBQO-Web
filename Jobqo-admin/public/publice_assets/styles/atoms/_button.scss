@@ -1,0 +1,31 @@
+.btn {
+    padding: 10px 40px !important;
+
+    &-yellow {
+        background-color: $color-primary;
+        color: $color-black !important;
+        border: 1px solid $color-primary;
+
+        &:hover {
+            background-color: $color-white;
+            color: $color-primary;
+            border: 1px solid $color-white;
+        }
+    }
+
+    &-outline-yellow {
+        background-color: transparent;
+        color: $color-white;
+        border: 1px solid $color-primary;
+
+        &:hover {
+            background-color: $color-primary;
+            color: $color-black !important;
+            border: 1px solid $color-primary
+        }
+    }
+}
+
+.text-orange {
+    color: $color-primary;
+}

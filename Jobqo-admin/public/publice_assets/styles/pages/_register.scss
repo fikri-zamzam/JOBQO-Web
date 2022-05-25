@@ -1,0 +1,39 @@
+.register {
+    position: relative;
+    overflow: hidden;
+
+    .register-area {
+        padding: 50px 70px;
+        background-color: $color-secondary;
+        border-radius: 5px;
+
+        .register-form {
+            margin-top: 70px;
+
+            .form-control {
+                padding: 20px 30px;
+                margin-bottom: 30px;
+
+                &:focus {
+                    box-shadow: none;
+                    border-color: $color-primary;
+                }
+            }
+
+            .btn-yellow {
+                padding: 13px 30px !important;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .layer-blur-1 {
+        position: absolute;
+        width: 700;
+        height: 700;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+        transform: rotate(180deg);
+    }
+}
