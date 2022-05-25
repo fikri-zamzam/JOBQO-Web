@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOBQO</title>
-    @include('includes.style')
+    @include('_PekerjaPage.includes.style')
 </head>
 
 <body>
 
     @yield('content')
 
-    @include('includes.footer')
+    @include('_PekerjaPage.includes.footer')
 
-    @include('includes.script')
+    @include('_PekerjaPage.includes.script')
 </body>
 
 </html>

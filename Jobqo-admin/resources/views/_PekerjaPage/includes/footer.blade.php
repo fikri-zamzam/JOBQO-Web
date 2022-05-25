@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="footer-item">
-                    <img src="images/logo.png" class="logo" alt="">
+                    <img src="public_assets/images/logo.png" class="logo" alt="">
                     <p class="section-description">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus eget leo sed
                         faucibus.
@@ -16,16 +16,16 @@
                     <h4 class="footer-title">Get In Touch</h4>
 
                     <a href="#" class="footer-link d-flex align-items-start gap-3">
-                        <img src="images/icons/ic-map-marker.svg" alt="">
+                        <img src="public_assets/images/icons/ic-map-marker.svg" alt="">
                         <p>Jl. Mastrip, Krajan Timur, Sumbersari, Kec. Sumbersari, Kabupaten Jember. Jawa Timur
                             68121</p>
                     </a>
                     <a href="#" class="footer-link d-flex align-items-start gap-3">
-                        <img src="images/icons/ic-envelope.svg" alt="">
+                        <img src="public_assets/images/icons/ic-envelope.svg" alt="">
                         <p>jobqo@gmail.com</p>
                     </a>
                     <a href="#" class="footer-link d-flex align-items-start gap-3">
-                        <img src="images/icons/ic-phone.svg" alt="">
+                        <img src="public_assets/images/icons/ic-phone.svg" alt="">
                         <p>082334668379</p>
                     </a>
                 </div>

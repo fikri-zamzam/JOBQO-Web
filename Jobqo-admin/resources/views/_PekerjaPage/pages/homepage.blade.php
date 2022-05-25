@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('_Pekerjapage.layouts.app')
 
 @section('content')
 <header class="header">
     <div class="overlay"></div>
 
     <div class="container">
-        @include('includes.navbar')
+        @include('_PekerjaPage.includes.navbar')
 
         <div class="header-content text-center">
             <h1 class="header-title">
@@ -64,7 +64,7 @@
         <div class="row service-items">
             <div class="col-md-4">
                 <div class="service-item">
-                    <img src="{{ url('images/gameloft-inc.jpg') }}" alt="">
+                    <img src="{{ url('public_assets/images/gameloft-inc.jpg') }}" alt="">
                     <div class="content">
                         <p>Gameloft Inc</p>
                     </div>
@@ -72,7 +72,7 @@
             </div>
             <div class="col-md-4">
                 <div class="service-item">
-                    <img src="{{ url('images/pt-indomarga.jpg') }}" alt="">
+                    <img src="{{ url('public_assets/images/pt-indomarga.jpg') }}" alt="">
                     <div class="content">
                         <p>PT Indomarga</p>
                     </div>
@@ -80,7 +80,7 @@
             </div>
             <div class="col-md-4">
                 <div class="service-item">
-                    <img src="{{ url('images/indomarco-inc.jpg') }}" alt="">
+                    <img src="{{ url('public_assets/images/indomarco-inc.jpg') }}" alt="">
                     <div class="content">
                         <p>Indomarga Inc</p>
                     </div>
@@ -88,7 +88,7 @@
             </div>
         </div>
     </div>
-    <img src="{{ url('images/icons/layer-blur.svg') }}" alt="" class="layer-blur">
+    <img src="{{ url('public_assets/images/icons/layer-blur.svg') }}" alt="" class="layer-blur">
 </section>
 
 <section class="joblist" id="joblist">
@@ -104,7 +104,7 @@
                 <div class="joblist-item">
                     <div class="container">
                         <div class="d-flex justify-content-center align-items-center logo">
-                            <img src="{{ url('images/company/bat.png') }}" alt="">
+                            <img src="{{ url('public_assets/images/company/bat.png') }}" alt="">
                         </div>
                         <div class="content">
                             <h3>Office Boy</h3>
@@ -122,7 +122,7 @@
                 <div class="joblist-item">
                     <div class="container">
                         <div class="d-flex justify-content-center align-items-center logo">
-                            <img src="{{ url('images/company/selma.png') }}" alt="">
+                            <img src="{{ url('public_assets/images/company/selma.png') }}" alt="">
                         </div>
                         <div class="content">
                             <h3>Office Boy</h3>
@@ -140,7 +140,7 @@
                 <div class="joblist-item">
                     <div class="container">
                         <div class="d-flex justify-content-center align-items-center logo">
-                            <img src="{{ url('images/company/wismilak.png') }}" alt="">
+                            <img src="{{ url('public_assets/images/company/wismilak.png') }}" alt="">
                         </div>
                         <div class="content">
                             <h3>Motion Designer</h3>
@@ -168,7 +168,7 @@
             <div class="col-md-4">
                 <div class="superiority-item text-center">
                     <div class="icon">
-                        <img src="{{ url('images/icons/ic-message.svg') }}" alt="Koneksi Perusahaan">
+                        <img src="{{ url('public_assets/images/icons/ic-message.svg') }}" alt="Koneksi Perusahaan">
                     </div>
                     <h4 class="title">Koneksi Perusahaan</h4>
                     <p class="description">
@@ -180,7 +180,7 @@
             <div class="col-md-4">
                 <div class="superiority-item text-center">
                     <div class="icon">
-                        <img src="{{ url('images/icons/ic-note-minus.svg') }}" alt="Koneksi Perusahaan">
+                        <img src="{{ url('public_assets/images/icons/ic-note-minus.svg') }}" alt="Koneksi Perusahaan">
                     </div>
                     <h4 class="title">Konsultasi Karir</h4>
                     <p class="description">
@@ -192,7 +192,7 @@
             <div class="col-md-4">
                 <div class="superiority-item text-center">
                     <div class="icon">
-                        <img src="{{ url('images/icons/ic-star.svg') }}" alt="Koneksi Perusahaan">
+                        <img src="{{ url('public_assets/images/icons/ic-star.svg') }}" alt="Koneksi Perusahaan">
                     </div>
                     <h4 class="title">Event Perusahaan</h4>
                     <p class="description">
@@ -204,7 +204,7 @@
             <div class="col-md-4">
                 <div class="superiority-item text-center">
                     <div class="icon">
-                        <img src="{{ url('images/icons/ic-send.svg') }}" alt="Koneksi Perusahaan">
+                        <img src="{{ url('public_assets/images/icons/ic-send.svg') }}" alt="Koneksi Perusahaan">
                     </div>
                     <h4 class="title">Penyesuaian Karir</h4>
                     <p class="description">
@@ -216,7 +216,7 @@
             <div class="col-md-4">
                 <div class="superiority-item text-center">
                     <div class="icon">
-                        <img src="{{ url('images/icons/ic-shield-check.svg') }}" alt="Koneksi Perusahaan">
+                        <img src="{{ url('public_assets/images/icons/ic-shield-check.svg') }}" alt="Koneksi Perusahaan">
                     </div>
                     <h4 class="title">Pelatihan Kerja</h4>
                     <p class="description">
@@ -228,7 +228,7 @@
             <div class="col-md-4">
                 <div class="superiority-item text-center">
                     <div class="icon">
-                        <img src="{{ url('images/icons/ic-presentation.svg') }}" alt="Koneksi Perusahaan">
+                        <img src="{{ url('public_assets/images/icons/ic-presentation.svg') }}" alt="Koneksi Perusahaan">
                     </div>
                     <h4 class="title">Bursa Kerja</h4>
                     <p class="description">
@@ -246,19 +246,19 @@
         <div class="row align-items-center">
             <div class="col-md-5">
                 <div class="testimonial-image-area">
-                    <img src="{{ url('images/testimonial-image.png') }}" class="people-image" alt="Testimonial Photo">
-                    <img src="{{ url('images/icons/ic-quote.svg') }}" alt="Quote" class="quote-icon">
+                    <img src="{{ url('public_assets/images/testimonial-image.png') }}" class="people-image" alt="Testimonial Photo">
+                    <img src="{{ url('public_assets/images/icons/ic-quote.svg') }}" alt="Quote" class="quote-icon">
 
                     <div class="testimonial-title-area d-flex align-items-center justify-content-between">
-                        <img src="{{ url('images/testimonial-image-2.png') }}" class="other-image"
+                        <img src="{{ url('public_assets/images/testimonial-image-2.png') }}" class="other-image"
                             alt="Testimonial Image 2">
                         <div class="star-area">
                             <div class="stars d-flex align-items-center gap-2">
-                                <img src="{{ url('images/icons/ic-star-2.svg') }}" alt="Star">
-                                <img src="{{ url('images/icons/ic-star-2.svg') }}" alt="Star">
-                                <img src="{{ url('images/icons/ic-star-2.svg') }}" alt="Star">
-                                <img src="{{ url('images/icons/ic-star-2.svg') }}" alt="Star">
-                                <img src="{{ url('images/icons/ic-star-2.svg') }}" alt="Star">
+                                <img src="{{ url('public_assets/images/icons/ic-star-2.svg') }}" alt="Star">
+                                <img src="{{ url('public_assets/images/icons/ic-star-2.svg') }}" alt="Star">
+                                <img src="{{ url('public_assets/images/icons/ic-star-2.svg') }}" alt="Star">
+                                <img src="{{ url('public_assets/images/icons/ic-star-2.svg') }}" alt="Star">
+                                <img src="{{ url('public_assets/images/icons/ic-star-2.svg') }}" alt="Star">
                             </div>
                             <p class="title">Lorem ipsum dolor sit amet.</p>
                         </div>
@@ -271,11 +271,11 @@
                         Dari <span>mereka yang sukses</span> mendapat pekerjaan ❤️
                     </h2>
                     <div class="stars d-flex align-items-center gap-2">
-                        <img src="{{ url('images/icons/ic-star-2.svg') }}" alt="">
-                        <img src="{{ url('images/icons/ic-star-2.svg') }}" alt="">
-                        <img src="{{ url('images/icons/ic-star-2.svg') }}" alt="">
-                        <img src="{{ url('images/icons/ic-star-2.svg') }}" alt="">
-                        <img src="{{ url('images/icons/ic-star-2.svg') }}" alt="">
+                        <img src="{{ url('public_assets/images/icons/ic-star-2.svg') }}" alt="">
+                        <img src="{{ url('public_assets/images/icons/ic-star-2.svg') }}" alt="">
+                        <img src="{{ url('public_assets/images/icons/ic-star-2.svg') }}" alt="">
+                        <img src="{{ url('public_assets/images/icons/ic-star-2.svg') }}" alt="">
+                        <img src="{{ url('public_assets/images/icons/ic-star-2.svg') }}" alt="">
                     </div>
                     <p class="quote">
                         “ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur elit semper libero
@@ -284,7 +284,7 @@
                         ullamcorper mauris leo vel lectus “
                     </p>
                     <div class="people d-flex align-items-center gap-3">
-                        <img src="{{ url('images/neng-gelis.png') }}" alt="">
+                        <img src="{{ url('public_assets/images/neng-gelis.png') }}" alt="">
                         <div class="bio">
                             <h4>Neng Gelis</h4>
                             <p>Designer</p>
@@ -294,8 +294,8 @@
             </div>
         </div>
     </div>
-    <img src="{{ url('images/icons/layer-blur.svg') }}" alt="" class="blur-1">
-    <img src="{{ url('images/icons/layer-blur.svg') }}" alt="" class="blur-2">
+    <img src="{{ url('public_assets/images/icons/layer-blur.svg') }}" alt="" class="blur-1">
+    <img src="{{ url('public_assets/images/icons/layer-blur.svg') }}" alt="" class="blur-2">
 </section>
 
 <div class="container mt-5">
@@ -311,11 +311,11 @@
                 </p>
 
                 <a href="#" class="d-inline-block google-play">
-                    <img src="{{ url('images/badge_playstore.png') }}" alt="">
+                    <img src="{{ url('public_assets/images/badge_playstore.png') }}" alt="">
                 </a>
             </div>
             <div class="col-md-6">
-                <img src="{{ url('images/phone.png') }}" class="phone" alt="">
+                <img src="{{ url('public_assets/images/phone.png') }}" class="phone" alt="">
             </div>
         </div>
     </div>

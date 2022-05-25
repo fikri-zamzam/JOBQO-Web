@@ -70,6 +70,9 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
 
+Route::get('/', [DashboardController::class, 'HomePublic']);
+
+
 // Route untuk role admin
 
 Route::group(['prefix' => 'admin','middleware' => ['auth'],['checkRole:Admin']], function() {
@@ -110,11 +113,6 @@ Route::group(['prefix' => 'admin','middleware' => ['auth'],['checkRole:Admin']],
     // Route::resource('users', UserController::class);
  });
 
-Route::group(['middleware' => ['auth']], function() {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/HRD', function () { return view('_HRDPage.index'); })->middleware(['checkRole:HRD,Admin']);
-    Route::get('/Pekerja', function () { return view('_PekerjaPage.index'); })->middleware(['checkRole:Pekerja,Admin']);
- });
 
 // contoh route yang menggunakan group
 // Route::group(['middleware' => ['auth']], function() {

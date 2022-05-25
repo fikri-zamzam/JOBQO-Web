@@ -22,7 +22,7 @@ class DashboardController extends Controller
     }
 
     public function indexHRD()
-    {   $user = User::find(2);
+    {   $user = User::find(Auth::user()->id);
         return view('_HRDPage.dashboard.main',[
             "title" => "Dashboard",
             "subtitle1" => "Dashboard",
@@ -39,4 +39,7 @@ class DashboardController extends Controller
         return view('_HRDPage.dashboard.waiting_room');
     }
 
+    public function HomePublic(){
+        return view('_PekerjaPage.pages.homepage');
+    }
 }
