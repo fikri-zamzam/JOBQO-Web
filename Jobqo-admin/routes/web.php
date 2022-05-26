@@ -12,9 +12,10 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TugasController;
 use App\Http\Controllers\VerifyController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\HRD_JobController;
 use App\Http\Controllers\JobTypeController;
-use App\Http\Controllers\RegisterController;
 
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin_typeController;
@@ -100,6 +101,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth'],['checkRole:Admin']],
 
  Route::group(['prefix' => 'hrd','middleware' => ['auth'],['checkRole:HRD']], function() {
     Route::get('/', [DashboardController::class,'indexHRD'])->middleware('checkDoc');
+    Route::resource('jobs', HRD_JobController::class);
     Route::get('/waiting-room', [DashboardController::class,'waitingRoom']);
     // HRD_Application
 

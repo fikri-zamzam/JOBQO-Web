@@ -66,9 +66,9 @@
       </li>
         <li><a><i class="fa fa-briefcase"></i> Jobs <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="/admin/jobs">List Pekerjaan</a></li>
-            <li><a href="/admin/jobs_type">Jenis pekerjaan</a></li>
-            <li><a href="/admin/jobs_position">Posisi Jabatan</a></li>
+            <li><a href="/hrd/jobs">List Pekerjaan</a></li>
+            {{-- <li><a href="/admin/jobs_type">Jenis pekerjaan</a></li>
+            <li><a href="/admin/jobs_position">Posisi Jabatan</a></li> --}}
           </ul>
         </li>
         <li><a><i class="fa fa-file-text-o"></i>Lamaran <span class="fa fa-chevron-down"></span></a>
