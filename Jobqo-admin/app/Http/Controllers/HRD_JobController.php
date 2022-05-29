@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Job;
 use App\Models\Job_categories;
 use App\Models\Job_positions;
+use App\Models\Salary;
 use Illuminate\Support\Facades\Auth;
 
 class HRD_JobController extends Controller
@@ -19,6 +20,7 @@ class HRD_JobController extends Controller
     public function index()
     {
         $jobs = Job::all();
+        $jobs = Job::where('company_id',Auth::user()->companies_id)->get();
 
         return view('_HRDPage.jobs.index',[
             "title" => "Pekerjaan",
@@ -45,6 +47,7 @@ class HRD_JobController extends Controller
             "subtitle2" => "Tambah Data Pekerjaan",
             "Categories" => Job_categories::all(),
             "Positions" => Job_positions::all(),
+            "Salary"    => Salary::where('companies_id',Auth::user()->companies_id)->get(),
             "fullname"  => Auth::user()->name,
             "username"  => Auth::user()->username,
             "imgProfile" => Auth::user()->img
@@ -63,7 +66,7 @@ class HRD_JobController extends Controller
         $validatedData = $request->validate([
             'name_job' => 'required|min:5',
             'desk_job' => 'required',
-            'gaji' => 'required',
+            'salaries_id' => 'required',
             'company_id' => '',
             'job_category_id' => 'required',
             'job_position_id' => 'required',
@@ -102,6 +105,7 @@ class HRD_JobController extends Controller
             "subtitle2" => "Ubah Data Pekerjaan",
             "Categories" => Job_categories::all(),
             "Positions" => Job_positions::all(),
+            "Salary"    => Salary::where('companies_id',Auth::user()->companies_id)->get(),
             "fullname"  => Auth::user()->name,
             "username"  => Auth::user()->username,
             "imgProfile" => Auth::user()->img
@@ -121,7 +125,7 @@ class HRD_JobController extends Controller
         $validatedData = $request->validate([
             'name_job' => 'required|min:5',
             'desk_job' => 'required',
-            'gaji' => 'required',
+            'salaries_id' => 'required',
             'job_category_id' => 'required',
             'job_position_id' => 'required',
             'job_requirement' => 'required'

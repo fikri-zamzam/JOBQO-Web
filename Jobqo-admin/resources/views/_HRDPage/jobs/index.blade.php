@@ -18,7 +18,7 @@
       <tr>
         <td scope="row"> {{ $value->id }} </td>
         <td> {{ $value->name_job }} </td>
-        <td> {{ $value->gaji }} </td>
+        <td> {{ $value->rangeGaji->range_salary }} </td>
         <td> {{ $value->AsalJob->name_company }} </td>
         <td> {{ $value->Categories->name }} </td>
         <td> {{ $value->Positions->name }} </td>

@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('_PekerjaPage.layouts.auth')
 
 @section('content')
 <section class="register">

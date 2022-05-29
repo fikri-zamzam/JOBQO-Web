@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Job;
 use App\Models\Job_categories;
 use App\Models\Job_positions;
+use App\Models\Salary;
 use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
@@ -46,6 +47,7 @@ class JobController extends Controller
             "Categories" => Job_categories::all(),
             "Positions" => Job_positions::all(),
             "Companies" => Company::all(),
+            "Salary"    => Salary::whereNull('companies_id')->get(),
             "fullname"  => Auth::user()->name,
             "username"  => Auth::user()->username,
             "imgProfile" => Auth::user()->img
@@ -64,7 +66,7 @@ class JobController extends Controller
         $validatedData = $request->validate([
             'name_job' => 'required|min:5',
             'desk_job' => 'required',
-            'gaji' => 'required',
+            'salaries_id' => 'required',
             'company_id' => 'required',
             'job_category_id' => 'required',
             'job_position_id' => 'required',
@@ -102,6 +104,7 @@ class JobController extends Controller
             "Categories" => Job_categories::all(),
             "Positions" => Job_positions::all(),
             "Companies" => Company::all(),
+            "Salary"    => Salary::whereNull('companies_id')->get(),
             "fullname"  => Auth::user()->name,
             "username"  => Auth::user()->username,
             "imgProfile" => Auth::user()->img
@@ -121,7 +124,7 @@ class JobController extends Controller
         $validatedData = $request->validate([
             'name_job' => 'required|min:5',
             'desk_job' => 'required',
-            'gaji' => 'required',
+            'salaries_id' => 'required',
             'company_id' => 'required',
             'job_category_id' => 'required',
             'job_position_id' => 'required',

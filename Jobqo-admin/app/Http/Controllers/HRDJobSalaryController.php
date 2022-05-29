@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Job_categories;
+use App\Models\Salary;
 use Illuminate\Support\Facades\Auth;
 
-class JobTypeController extends Controller
+class HRDJobSalaryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,17 +15,18 @@ class JobTypeController extends Controller
      */
     public function index()
     {
-        $jobs_type = Job_categories::all();
+        $gaji = Salary::all();
+        $gaji = Salary::where('companies_id',Auth::user()->companies_id)->get();
 
-        return view('_AdminPage.jobs.jobs_type.index',[
-            "title" => "Jenis Pekerjaan",
-            "subtitle1" => "Jenis Pekerjaan",
-            "subtitle2" => "List Jenis Pekerjaan",
+        return view('_HRDPage.jobs_salary.index',[
+            "title" => "Range Gaji",
+            "subtitle1" => "Range Gaji",
+            "subtitle2" => "List Range Gaji",
             "fullname"  => Auth::user()->name,
             "username"  => Auth::user()->username,
             "imgProfile" => Auth::user()->img
 
-        ], compact('jobs_type'));
+        ], compact('gaji'));
     }
 
     /**
@@ -35,11 +36,11 @@ class JobTypeController extends Controller
      */
     public function create()
     {
-        $model = new Job_categories();
-        return view('_AdminPage.jobs.jobs_type.create',[
-            "title" => "Tambah Jenis Pekerjaan",
-            "subtitle1" => "Jenis Pekerjaan",
-            "subtitle2" => "Tambah Jenis Pekerjaan",
+        $model = new Salary();
+        return view('_HRDPage.jobs_salary.create',[
+            "title" => "Tambah Range Gaji",
+            "subtitle1" => "Range Gaji",
+            "subtitle2" => "Tambah Range Gaji",
             "fullname"  => Auth::user()->name,
             "username"  => Auth::user()->username,
             "imgProfile" => Auth::user()->img
@@ -55,12 +56,17 @@ class JobTypeController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new Job_categories;
-        $model->name = $request->namaCategories;
-        $model->deskripsi = $request->deskripsi;
-        $model->save();
+        $validatedData = $request->validate([
+            'range_salary' => 'required|min:5',
+            'deskripsi' => 'required'
+        ]);
 
-        return redirect('admin/jobs_type');
+        $validatedData["companies_id"] = Auth::user()->companies_id;
+
+        Salary::create($validatedData);
+        return redirect('hrd/jobs_salary');
+
+        
     }
 
     /**
@@ -82,11 +88,11 @@ class JobTypeController extends Controller
      */
     public function edit($id)
     {
-        $model = Job_categories::find($id);
-        return view('_AdminPage.jobs.jobs_type.edit',[
-            "title" => "Edit Jenis Pekerjaan",
-            "subtitle1" => "Jenis Pekerjaan",
-            "subtitle2" => "Edit Jenis Pekerjaan",
+        $model = Salary::find($id);
+        return view('_HRDPage.jobs_salary.edit',[
+            "title" => "Edit Range Gaji",
+            "subtitle1" => "Range Gaji",
+            "subtitle2" => "Edit Range Gaji",
             "fullname"  => Auth::user()->name,
             "username"  => Auth::user()->username,
             "imgProfile" => Auth::user()->img
@@ -102,12 +108,15 @@ class JobTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $model = Job_categories::find($id);
-        $model->name = $request->namaCategories;
-        $model->deskripsi = $request->deskripsi;
-        $model->save();
+        $gaji = Salary::find($id);
+        $validatedData = $request->validate([
+            'range_salary' => 'required|min:5',
+            'deskripsi' => 'required'
+        ]);
 
-        return redirect('admin/jobs_type');
+        Salary::where('id',$gaji->id)
+             ->update($validatedData);
+        return redirect('hrd/jobs_salary');
     }
 
     /**
@@ -118,8 +127,8 @@ class JobTypeController extends Controller
      */
     public function destroy($id)
     {
-        $model = Job_categories::find($id);
+        $model = Salary::find($id);
         $model->delete();
-        return redirect('admin/jobs_type');
+        return redirect('hrd/jobs_salary');
     }
 }

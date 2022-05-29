@@ -35,6 +35,20 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function indexApplicant()
+    {   $user = User::find(Auth::user()->id);
+        return view('_HRDPage.dashboard.main',[
+            "title" => "Dashboard",
+            "subtitle1" => "Dashboard",
+            "subtitle2" => "",
+            "fullname"  => Auth::user()->name,
+            "username"  => Auth::user()->username,
+            "imgProfile"=> Auth::user()->img,
+            "company" => $user->getCompany->name_company
+
+        ]);
+    }
+
     public function waitingRoom(){
         return view('_HRDPage.dashboard.waiting_room');
     }

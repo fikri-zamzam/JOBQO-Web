@@ -44,7 +44,7 @@ class JobsSeeder extends Seeder
         DB::table('jobs')->insert([
         	'name_job' => 'Programmer',
         	'desk_job' => 'Bisa bekerja',
-            'gaji'=> 200000,
+            'salaries_id'=> 1,
             'company_id' => 1,
             'job_category_id' => 1,
             'job_position_id' => 1,

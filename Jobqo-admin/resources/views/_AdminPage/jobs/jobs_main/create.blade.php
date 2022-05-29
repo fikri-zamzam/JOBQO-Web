@@ -23,8 +23,11 @@
         @enderror
         <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Gaji</label>
-            <input type="number" class="form-control" name="gaji" required
-                    placeholder="Gaji" value="{{ old('gaji') }}">
+            <select class="form-control" id="idsalary" name="salaries_id">
+                @foreach ($Salary as $s)
+                <option value="{{ $s->id }}">{{ $s->range_salary }}</option>
+                @endforeach
+            </select>
         </div>
         @error('gaji')
             <div class="alert alert-danger">{{ $message }}</div>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - JOBQO</title>
 
-    @include('includes.style')
+    @include('_PekerjaPage.includes.style')
 </head>
 
 <body>
@@ -26,7 +26,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav gap-2">
                     <li class="nav-item">
-                        <a href="{{ url('/') }}" class="nav-link btn btn-yellow">Perusahaan</a>
+                        <a href="{{ url('/testPage') }}" class="nav-link btn btn-yellow">Perusahaan</a>
                     </li>
                 </ul>
             </div>
@@ -35,7 +35,7 @@
 
     @yield('content')
 
-    @include('includes.script')
+    @include('_PekerjaPage.includes.script')
 </body>
 
 </html>

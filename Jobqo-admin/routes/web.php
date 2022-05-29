@@ -18,10 +18,13 @@ use App\Http\Controllers\JobTypeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\JobSalaryController;
 use App\Http\Controllers\Admin_typeController;
 use App\Http\Controllers\CheckdocHRDController;
 use App\Http\Controllers\CompanyTypeController;
 use App\Http\Controllers\JobPositionController;
+use App\Http\Controllers\PublicLoginController;
+use App\Http\Controllers\HRDJobSalaryController;
 use App\Http\Controllers\CompanySectorController;
 use App\Http\Controllers\UserBlacklistController;
 
@@ -68,6 +71,13 @@ use App\Http\Controllers\UserBlacklistController;
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
+
+// Route::get('/login', [PublicLoginController::class, 'index'])->name('login')->middleware('guest');
+// Route::post('/login', [PublicLoginController::class, 'authenticate']);
+
+
+
+Route::get('/testPage', [PublicLoginController::class, 'testHalaman']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
 
@@ -81,6 +91,8 @@ Route::group(['prefix' => 'admin','middleware' => ['auth'],['checkRole:Admin']],
     Route::resource('jobs', JobController::class);
         Route::resource('jobs_type', JobTypeController::class);
         Route::resource('jobs_position', JobPositionController::class);
+        Route::resource('jobs_salary', JobSalaryController::class);
+
     Route::resource('companies', CompanyController::class);
         Route::resource('companies_sector', CompanySectorController::class);
         Route::resource('companies_type', CompanyTypeController::class);
@@ -102,6 +114,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth'],['checkRole:Admin']],
  Route::group(['prefix' => 'hrd','middleware' => ['auth'],['checkRole:HRD']], function() {
     Route::get('/', [DashboardController::class,'indexHRD'])->middleware('checkDoc');
     Route::resource('jobs', HRD_JobController::class);
+        Route::resource('jobs_salary', HRDJobSalaryController::class);
     Route::get('/waiting-room', [DashboardController::class,'waitingRoom']);
     // HRD_Application
 
@@ -113,6 +126,12 @@ Route::group(['prefix' => 'admin','middleware' => ['auth'],['checkRole:Admin']],
         Route::get('/check-step-two', [CheckdocHRDController::class,'step_two_show'])->name('step-two-show');
         Route::post('/check-step-two', [CheckdocHRDController::class,'step_two_post'])->name('step-two-post');
     // Route::resource('users', UserController::class);
+ });
+
+
+ Route::group(['prefix' => 'applicant','middleware' => ['auth'],['checkRole:Pekerja']], function() {
+    Route::get('/', [DashboardController::class,'indexApplicant'])->middleware('checkDoc');
+    
  });
 
 

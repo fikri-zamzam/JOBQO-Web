@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('_PekerjaPage.layouts.app')
 
 @section('content')
 
 <div class="job">
     <div class="container">
-        @include('includes.navbar')
+        @include('_PekerjaPage.includes.navbar')
         <div class="header-content text-center">
             <h1 class="header-title">Cari Pekerjaan Idaman anda</h1>
             <form action="#" class="header-form d-flex align-items-center gap-3 bg-white p-4 rounded mt-5">
