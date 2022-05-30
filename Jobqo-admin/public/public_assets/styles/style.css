@@ -629,4 +629,112 @@ section .section-description {
   background-color: #20406C;
   padding-bottom: 200px;
 }
+
+.headerdetail {
+  background-image: url("../images/detail_job.jpg");
+  background-size: cover;
+  min-height: 60vh;
+  position: relative;
+}
+
+@media screen and (max-width: 1024px) {
+  .headerdetail {
+    min-height: 120vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .headerdetail {
+    min-height: 130vh;
+  }
+}
+
+.headerdetail .overlaydetail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(26, 27, 59, 0.84);
+}
+
+.logodetail {
+  background-color: #ffffff;
+  width: 148px;
+  height: 148px;
+  padding: 10px;
+  margin-top: -80px;
+  position: relative;
+  border-radius: 5px;
+  margin-bottom: 40px;
+}
+
+.detail-title .sectiondetail-title {
+  font-family: "Rubik", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+.detail-title .gaji h6 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.detail-title .gaji p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.322);
+  margin-left: -40px;
+}
+
+.detail-title hr {
+  margin-top: 90px;
+  background-color: rgba(255, 255, 255, 0.322);
+}
+
+.deskripsi-pekerjaan {
+  margin-top: 100px;
+}
+
+.deskripsi-pekerjaan .sectiondetail-title2 {
+  font-family: "Rubik", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.deskripsi-pekerjaan p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.557);
+}
+
+.syarat-pekerjaan {
+  margin-top: 50px;
+}
+
+.syarat-pekerjaan .sectiondetail-title2 {
+  font-family: "Rubik", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.syarat-pekerjaan ul {
+  list-style-type: circle;
+}
+
+.syarat-pekerjaan ul li {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.557);
+}
+
+.hrhr {
+  background-color: rgba(255, 255, 255, 0.322);
+  margin-bottom: 100px;
+}
 /*# sourceMappingURL=style.css.map */

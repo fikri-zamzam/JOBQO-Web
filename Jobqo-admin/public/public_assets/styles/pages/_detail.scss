@@ -1,0 +1,114 @@
+.headerdetail {
+    background-image: url('../images/detail_job.jpg');
+    background-size: cover;
+    min-height: 60vh;
+    position: relative;
+
+    @media screen and (max-width: 1024px) {
+        min-height: 120vh;
+    }
+
+    @media screen and (max-width: 768px) {
+        min-height: 130vh;
+    }
+
+    .overlaydetail {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(26, 27, 59, 0.84);
+    }
+
+}
+
+
+
+
+.logodetail {
+    background-color: #ffffff;
+    width: 148px;
+    height: 148px;
+    padding: 10px;
+    margin-top: -80px;
+    position: relative;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    // font-family: $font-family-secondary;
+}
+
+.detail-title {
+    .sectiondetail-title {
+        font-family: $font-family-secondary;
+        font-size: $heading-3-font-size;
+        font-weight: 700;
+        color: $color-white;
+        margin-bottom: 20px;
+    }
+
+    .gaji {
+        h6 {
+            font-family: $font-family-primary;
+            font-size: $heading-4-font-size;
+            color: #ffffff;
+            // color: rgba(255, 255, 255, 0.322);
+        }
+
+        p {
+            font-family: $font-family-primary;
+            font-size: $heading-5-font-size;
+            color: rgba(255, 255, 255, 0.322);
+            margin-left: -40px;
+        }
+    }
+
+    hr {
+        margin-top: 90px;
+        background-color: rgba(255, 255, 255, 0.322);
+    }
+
+}
+
+.deskripsi-pekerjaan {
+    margin-top: 100px;
+
+    .sectiondetail-title2 {
+        font-family: $font-family-secondary;
+        font-size: $heading-4-font-size;
+        font-weight: 700;
+        color: $color-white;
+    }
+
+    p {
+        font-family: $font-family-primary;
+        font-size: $heading-5-font-size;
+        color: rgba(255, 255, 255, 0.557);
+    }
+}
+
+.syarat-pekerjaan {
+    margin-top: 50px;
+
+    .sectiondetail-title2 {
+        font-family: $font-family-secondary;
+        font-size: $heading-4-font-size;
+        font-weight: 700;
+        color: $color-white;
+    }
+
+    ul {
+        list-style-type: circle;
+
+        li {
+            font-family: $font-family-primary;
+            font-size: $heading-5-font-size;
+            color: rgba(255, 255, 255, 0.557);
+        }
+    }
+}
+
+.hrhr {
+    background-color: rgba(255, 255, 255, 0.322);
+    margin-bottom: 100px;
+}
