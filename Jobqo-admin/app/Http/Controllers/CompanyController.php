@@ -129,8 +129,8 @@ class CompanyController extends Controller
             'company_type_id' => 'required',
             'website' => 'required',
             'status_izin' => 'required',
-            'img_logo' => 'required',
-            'company_place_id' => 'required'
+            'img_logo' => '',
+            'company_place_id' => ''
         ]);
 
         Company::where('id',$comp->id)

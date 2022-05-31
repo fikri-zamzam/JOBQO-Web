@@ -26,8 +26,7 @@ use App\Http\Controllers\JobPositionController;
 use App\Http\Controllers\PublicLoginController;
 use App\Http\Controllers\HRDJobSalaryController;
 use App\Http\Controllers\CompanySectorController;
-use App\Http\Controllers\UserBlacklistController;
-
+use App\Http\Controllers\public\p_JobController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,13 +74,13 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 // Route::get('/login', [PublicLoginController::class, 'index'])->name('login')->middleware('guest');
 // Route::post('/login', [PublicLoginController::class, 'authenticate']);
 
-
-
 Route::get('/testPage', [PublicLoginController::class, 'testHalaman']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
-
+// RUTE untuk web Publik
 Route::get('/', [DashboardController::class, 'HomePublic']);
+Route::get('/job', [p_JobController::class, 'IndexJob']);
+    Route::get('/job/detail/{id}', [p_JobController::class, 'DetailJobs']);
 
 
 // Route untuk role admin

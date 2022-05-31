@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <form action="{{ route('step-two-post') }}" method="POST">
+            <form action="{{ route('step-two-post') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card">
                     <div class="card-header">Step 2: Formulir Perusahaan</div>

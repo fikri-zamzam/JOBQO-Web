@@ -10,6 +10,31 @@
             <input type="text" class="form-control" name="range_salary" required
                     placeholder="Contoh : 2500000 - 5000000" >
         </div>
+
+        {{-- @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <label for="exampleFormControlInput1">Range gaji</label>
+        <div class="form-inline">
+            <div class="form-group mb-2">
+              <label for="staticEmail2" class="sr-only">Email</label>
+              <input type="text" class="form-control" id="staticEmail2" placeholder="Minimum Gaji">
+            </div>
+            
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="inputPassword2" class="sr-only">Password</label>
+              <input type="password" class="form-control" id="inputPassword2" placeholder="Maximum Gaji">
+            </div>
+        </div>
+        <p id="gajiHelp" class="form-text text-muted">isi inputan dengan angka saja</p> --}}
+
         <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Deskripsi</label>
             <input type="text" class="form-control" name="deskripsi" required

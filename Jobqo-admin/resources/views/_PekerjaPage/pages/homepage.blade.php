@@ -21,7 +21,9 @@
                     <i class="bx bx-search fs-4"></i>
                 </div>
                 <input type="text" class="form-control border-0" placeholder="Temukan jabatan, perusahaan dan lokasi">
-                <button class="btn btn-yellow" type="submit">Cari Kerja</button>
+                <button class="btn btn-yellow"><a href="/job">Cari Kerja</a></button>
+
+                {{-- <button class="btn btn-yellow" type="submit">Cari Kerja</button> --}}
             </form>
         </div>
     </div>
