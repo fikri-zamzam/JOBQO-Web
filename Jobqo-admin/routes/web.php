@@ -25,8 +25,10 @@ use App\Http\Controllers\CompanyTypeController;
 use App\Http\Controllers\JobPositionController;
 use App\Http\Controllers\PublicLoginController;
 use App\Http\Controllers\HRDJobSalaryController;
-use App\Http\Controllers\CompanySectorController;
 use App\Http\Controllers\public\p_JobController;
+use App\Http\Controllers\CompanySectorController;
+use App\Http\Controllers\UserBlacklistController;
+use App\Http\Controllers\HRDEditProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -115,10 +117,14 @@ Route::group(['prefix' => 'admin','middleware' => ['auth'],['checkRole:Admin']],
     Route::resource('jobs', HRD_JobController::class);
         Route::resource('jobs_salary', HRDJobSalaryController::class);
     Route::get('/waiting-room', [DashboardController::class,'waitingRoom']);
-    // HRD_Application
+    
+    Route::get('/setting-hrd/{id}',[HRDEditProfileController::class,'edit_hrd']);
+        Route::patch('/setting-hrd/{id}',[HRDEditProfileController::class,'post_edit_hrd']);
+    Route::get('/setting-company/{id}',[HRDEditProfileController::class,'edit_company']);
+        Route::patch('/setting-company/{id}',[HRDEditProfileController::class,'post_edit_company']);
+        // HRD_Application
 
     Route::resource('lamaran', HRD_Application::class);
-
 
         Route::get('/check-step-one', [CheckdocHRDController::class,'step_one_show'])->name('step-one-show');
         Route::post('/check-step-one', [CheckdocHRDController::class,'step_one_post'])->name('step-one-post');

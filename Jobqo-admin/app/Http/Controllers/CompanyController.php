@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Company;
 use App\Models\Company_types;
 use App\Models\Company_sectors;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -69,9 +70,12 @@ class CompanyController extends Controller
             'company_type_id' => 'required',
             'website' => 'required',
             'status_izin' => 'required',
-            'img_logo' => 'required',
-            'company_place_id' => 'required'
+            'img_logo' => 'image|file|max:2048|dimensions:max_width=500,max_height=500'
         ]);
+
+        if($request->file('img_logo')){
+            $validatedData['img_logo'] = $request->file('img_logo')->store('Company-logo');
+        }
 
         Company::create($validatedData);
         return redirect('admin/companies');
@@ -129,9 +133,15 @@ class CompanyController extends Controller
             'company_type_id' => 'required',
             'website' => 'required',
             'status_izin' => 'required',
-            'img_logo' => '',
-            'company_place_id' => ''
+            'img_logo' => 'image|file|max:2048|dimensions:max_width=500,max_height=500',
         ]);
+
+        if($request->file('img_logo')){
+            if($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['img_logo'] = $request->file('img_logo')->store('Company-logo');
+        }
 
         Company::where('id',$comp->id)
                 ->update($validatedData);
@@ -148,6 +158,9 @@ class CompanyController extends Controller
     public function destroy($id)
     {
         $model = Company::find($id);
+        if($model->img) {
+            Storage::delete($model->img);
+        }
         $model->delete();
         return redirect('admin/companies');
     }

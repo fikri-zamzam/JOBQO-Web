@@ -51,7 +51,6 @@ class CompaniesSeeder extends Seeder
             'jumlah_job' => '0',
             'status_izin' => 'N',
             'img_logo' => 'www.logo.com',
-            'company_place_id' => '1',
             'created_at'=> now()
         ]);
     }

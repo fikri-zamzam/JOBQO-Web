@@ -32,7 +32,7 @@
                 <div class="joblist-item">
                     <div class="container">
                         <div class="d-flex justify-content-center align-items-center logo">
-                            <img src="{{ url('images/company/bat.png') }}" alt="">
+                            <img src="{{ asset('storage/'.$value->AsalJob->img_logo) }}" alt="">
                         </div>
                         <a href="{{ url('job/detail/'.$value->id) }}">
                             <div class="content">

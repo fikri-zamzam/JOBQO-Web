@@ -79,16 +79,19 @@
             </select>
 
         </div>
-        <div class="form-group mt-2">
+        {{-- <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Logo Perusahaan</label>
             <input type="text" class="form-control" name="img_logo"
                     placeholder="Logo Perusahaan">
+        </div> --}}
+
+        <label for="image">Tambahkan Logo Perusahaan</label><br>
+        <img class="img-fluid mb-3" src="../../../img/image-preview.png" id="img-preview" style="height: 150px">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="image" name="img_logo" onchange="document.getElementById('img-preview').src = window.URL.createObjectURL(this.files[0])">
+            <label class="custom-file-label" for="image">Choose file</label>
         </div>
-        <div class="form-group mt-2">
-            <label for="exampleFormControlInput1">Tempat Perusahaan</label>
-            <input type="text" class="form-control" name="company_place_id" 
-                    placeholder="Tempat Perusahaan">
-        </div>
+
         <div class="form-group mt-3">
             <button class="btn btn-primary" type="submit">Tambah</button>
             <a href="/companies">

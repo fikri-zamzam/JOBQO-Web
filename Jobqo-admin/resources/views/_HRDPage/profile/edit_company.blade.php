@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="col-12">
-    <form action="{{ url('admin/companies/'.$model->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('hrd/setting-company/'.$model->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="_method" value="PATCH">
         <div class="form-group mt-2">
@@ -71,15 +71,6 @@
         @error('website')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
-        <div class="form-group mt-2">
-            <label for="exampleFormControlInput1">Izin Usaha</label>
-
-            <select class="form-control" id="id_izin" name="status_izin">
-                <option value="N" {{ (($model->status_izin == 'N' ) ? "selected" : "") }}>Belum diverifikasi</option>
-                <option value="Y" {{ (($model->status_izin == 'Y' ) ? "selected" : "") }}>Sudah diverifikasi</option>
-            </select>
-
-        </div>
 
         <label for="image">Pilih Foto Profile</label><br>
         <input type="hidden" name="oldImage" value="{{ $model->img_logo }}">
