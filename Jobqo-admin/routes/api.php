@@ -20,4 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 	
-Route::apiResource('/Applicant', ApplicantController::class);
+Route::apiResource('/applicant', ApplicantController::class);
