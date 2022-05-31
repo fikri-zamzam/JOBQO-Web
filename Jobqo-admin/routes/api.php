@@ -21,5 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 	
-Route::apiResource('/Applicant', ApplicantController::class);
-Route::apiResource('/Job', ApiJobController::class);
+Route::apiResource('/applicant', ApplicantController::class);
+Route::apiResource('/job', ApiJobController::class);
