@@ -27,114 +27,29 @@
         </div>
 
         <div class="row joblist-items">
+            @foreach ($jobs as $key=>$value)
             <div class="col-md-4">
                 <div class="joblist-item">
                     <div class="container">
                         <div class="d-flex justify-content-center align-items-center logo">
                             <img src="{{ url('images/company/bat.png') }}" alt="">
                         </div>
-                        <div class="content">
-                            <h3>Office Boy</h3>
-                            <p>PT. Bentoel Group (Asmo Jember)</p>
-                            <hr>
-                            <div class="desc">
-                                <p>Posted 4 days ago · Apply before 19 Apr
-                                Recruiter was hiring 21 hours ago</p>
+                        <a href="{{ url('job/detail/'.$value->id) }}">
+                            <div class="content">
+                                <h3>{{ $value->name_job }}</h3>
+                                <p>{{ $value->AsalJob->name_company }}</p>
+                                <hr>
+                                <div class="desc">
+                                    <p>Posted 4 days ago · Apply before 19 Apr
+                                    Recruiter was hiring 21 hours ago</p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="joblist-item">
-                    <div class="container">
-                        <div class="d-flex justify-content-center align-items-center logo">
-                            <img src="{{ url('images/company/selma.png') }}" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Office Boy</h3>
-                            <p>PT. Bentoel Group (Asmo Jember)</p>
-                            <hr>
-                            <div class="desc">
-                                <p>Posted 4 days ago · Apply before 19 Apr
-                                Recruiter was hiring 21 hours ago</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="joblist-item">
-                    <div class="container">
-                        <div class="d-flex justify-content-center align-items-center logo">
-                            <img src="{{ url('images/company/wismilak.png') }}" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Motion Designer</h3>
-                            <p>PT. Bentoel Group (Asmo Jember)</p>
-                            <hr>
-                            <div class="desc">
-                                <p>Posted 4 days ago · Apply before 19 Apr
-                                Recruiter was hiring 21 hours ago</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="joblist-item">
-                    <div class="container">
-                        <div class="d-flex justify-content-center align-items-center logo">
-                            <img src="{{ url('images/company/wismilak.png') }}" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Motion Designer</h3>
-                            <p>PT. Bentoel Group (Asmo Jember)</p>
-                            <hr>
-                            <div class="desc">
-                                <p>Posted 4 days ago · Apply before 19 Apr
-                                Recruiter was hiring 21 hours ago</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="joblist-item">
-                    <div class="container">
-                        <div class="d-flex justify-content-center align-items-center logo">
-                            <img src="{{ url('images/company/wismilak.png') }}" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Motion Designer</h3>
-                            <p>PT. Bentoel Group (Asmo Jember)</p>
-                            <hr>
-                            <div class="desc">
-                                <p>Posted 4 days ago · Apply before 19 Apr
-                                Recruiter was hiring 21 hours ago</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="joblist-item">
-                    <div class="container">
-                        <div class="d-flex justify-content-center align-items-center logo">
-                            <img src="{{ url('images/company/wismilak.png') }}" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Motion Designer</h3>
-                            <p>PT. Bentoel Group (Asmo Jember)</p>
-                            <hr>
-                            <div class="desc">
-                                <p>Posted 4 days ago · Apply before 19 Apr
-                                Recruiter was hiring 21 hours ago</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            
         </div>
     </div>
 </section>

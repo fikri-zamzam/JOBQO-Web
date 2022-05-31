@@ -59,8 +59,8 @@ class AdminController extends Controller
 
         $validatedData = $request->validate([
             'name' => 'required|min:10',
-            'username' => 'required|unique:admins',
-            'email' => 'required|unique:admins',
+            'username' => 'required|unique:users',
+            'email' => 'required|unique:users',
             'password' => 'required|min:5|',
             'gender' => 'required',
             'tgl_lahir' => 'date',

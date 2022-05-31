@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ApplicantController;
+use App\Http\Controllers\Api\apiJobController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 	
 Route::apiResource('/applicant', ApplicantController::class);
+Route::apiResource('/job', ApiJobController::class);

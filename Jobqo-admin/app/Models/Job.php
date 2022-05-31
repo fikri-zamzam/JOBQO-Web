@@ -24,5 +24,7 @@ class Job extends Model
 
     public function rangeGaji(){
         return $this->belongsTo(Salary::class,'salaries_id');
+
+        // $model->rangeGaji->range_salary
     }
 }

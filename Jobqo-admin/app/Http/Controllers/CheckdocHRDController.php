@@ -32,16 +32,17 @@ class CheckdocHRDController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|min:10',
             'username' => 'required|unique:users',
-            // 'email' => 'required|unique:users|email:dns',
-            // 'password' => 'required|min:5|',
             'tgl_lahir' => 'date',
             'alamat' => 'required',
             'gender' => 'required',
-            'img' => 'image|file|max:2048'
+            // 'img' => 'image|file|max:2048|dimensions:max_width=500,max_height=500'
         ]);
 
-        // $validatedData['password'] = Hash::make($validatedData['password']);
         $validatedData['roles'] = "HRD";
+
+        // if($request->file('img')){
+        //     $validatedData['img']->store('HRD-profile');
+        // }
 
         $id = Auth::user()->id;
 

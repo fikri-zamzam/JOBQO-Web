@@ -1,15 +1,15 @@
-@extends('layouts.app')
+@extends('_PekerjaPage.layouts.app')
 
 @section('content')
 <header class="headerdetail">
 
     <div class="overlaydetail"></div>
     <div class="container">
-        @include('includes.navbar')
+        @include('_PekerjaPage.includes.navbar')
 
         <div class="header-content text-center">
             <h1 class="header-title">
-                PT. Bentoel Group (Asmo Jember)
+                {{ $model->AsalJob->name_company }}
             </h1>
         </div>
     </div>
@@ -25,7 +25,7 @@
         <div class="row align-items-center justify-content-between">
             <div class="col-md-8">
                 <h2 class="sectiondetail-title text-white">
-                    Software Engineer
+                    {{ $model->name_job }}
                 </h2>
             </div>
             <div class="col">
@@ -37,7 +37,7 @@
                 <h6>Kisaran Gaji</h6>
             </div>
             <div class="col-md-8">
-                <p>Rp 10.000.000 - Rp. 15.000.000</p>
+                <p>{{ $model->rangeGaji->range_salary }}</p>
             </div>
         </div>
         <hr>
@@ -51,7 +51,7 @@
         </h2>
         <div class="row">
             <div class="col">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla bibendum mollis diam, eget semper purus. Maecenas arcu dolor, maximus et augue vel, porttitor molestie ex. Proin non leo non nisi luctus sagittis sed vitae ipsum.</p>
+                <p>{{ $model->desk_job }}</p>
             </div>
         </div>
     </div>
@@ -60,14 +60,11 @@
 <div class="syarat-pekerjaan">
     <div class="container">
         <h2 class="sectiondetail-title2 text-white mb-4">
-            Deskripsi Pekerjaan
+            Persyaratan Pekerjaan
         </h2>
-        <ul>
-            <li>Minimal 2 tahun bekerja sebagai software engineer</li>
-            <li>Menguasai Bahasa PHP</li>
-            <li>JAGO GOMBAL</li>
-            <li>IYYADEH</li>
-        </ul>
+        <p>
+            {!! $model->job_requirement !!}
+        </p>
     </div>
 </div>
 

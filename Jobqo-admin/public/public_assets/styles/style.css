@@ -714,6 +714,7 @@ section .section-description {
 
 .syarat-pekerjaan {
   margin-top: 50px;
+  color: rgba(255, 255, 255, 0.557);
 }
 
 .syarat-pekerjaan .sectiondetail-title2 {
