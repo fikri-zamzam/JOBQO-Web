@@ -72,7 +72,10 @@ class PublicLoginController extends Controller
     //     return redirect('login');
     // }
 
+    public function register(){
+        return view('_PekerjaPage.pages.register');
+    }
     public function testHalaman(){
-        return view('_PekerjaPage.pages.joblist');
+        return view('_PekerjaPage.pages.register');
     }
 }

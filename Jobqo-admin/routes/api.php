@@ -15,12 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 	
 Route::post('/register', [\App\Http\Controllers\Api\ApllicantController::class,'register']);
 Route::post('/login', [\App\Http\Controllers\Api\ApllicantController::class,'login']);
-Route::get('/ambil', [\App\Http\Controllers\Api\ApllicantController::class,'fetch']);
 Route::apiResource('/job', ApiJobController::class);
+
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [\App\Http\Controllers\Api\ApllicantController::class,'logout']);
+    Route::get('user', [\App\Http\Controllers\Api\ApllicantController::class,'fetch']);
+    Route::post('user', [\App\Http\Controllers\Api\ApllicantController::class,'updateProfile']);
+
+});

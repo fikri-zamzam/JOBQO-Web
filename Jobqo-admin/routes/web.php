@@ -70,11 +70,14 @@ use App\Http\Controllers\HRDEditProfileController;
 
 // Auth::routes();
 
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate']);
+// Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+// Route::post('/login', [LoginController::class, 'authenticate']);
 
-// Route::get('/login', [PublicLoginController::class, 'index'])->name('login')->middleware('guest');
-// Route::post('/login', [PublicLoginController::class, 'authenticate']);
+Route::get('/login', [PublicLoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [PublicLoginController::class, 'authenticate']);
+Route::get('/register', [PublicLoginController::class, 'register']);
+
+
 
 Route::get('/testPage', [PublicLoginController::class, 'testHalaman']);
 Route::get('/logout', [LoginController::class, 'logout']);

@@ -98,5 +98,36 @@ class ApllicantController extends Controller
         return ResponseFormatter::success($request->user(), 'Data profile user berhasil diambil');
     }
 
+    public function updateProfile(Request $request)
+    {
+        try {
+            $request->validate([
+                'nama' => ['required', 'string', 'max:255'],
+                'username' => ['required', 'string', 'max:255', 'unique:users'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            ]);
+
+            $user = Auth::user();
+            $user->update([
+                'nama' => $request->nama,
+                'username' => $request->username,
+                'email' => $request->email,
+            ]);
+
+            return ResponseFormatter::success($user, 'Profile Updated');
+        } catch (Exception $error) {
+            return ResponseFormatter::error([
+                'message' => 'something went wrong',
+                'error' => $error
+            ], 'Aunthentication Failed', 500);
+        }
+    }
+
+    public function logout(Request $request)
+    {
+        $token = $request->user()->currentAccessToken()->delete();
+        return ResponseFormatter::success($token, 'Token Revoked');
+    }
+
 
 }
