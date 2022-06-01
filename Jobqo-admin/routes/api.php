@@ -20,5 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 	
-Route::get('/register', [\App\Http\Controllers\Api\ApllicantController::class,'register']);
+Route::post('/register', [\App\Http\Controllers\Api\ApllicantController::class,'register']);
+Route::post('/login', [\App\Http\Controllers\Api\ApllicantController::class,'login']);
+Route::get('/ambil', [\App\Http\Controllers\Api\ApllicantController::class,'fetch']);
 Route::apiResource('/job', ApiJobController::class);
