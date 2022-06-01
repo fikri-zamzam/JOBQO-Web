@@ -15,12 +15,20 @@
             <li class="nav-item me-lg-3">
                 <a href="#" class="nav-link">FAQ</a>
             </li>
-            <li class="nav-item me-lg-3">
-                <a href="{{ url('/login') }}" class="nav-link btn btn-yellow">Masuk</a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ url('/register') }}" class="nav-link btn btn-outline-yellow">Daftar</a>
-            </li>
+
+            @if ($isLogin != NULL)
+                <li class="nav-item">
+                    <a href="">{{ Auth::user()->name }}</a>
+                </li>
+            @else
+                <li class="nav-item me-lg-3">
+                    <a href="{{ url('/login') }}" class="nav-link btn btn-yellow">Masuk</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('/register') }}" class="nav-link btn btn-outline-yellow">Daftar</a>
+                </li>
+            @endif
+
         </ul>
     </div>
 </nav>

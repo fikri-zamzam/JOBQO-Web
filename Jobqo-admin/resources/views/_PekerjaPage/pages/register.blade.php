@@ -20,7 +20,7 @@
                         <input type="password" class="form-control" placeholder="Password">
 
                         <button class="btn btn-yellow w-100 d-block">Daftar Akun</button>
-                        <p class="section-description mt-3">Sudah punya akun? <a href="#" class="text-orange">Masuk
+                        <p class="section-description mt-3">Sudah punya akun? <a href="/login" class="text-orange">Masuk
                                 sekarang juga</a></p>
                     </form>
                 </div>

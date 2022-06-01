@@ -69,18 +69,22 @@ class LoginRegisController extends Controller
         // return redirect()->intended('/');
     }
 
-    // public function logout(){
-    //     Session::flush();
+    public function logout(){
+        Session::flush();
         
-    //     Auth::logout();
+        Auth::logout();
 
-    //     return redirect('login');
+        return redirect('private/login');
+    }
+
+    public function registerPage(){
+        return view('_PekerjaPage.pages.register', [
+            "title" => "Register"
+        ]);
+    }
+
+
+    // public function testHalaman(){
+    //     return view('_PekerjaPage.pages.register');
     // }
-
-    public function register(){
-        return view('_PekerjaPage.pages.register');
-    }
-    public function testHalaman(){
-        return view('_PekerjaPage.pages.register');
-    }
 }

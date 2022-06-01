@@ -1,15 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HRDController;
 use App\Http\Controllers\JobController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HRD_Application;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\TugasController;
 use App\Http\Controllers\VerifyController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\HRD_JobController;
@@ -19,7 +15,6 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JobSalaryController;
-use App\Http\Controllers\Admin_typeController;
 use App\Http\Controllers\CheckdocHRDController;
 use App\Http\Controllers\CompanyTypeController;
 use App\Http\Controllers\JobPositionController;
@@ -27,7 +22,6 @@ use App\Http\Controllers\PublicLoginController;
 use App\Http\Controllers\HRDJobSalaryController;
 use App\Http\Controllers\public\p_JobController;
 use App\Http\Controllers\CompanySectorController;
-use App\Http\Controllers\UserBlacklistController;
 use App\Http\Controllers\HRDEditProfileController;
 use App\Http\Controllers\public\LoginRegisController;
 /*
@@ -47,7 +41,7 @@ Route::post('private/login', [LoginController::class, 'authenticate']);
 
 Route::get('/login', [LoginRegisController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginRegisController::class, 'authenticate']);
-Route::get('/register', [LoginRegisController::class, 'register']);
+Route::get('/register', [LoginRegisController::class, 'registerPage']);
 
 
 

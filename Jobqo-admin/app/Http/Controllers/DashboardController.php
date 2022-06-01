@@ -54,6 +54,8 @@ class DashboardController extends Controller
     }
 
     public function HomePublic(){
-        return view('_PekerjaPage.pages.homepage');
+        return view('_PekerjaPage.pages.homepage',[
+            'isLogin' => ''
+        ]);
     }
 }
