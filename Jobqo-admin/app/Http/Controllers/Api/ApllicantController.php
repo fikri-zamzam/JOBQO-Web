@@ -108,6 +108,7 @@ class ApllicantController extends Controller
             ]);
 
             $user = Auth::user();
+            // false alarm
             $user->update([
                 'name' => $request->nama,
                 'username' => $request->username,

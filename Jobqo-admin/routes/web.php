@@ -29,6 +29,7 @@ use App\Http\Controllers\public\p_JobController;
 use App\Http\Controllers\CompanySectorController;
 use App\Http\Controllers\UserBlacklistController;
 use App\Http\Controllers\HRDEditProfileController;
+use App\Http\Controllers\public\LoginRegisController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,42 +41,13 @@ use App\Http\Controllers\HRDEditProfileController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('layouts.main', [
-//         "title" => "Dashboard"
-//     ]);
-// });
 
+Route::get('private/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('private/login', [LoginController::class, 'authenticate']);
 
-
-
-
-// 
-// Route::resource('users_blacklist', UserBlacklistController::class);
-// Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-// Route::post('/login', [LoginController::class, 'authenticate']);
-// Route::post('/logout', [LoginController::class, 'logout']);
-
-// Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
-// Route::post('/register', [RegisterController::class, 'store']);
-
-// // Berfungsi untuk mencegah orang lain untuk mengakses fungsi show yang tidak diperlukan
-// Route::resource('admin_type', Admin_typeController::class)->except('show');
-
-// //Controller untuk membenahi tampilan
-// Route::get('/tugas2',[TugasController::class, 'kedua']);
-
-// login admin 
-
-
-// Auth::routes();
-
-// Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-// Route::post('/login', [LoginController::class, 'authenticate']);
-
-Route::get('/login', [PublicLoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [PublicLoginController::class, 'authenticate']);
-Route::get('/register', [PublicLoginController::class, 'register']);
+Route::get('/login', [LoginRegisController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginRegisController::class, 'authenticate']);
+Route::get('/register', [LoginRegisController::class, 'register']);
 
 
 
@@ -133,7 +105,6 @@ Route::group(['prefix' => 'admin','middleware' => ['auth'],['checkRole:Admin']],
         Route::post('/check-step-one', [CheckdocHRDController::class,'step_one_post'])->name('step-one-post');
         Route::get('/check-step-two', [CheckdocHRDController::class,'step_two_show'])->name('step-two-show');
         Route::post('/check-step-two', [CheckdocHRDController::class,'step_two_post'])->name('step-two-post');
-    // Route::resource('users', UserController::class);
  });
 
 
@@ -141,13 +112,4 @@ Route::group(['prefix' => 'admin','middleware' => ['auth'],['checkRole:Admin']],
     Route::get('/', [DashboardController::class,'indexApplicant'])->middleware('checkDoc');
     
  });
-
-
-// contoh route yang menggunakan group
-// Route::group(['middleware' => ['auth']], function() {
-//     /**
-//     * Logout Route
-//     */
-//     Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
-//  });
 
