@@ -28,11 +28,6 @@ class CreateUsersTable extends Migration
             $table->string('alamat')->nullable();
             $table->enum('roles', ['Admin', 'HRD', 'Pekerja'])->default('Pekerja');
             $table->string('img')->nullable();
-            $table->string('api_token', 80)
-                        ->unique()
-                        ->nullable()
-                        ->default(null);
-            
             $table->rememberToken();
             $table->timestamps();
         });
