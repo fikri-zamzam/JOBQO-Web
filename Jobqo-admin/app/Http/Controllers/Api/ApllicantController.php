@@ -102,14 +102,14 @@ class ApllicantController extends Controller
     {
         try {
             $request->validate([
-                'nama' => ['required', 'string', 'max:255'],
+                'name' => ['required', 'string', 'max:255'],
                 'username' => ['required', 'string', 'max:255', 'unique:users'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             ]);
 
             $user = Auth::user();
             $user->update([
-                'nama' => $request->nama,
+                'name' => $request->nama,
                 'username' => $request->username,
                 'email' => $request->email,
             ]);
