@@ -67,19 +67,6 @@
                                 <textarea class="form-control" name="alamat" id="idAlamat" >{{ $hrd_doc->alamat ?? old('alamat') }}</textarea>
                             </div>
                         </div>
-
-                        {{-- <div class="form-group row">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="image">Pilih Foto Profile</label><br>
-                            <div class="col-md-6 col-sm-6">
-                                <img class="img-fluid mb-3" src="../../../img/image-preview.png" id="img-preview" style="height: 150px">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="image" name="img" onchange="document.getElementById('img-preview').src = window.URL.createObjectURL(this.files[0])">
-                                    <label class="custom-file-label" for="image">Choose file</label>
-                                </div>
-                            </div>    
-                        </div> --}}
-                        
-                        
                     </div>
                     <div class="card-footer text-right">
                         <button type="submit" class="btn btn-primary">Next</button>

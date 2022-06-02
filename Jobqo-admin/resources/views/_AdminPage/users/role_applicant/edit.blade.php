@@ -72,7 +72,7 @@
         @if ($model->img != NULL)
             <img class="img-fluid mb-3" src="{{ asset('storage/'.$model->img) }}" id="img-preview" alt="preview" style="height: 150px">
         @else
-            <img class="img-fluid mb-3" src="../../../img/image-preview.png" id="img-preview" style="height: 150px">
+            <img class="img-fluid mb-3" src="{{ asset('img/image-preview.png') }}" id="img-preview" style="height: 150px">
         @endif
 
         <div class="custom-file">

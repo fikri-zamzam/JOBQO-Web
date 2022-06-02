@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="../../../img/jobqo-title.png" type="image/ico" />
+	<link rel="icon" href="{{ asset('img/jobqo-title.png') }}" type="image/ico" />
 
     <title>{{ $title }} | JOBQO</title>
 
@@ -57,7 +57,7 @@
                 @if ($imgProfile != NULL)
                   <img src="{{ asset('storage/'.$imgProfile) }}" alt="..." class="img-circle profile_img">
                 @else
-                  <img src="../../../img/user-profile.png" alt="..." class="img-circle profile_img">
+                  <img src="{{ asset('img/user-profile.png') }}" alt="..." class="img-circle profile_img">
                 @endif
                 
               </div>
@@ -107,13 +107,13 @@
                     @if ($imgProfile != NULL)
                       <img src="{{ asset('storage/'.$imgProfile) }}" alt="..." class="img-circle">
                     @else
-                      <img src="../../../img/user-profile.png" alt="..." class="img-circle">
+                      <img src="{{ asset('img/user-profile.png') }}" alt="..." class="img-circle">
                     @endif
 
                     {{ $fullname }}
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                  <form action="/logout" method="GET">
+                  <form action="{{ url('/logout') }}" method="GET">
                     @csrf
                     <button type="submit" class="dropdown-item">Logout <i class="fa fa-sign-out pull-right"></i></button>
                   </form>

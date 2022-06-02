@@ -68,7 +68,7 @@
         </div>
 
         <label for="image">Pilih Foto Profile</label><br>
-        <img class="img-fluid mb-3" src="../../../img/image-preview.png" id="img-preview" style="height: 150px">
+        <img class="img-fluid mb-3" src="{{ asset('img/image-preview.png') }}" id="img-preview" style="height: 150px">
         <div class="custom-file">
             <input type="file" class="custom-file-input" id="image" name="img" onchange="document.getElementById('img-preview').src = window.URL.createObjectURL(this.files[0])">
             <label class="custom-file-label" for="image">Choose file</label>
