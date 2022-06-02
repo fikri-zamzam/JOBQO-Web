@@ -16,12 +16,16 @@ class p_JobController extends Controller
     public function IndexJob()
     {
         $jobs = Job::all();
-        return view('_PekerjaPage.pages.joblist',compact('jobs'));
+        return view('_PekerjaPage.pages.joblist',[
+            'isLogin' => ((Auth::check()) ? "true" : "false")
+        ],compact('jobs'));
     }
 
     public function DetailJobs($id){
         $model = Job::find($id);
-        return view('_PekerjaPage.pages.jobdetail',compact('model'));
+        return view('_PekerjaPage.pages.jobdetail',[
+            'isLogin' => ((Auth::check()) ? "true" : "false")
+        ],compact('model'));
          
     }
 }

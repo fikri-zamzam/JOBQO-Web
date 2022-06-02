@@ -14,12 +14,14 @@
                         faucibus. In pretium ante.
                     </p>
 
-                    <form action="#" class="register-form">
-                        <input type="text" class="form-control" placeholder="Nama Lengkap">
-                        <input type="email" class="form-control" placeholder="Email">
-                        <input type="password" class="form-control" placeholder="Password">
+                    <form action="{{ url('/register') }}" method="POST" class="register-form">
+                        @csrf
+                        <input type="text" class="form-control" placeholder="Nama Lengkap" name="name">
+                        <input type="text" class="form-control" placeholder="Username" name="username">
+                        <input type="email" class="form-control" placeholder="Email" name="email">
+                        <input type="password" class="form-control" placeholder="Password" name="password">
 
-                        <button class="btn btn-yellow w-100 d-block">Daftar Akun</button>
+                        <button class="btn btn-yellow w-100 d-block" type="submit">Daftar Akun</button>
                         <p class="section-description mt-3">Sudah punya akun? <a href="/login" class="text-orange">Masuk
                                 sekarang juga</a></p>
                     </form>

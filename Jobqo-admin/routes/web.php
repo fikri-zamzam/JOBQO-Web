@@ -40,8 +40,10 @@ Route::get('private/login', [LoginController::class, 'index'])->name('login')->m
 Route::post('private/login', [LoginController::class, 'authenticate']);
 
 Route::get('/login', [LoginRegisController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginRegisController::class, 'authenticate']);
+Route::post('/loginPost', [LoginRegisController::class, 'authenticate']);
 Route::get('/register', [LoginRegisController::class, 'registerPage']);
+Route::post('/register', [LoginRegisController::class, 'registerPost']);
+Route::get('/logout-user', [LoginRegisController::class, 'logout']);
 
 
 

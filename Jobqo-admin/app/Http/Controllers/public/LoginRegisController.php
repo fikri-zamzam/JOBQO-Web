@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\public;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -16,14 +18,14 @@ class LoginRegisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    use AuthenticatesUsers;
+    // use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -52,10 +54,8 @@ class LoginRegisController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
 
-            if(Auth::user()->roles == "HRD") {
-                return redirect()->intended('/hrd');
-            } else if(Auth::user()->roles == "Pekerja") {
-                return redirect()->intended('/Pekerja');
+            if(Auth::user()->roles == "Pekerja") {
+                return redirect()->intended('/');
             }
 
         } else {
@@ -74,13 +74,45 @@ class LoginRegisController extends Controller
         
         Auth::logout();
 
-        return redirect('private/login');
+        return redirect('login');
     }
 
     public function registerPage(){
         return view('_PekerjaPage.pages.register', [
             "title" => "Register"
         ]);
+    }
+
+    public function registerPost(Request $request){
+        $validatedData = $request->validate([
+            'name' => 'required|min:10',
+            'username' => 'required|unique:users',
+            'email' => 'required|unique:users',
+            'password' => 'required|min:5|',
+        ]);
+
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        $validatedData['roles'] = "Pekerja";
+
+        User::create($validatedData);
+
+        // $cobalogin = [
+        //     'email' => $validatedData["email"],
+        //     'password' => $validatedData["password"]
+        // ];
+
+        // if(Auth::attempt($cobalogin)){
+        //     $request->session()->regenerate();
+
+        //     if(Auth::user()->roles == "Pekerja") {
+        //         return redirect()->intended('/');
+        //     }
+
+        // } else {
+        //     return back()->with('loginError', 'Login gagal');
+        // }
+
+        
     }
 
 

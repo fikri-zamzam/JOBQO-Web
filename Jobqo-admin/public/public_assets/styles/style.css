@@ -631,7 +631,7 @@ section .section-description {
 }
 
 .headerdetail {
-  background-image: url("../images/detail_job.jpg");
+  background-image: url("../images/header.jpg");
   background-size: cover;
   min-height: 60vh;
   position: relative;

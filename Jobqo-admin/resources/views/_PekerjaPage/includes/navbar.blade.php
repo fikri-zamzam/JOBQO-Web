@@ -13,12 +13,12 @@
             </li>
             <hr class="navbar-inline">
             <li class="nav-item me-lg-3">
-                <a href="#" class="nav-link">FAQ</a>
+                <a href="/logout-user" class="nav-link">FAQ</a>
             </li>
 
-            @if ($isLogin != NULL)
-                <li class="nav-item">
-                    <a href="">{{ Auth::user()->name }}</a>
+            @if ($isLogin == "true")
+                <li class="nav-item me-lg-3">
+                    <a href="" class="nav-link">{{ Auth::user()->name }}</a>
                 </li>
             @else
                 <li class="nav-item me-lg-3">
