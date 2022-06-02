@@ -34,7 +34,7 @@
     {{-- Trix css --}}
 
     <link rel="stylesheet" href="../../../js/trix/trix.css">
-    
+
     {{-- akhir ubah css menjadi asset --}}
 
     {{-- bootstrap 4 --}}
@@ -216,7 +216,7 @@
     <script src="../../../templates_assets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <!-- bootstrap-daterangepicker -->
     <script src="../../../templates_assets/vendors/moment/min/moment.min.js"></script>
-    <script src="../../../templates_assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="{{ asset('templates_assets/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
     
     {{-- trix Rich Editor --}}
     <script src="{{ asset('js/trix/trix.js') }}"></script>
