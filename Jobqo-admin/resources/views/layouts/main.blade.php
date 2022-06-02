@@ -10,6 +10,8 @@
 
     <title>{{ $title }} | JOBQO</title>
 
+    {{-- awal ubah css menjadi asset --}}
+
     <!-- Bootstrap -->
     <link href="../../../templates_assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -32,6 +34,8 @@
     {{-- Trix css --}}
 
     <link rel="stylesheet" href="../../../js/trix/trix.css">
+    
+    {{-- akhir ubah css menjadi asset --}}
 
     {{-- bootstrap 4 --}}
   </head>
@@ -120,24 +124,7 @@
             </nav>
           </div>
         </div>
-        <!-- /top navigation -->
 
-        <!-- page content -->
-        {{-- <div class="right_col" role="main">
-          <!-- top tiles -->
-          @include('layouts.top_info')
-          <!-- /top tiles -->
-
-         
-              <div class="row">
-                <div class="container">
-                  
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div> --}}
 
         <div class="right_col" role="main">
           <div class="">
@@ -191,6 +178,8 @@
       </div>
     </div>
 
+    {{-- ubah js mennjadi asset  --}}
+
     <!-- jQuery -->
     <script src="../../../templates_assets/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -233,7 +222,8 @@
     <script src="{{ asset('js/trix/trix.js') }}"></script>
     <script src="{{ asset('js/trix/attachments.js') }}"></script>
     <!-- Custom Theme Scripts -->
-    <script src="../../../templates_assets/build/js/custom.min.js"></script>
+    <script src="{{ asset('templates_assets/build/js/custom.min.js') }}"></script>
 	
+    {{-- akhir ubahan js menjadi asset --}}
   </body>
 </html>

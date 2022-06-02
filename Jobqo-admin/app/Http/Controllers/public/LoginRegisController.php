@@ -96,21 +96,21 @@ class LoginRegisController extends Controller
 
         User::create($validatedData);
 
-        // $cobalogin = [
-        //     'email' => $validatedData["email"],
-        //     'password' => $validatedData["password"]
-        // ];
+        $credentials = $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
 
-        // if(Auth::attempt($cobalogin)){
-        //     $request->session()->regenerate();
+        if(Auth::attempt($credentials)){
+            $request->session()->regenerate();
 
-        //     if(Auth::user()->roles == "Pekerja") {
-        //         return redirect()->intended('/');
-        //     }
+            if(Auth::user()->roles == "Pekerja") {
+                return redirect()->intended('/');
+            }
 
-        // } else {
-        //     return back()->with('loginError', 'Login gagal');
-        // }
+        } else {
+            return back()->with('loginError', 'Login gagal');
+        }
 
         
     }
