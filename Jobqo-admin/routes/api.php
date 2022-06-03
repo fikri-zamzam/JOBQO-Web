@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\apiJobController;
+use App\Http\Controllers\Api\api_jobController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 	
 Route::post('/register', [\App\Http\Controllers\Api\ApllicantController::class,'register']);
 Route::post('/login', [\App\Http\Controllers\Api\ApllicantController::class,'login']);
-Route::apiResource('/job', ApiJobController::class);
+Route::get('/job',[api_jobController::class, 'all']);
 
 
 Route::middleware('auth:sanctum')->group(function () {

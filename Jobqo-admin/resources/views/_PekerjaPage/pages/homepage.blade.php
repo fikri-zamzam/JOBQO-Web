@@ -1,4 +1,4 @@
-@extends('_Pekerjapage.layouts.app')
+@extends('_PekerjaPage.layouts.app')
 
 @section('content')
 <header class="header">
