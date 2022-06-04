@@ -9,17 +9,32 @@ use App\Models\Job;
 use App\Models\Job_categories;
 use App\Models\Job_positions;
 use App\Models\Salary;
+use Illuminate\support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class p_JobController extends Controller
 {
     public function IndexJob()
     {
-        $jobs = Job::all();
+        $jobs = Job::paginate(10);
+        // $jobs = DB::table('jobs')->paginate(10);
+
         return view('_PekerjaPage.pages.joblist',[
             'isLogin' => ((Auth::check()) ? "true" : "false")
         ],compact('jobs'));
     }
+
+    public function cariJob(Request $request){
+        $nameJob = $request->cari;
+
+        $jobs = Job::where('name_job', 'LIKE', "%".$nameJob."%")->paginate(10);
+
+        return view('_PekerjaPage.pages.joblist',[
+            'isLogin' => ((Auth::check()) ? "true" : "false")
+        ],compact('jobs'));
+    }
+
+    
 
     public function DetailJobs($id){
         $model = Job::find($id);

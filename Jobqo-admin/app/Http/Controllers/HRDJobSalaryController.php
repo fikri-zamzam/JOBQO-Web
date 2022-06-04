@@ -57,11 +57,17 @@ class HRDJobSalaryController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'range_salary' => 'required|min:5',
+            'g_awal' => 'required',
+            'g_akhir' => 'required',
             'deskripsi' => 'required'
         ]);
 
         $validatedData["companies_id"] = Auth::user()->companies_id;
+
+        $gaji1 =  $this->rupiah($validatedData["g_awal"]);
+        $gaji2 =  $this->rupiah($validatedData["g_akhir"]);
+
+        $validatedData["rupiah"] = $gaji1." - ".$gaji2;
 
         Salary::create($validatedData);
         return redirect('hrd/jobs_salary');
@@ -110,9 +116,15 @@ class HRDJobSalaryController extends Controller
     {
         $gaji = Salary::find($id);
         $validatedData = $request->validate([
-            'range_salary' => 'required|min:5',
+            'g_awal' => 'required',
+            'g_akhir' => 'required',
             'deskripsi' => 'required'
         ]);
+
+        $gaji1 =  $this->rupiah($validatedData["g_awal"]);
+        $gaji2 =  $this->rupiah($validatedData["g_akhir"]);
+
+        $validatedData["rupiah"] = $gaji1." - ".$gaji2;
 
         Salary::where('id',$gaji->id)
              ->update($validatedData);
@@ -130,5 +142,10 @@ class HRDJobSalaryController extends Controller
         $model = Salary::find($id);
         $model->delete();
         return redirect('hrd/jobs_salary');
+    }
+
+    public function rupiah($angka){
+        $format_rupiah = "Rp " . number_format($angka,2,',','.');
+        return $format_rupiah;
     }
 }

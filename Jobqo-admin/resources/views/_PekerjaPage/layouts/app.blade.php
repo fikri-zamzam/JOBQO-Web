@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOBQO</title>
     @include('_PekerjaPage.includes.style')
+    <link rel="icon" href="{{ asset('img/jobqo-title.png') }}" type="image/ico" />
 </head>
 
 <body>

@@ -16,7 +16,7 @@
       <tr>
         <td scope="row"> {{ $key+1 }} </td>
         <td> {{ $value->id }} </td>
-        <td> {{ $value->range_salary }} </td>
+        <td> {{ $value->rupiah }} </td>
         <td> {{ $value->deskripsi }} </td>
         <td>
           <div class="row">

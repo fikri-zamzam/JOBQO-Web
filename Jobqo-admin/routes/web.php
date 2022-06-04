@@ -53,6 +53,7 @@ Route::get('/logout', [LoginController::class, 'logout']);
 // RUTE untuk web Publik
 Route::get('/', [DashboardController::class, 'HomePublic']);
 Route::get('/job', [p_JobController::class, 'IndexJob']);
+    Route::get('/job/s/', [p_JobController::class, 'cariJob']);
     Route::get('/job/detail/{id}', [p_JobController::class, 'DetailJobs']);
 
 

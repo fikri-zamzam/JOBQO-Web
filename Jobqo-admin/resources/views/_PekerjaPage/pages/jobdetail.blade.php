@@ -37,7 +37,7 @@
                 <h6>Kisaran Gaji</h6>
             </div>
             <div class="col-md-8">
-                <p>{{ $model->rangeGaji->range_salary }}</p>
+                <p>{{ $model->rangeGaji->rupiah }}</p>
             </div>
         </div>
         <hr>

@@ -16,7 +16,9 @@ class CreateSalariesTable extends Migration
         Schema::create('salaries', function (Blueprint $table) {
             $table->id();
             $table->foreignId('companies_id')->nullable();
-            $table->string('range_salary');
+            $table->string('g_awal');
+            $table->string('g_akhir');
+            $table->string('rupiah')->nullable();
             $table->string('deskripsi');
             $table->timestamps();
         });

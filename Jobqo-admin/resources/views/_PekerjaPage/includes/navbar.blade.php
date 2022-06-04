@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark py-4">
     <a href="{{ url('/') }}" class="navbar-brand">
-        <img src="{{ url('images/logo.png') }}" alt="">
+        <img src="{{ url('public_assets/images/logo.png') }}" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
