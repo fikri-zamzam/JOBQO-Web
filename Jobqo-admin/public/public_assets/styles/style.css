@@ -739,3 +739,60 @@ section .section-description {
   margin-bottom: 100px;
 }
 /*# sourceMappingURL=style.css.map */
+
+.profile {
+  margin-top: 50px;
+}
+
+.profile .sidebar {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.profile .sidebar .user img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.profile .sidebar .user p {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.profile .sidebar .user .hr-profile {
+  margin-top: 20px;
+}
+
+.profile .sidebar .menu ul {
+  margin: 0;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.profile .sidebar .menu ul li {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.profile .sidebar .menu ul li i {
+  color: #b4b4b4;
+}
+
+.profile .sidebar .menu ul li a {
+  text-decoration: none;
+  color: #131313;
+  margin-left: 10px;
+}
+
+.profile .sidebar .menu ul .nav {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.profile .content {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 2rem;
+}

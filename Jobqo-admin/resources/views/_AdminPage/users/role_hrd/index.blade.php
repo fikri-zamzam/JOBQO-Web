@@ -25,19 +25,14 @@
         <td> {{ ($value->gender == "L" ? "Laki-laki" : "Perempuan" ) }} </td>
         <td> {{ $value->tgl_lahir }} </td>
         <td> {{ $value->email }} </td>
-        <td><img style="display:block;" width="50px" height="50px" class="img-circle" src="{{ asset('storage/'. $value->img) }}" /></td>
+        <td>
+          @if ($value->img == NULL)
+            <img style="display:block;" width="50px" height="50px" class="img-circle" src="{{ asset('img/user-profile.png') }}" /></td>
+          @else
+            <img style="display:block;" width="50px" height="50px" class="img-circle" src="{{ asset('storage/'. $value->img) }}" /></td>
+          @endif
         <td>
           <div class="row">
-          <!-- <div class="col-3">
-                <form action="{{ url('users/'.$value->id) }}" method="GET">
-                    @csrf
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button class="btn btn-danger">Hapus</button>
-                </form>
-            </div> -->
-            {{-- <div class="col-3">
-                <a class="btn btn-success" href="{{ route('users.show', $value->id) }}">Detail</a>
-            </div> --}}
             <div class="col-3">
                 <a class="btn btn-info" href="{{ url('admin/hrd/'.$value->id.'/edit') }}">Edit</a>
             </div>

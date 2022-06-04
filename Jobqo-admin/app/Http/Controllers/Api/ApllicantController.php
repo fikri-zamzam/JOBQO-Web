@@ -36,6 +36,7 @@ class ApllicantController extends Controller
                 'username' => $request->username,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
+                // 'img' => asset('storage/default/user-profile.png')
             ]);
 
             $user = User::where('email', $request->email)->first();

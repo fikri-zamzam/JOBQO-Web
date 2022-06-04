@@ -15,7 +15,6 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_place_id')->nullable();
             $table->foreignId('users_id')->nullable();
             $table->String('name_company');
             $table->text('alamat');
