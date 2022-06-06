@@ -73,6 +73,8 @@ class JobController extends Controller
             'job_requirement' => 'required'
         ]);
 
+
+
         Job::create($validatedData);
         return redirect('admin/jobs');
     }
