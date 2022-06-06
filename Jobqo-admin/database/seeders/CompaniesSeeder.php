@@ -48,7 +48,6 @@ class CompaniesSeeder extends Seeder
             'company_sector_id' => '1',
             'company_type_id' => '1',
             'website' => 'www.kentir.com',
-            'jumlah_job' => '0',
             'status_izin' => 'N',
             'img_logo' => 'www.logo.com',
             'created_at'=> now()
