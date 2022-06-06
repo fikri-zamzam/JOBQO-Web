@@ -1,5 +1,4 @@
 @extends('_PekerjaPage.layouts.app')
-
 @section('content')
 
 <div class="job">
@@ -27,7 +26,7 @@
         </div>
 
         <div class="row joblist-items">
-            @foreach ($jobs as $key=>$value)
+            @forelse ($jobs as $key=>$value)
             <div class="col-md-4">
                 <div class="joblist-item">
                     <div class="container">
@@ -48,8 +47,9 @@
                     </div>
                 </div>
             </div>
-            @endforeach
-            
+            @empty
+            <h1>Job tidak ditemukan</h1>
+            @endforelse
         </div>
     </div>
 </section>

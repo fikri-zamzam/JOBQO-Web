@@ -24,6 +24,7 @@ use App\Http\Controllers\public\p_JobController;
 use App\Http\Controllers\CompanySectorController;
 use App\Http\Controllers\HRDEditProfileController;
 use App\Http\Controllers\public\LoginRegisController;
+use App\Http\Controllers\public\ApplicantProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,6 +56,9 @@ Route::get('/', [DashboardController::class, 'HomePublic']);
 Route::get('/job', [p_JobController::class, 'IndexJob']);
     Route::get('/job/s/', [p_JobController::class, 'cariJob']);
     Route::get('/job/detail/{id}', [p_JobController::class, 'DetailJobs']);
+
+//Rute untuk Applicant
+Route::get('/profile', [ApplicantProfileController::class, 'profile']);
 
 
 // Route untuk role admin

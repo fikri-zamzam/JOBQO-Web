@@ -20,6 +20,7 @@
                 <li class="nav-item me-lg-3">
                     <a href="" class="nav-link">{{ Auth::user()->name }}</a>
                 </li>
+                
             @else
                 <li class="nav-item me-lg-3">
                     <a href="{{ url('/login') }}" class="nav-link btn btn-yellow">Masuk</a>

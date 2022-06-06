@@ -27,7 +27,7 @@
             <select class="form-control" id="idsalary" name="salaries_id">
                 @foreach ($Salary as $s)
                 <option value="{{ $s->id }}" {{ (($model->salaries_id == $s->id ) ? "selected" : "") }}>
-                    {{ $s->range_salary }}
+                    {{ $s->rupiah }}
                 </option>
                 @endforeach
             </select>

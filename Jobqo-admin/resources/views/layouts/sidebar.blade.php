@@ -72,7 +72,7 @@
             <li><a href="/hrd/jobs_salary">Range gaji</a></li>
           </ul>
         </li>
-        <li><a><i class="fa fa-profile"></i> Ubah <span class="fa fa-chevron-down"></span></a>
+        <li><a><i class="fa fa-edit"></i> Ubah <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a href="{{ url('/hrd/setting-hrd/'.Auth::user()->id) }}">Ubah Profile hrd</a></li>
             <li><a href="{{ url('/hrd/setting-company/'.Auth::user()->companies_id) }}">Ubah Profile Perusahaan</a></li>

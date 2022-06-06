@@ -25,7 +25,7 @@ class DashboardController extends Controller
     {   $user = User::find(Auth::user()->id);
         return view('_HRDPage.dashboard.main',[
             "title" => "Dashboard",
-            "subtitle1" => "Dashboard",
+            "subtitle1" => "Dashboard ".$user->getCompany->name_company,
             "subtitle2" => "",
             "fullname"  => Auth::user()->name,
             "username"  => Auth::user()->username,
@@ -55,7 +55,9 @@ class DashboardController extends Controller
 
     public function HomePublic(){
         return view('_PekerjaPage.pages.homepage',[
-            'isLogin' => ((Auth::check()) ? "true" : "false")
+            'isLogin' => ((Auth::check()) ? "true" : "false"),
+            "fullname"  => Auth::user()->name,
+            "imgProfile" => Auth::user()->img
         ]);
     }
 }
