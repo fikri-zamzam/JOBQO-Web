@@ -741,7 +741,7 @@ section .section-description {
 /*# sourceMappingURL=style.css.map */
 
 .profile {
-  margin-top: 50px;
+  margin-top: 0;
 }
 
 .profile .sidebar {

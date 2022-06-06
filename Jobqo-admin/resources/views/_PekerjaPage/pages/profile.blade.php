@@ -1,7 +1,9 @@
+@extends('_PekerjaPage.layouts.app')
 
-    @include('_PekerjaPage.includes.style')
+@section('content')
 <div class="profile">
     <div class="container">
+         @include('_PekerjaPage.includes.navbar')
         <div class="row">
             <div class="col-4">
                 <div class="sidebar">
@@ -74,3 +76,5 @@
         </div>
     </div>
 </div>
+
+@endsection

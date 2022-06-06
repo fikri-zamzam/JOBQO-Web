@@ -17,9 +17,26 @@
             </li>
 
             @if ($isLogin == "true")
-                <li class="nav-item me-lg-3">
+                {{-- <li class="nav-item me-lg-3">
                     <a href="" class="nav-link">{{ Auth::user()->name }}</a>
-                </li>
+                </li> --}}
+
+                <li class="nav-item">
+
+                      <div class="dropdown">
+                          <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
+                              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{-- <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=580&q=80"
+                                  alt=""> --}}
+                              {{ Auth::user()->name }}
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="{{ url('') }}">Profile</a>
+                              <a class="dropdown-item" href="{{ url('') }}">Lamaran</a>
+                              <a class="dropdown-item" href="{{ url('') }}">Logout</a>
+                          </div>
+                      </div>
+                  </li>
                 
             @else
                 <li class="nav-item me-lg-3">
