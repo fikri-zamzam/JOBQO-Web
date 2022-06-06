@@ -56,8 +56,8 @@ class DashboardController extends Controller
     public function HomePublic(){
         return view('_PekerjaPage.pages.homepage',[
             'isLogin' => ((Auth::check()) ? "true" : "false"),
-            "fullname"  => Auth::user()->name,
-            "imgProfile" => Auth::user()->img
+            "fullname"  => ((Auth::check()) ? Auth::user()->name : ""),
+            "imgProfile" => ((Auth::check()) ? Auth::user()->img : ""),
         ]);
     }
 }
