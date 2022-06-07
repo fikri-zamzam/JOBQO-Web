@@ -23,7 +23,7 @@
         @enderror
         <div class="form-group mt-3">
             <button class="btn btn-primary" type="submit">Tambah</button>
-            <a href="/companies_type">
+            <a href="{{ url('admin/companies_type') }}">
                 <button class="btn btn-danger" type="button" name="kembali">Kembali</button>
             </a>
         </div>

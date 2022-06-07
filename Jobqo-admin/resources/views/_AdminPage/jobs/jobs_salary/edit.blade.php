@@ -38,7 +38,7 @@
         </div>
         <div class="form-group mt-3">
             <button class="btn btn-primary" type="submit">Edit Perubahan</button>
-            <a href="/jobs_type">
+            <a href="{{ url('admin/jobs_salary') }}">
                 <button class="btn btn-danger" type="button" name="kembali">Kembali</button>
             </a>
         </div>

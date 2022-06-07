@@ -79,7 +79,6 @@ class LoginController extends Controller
 
     public function logout(){
         Session::flush();
-        
         Auth::logout();
         // if(Auth::user()->roles == "Pekerja"){
         //     return redirect('login'); 

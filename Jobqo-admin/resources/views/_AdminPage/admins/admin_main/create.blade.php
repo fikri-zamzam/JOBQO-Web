@@ -81,7 +81,7 @@
 
         <div class="form-group mt-3">
             <button class="btn btn-primary" type="submit">Tambah</button>
-            <a href="/">
+            <a href="{{ url('admin/admin') }}">
                 <button class="btn btn-danger" type="button" name="kembali">Kembali</button>
             </a>
         </div>
