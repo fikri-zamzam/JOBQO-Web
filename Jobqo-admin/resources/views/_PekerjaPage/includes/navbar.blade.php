@@ -31,9 +31,9 @@
                               {{ Auth::user()->name }}
                           </a>
                           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="{{ url('') }}">Profile</a>
-                              <a class="dropdown-item" href="{{ url('') }}">Lamaran</a>
-                              <a class="dropdown-item" href="{{ url('') }}">Logout</a>
+                              <a class="dropdown-item" href="{{ url('applicant/profile') }}">Profile</a>
+                              <a class="dropdown-item" href="{{ url('applicant/lamaran') }}">Lamaran</a>
+                              <a class="dropdown-item" href="{{ url('/logout-admin') }}">Logout</a>
                           </div>
                       </div>
                   </li>

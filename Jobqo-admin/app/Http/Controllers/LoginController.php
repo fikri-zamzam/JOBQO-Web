@@ -58,9 +58,9 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
             if(Auth::user()->roles == "Admin") {
-                return redirect()->intended('/admin');
+                return redirect('/admin');
             } else if(Auth::user()->roles == "HRD") {
-                return redirect()->intended('/hrd');
+                return redirect('/hrd');
             }
             // } else if(Auth::user()->roles == "Pekerja") {
             //     return redirect()->intended('/Pekerja');
@@ -81,7 +81,11 @@ class LoginController extends Controller
         Session::flush();
         
         Auth::logout();
+        // if(Auth::user()->roles == "Pekerja"){
+        //     return redirect('login'); 
+        // }
 
+        // ojo lali seleseikan ini
         return redirect('private/login');
     }
 

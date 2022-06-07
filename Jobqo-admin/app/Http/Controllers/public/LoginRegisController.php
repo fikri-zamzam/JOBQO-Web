@@ -55,31 +55,30 @@ class LoginRegisController extends Controller
             $request->session()->regenerate();
 
             if(Auth::user()->roles == "Pekerja") {
-                return redirect()->intended('/');
+                return redirect('applicant/profile');
             } 
             else {
-                return back()->with('loginError', 'Login gagal');
+                Session::flush();
+                Auth::logout();
+                return back()->with('loginError', 'Login error pastikan Password dan email benar');
             }
 
         } else {
-            return back()->with('loginError', 'Login gagal');
+            Session::flush();
+                Auth::logout();
+                return redirect('/');
+            return back()->with('loginError', 'Login error pastikan password dan email benar');
         }
 
-        
-
-
-        // mengirim user ke tempat dia inginkan
-        // return redirect()->intended('/');
     }
 
-    public function logout(){
-        Session::flush();
-        
-        Auth::logout();
+    // public function keluar(){
+    //     Session::flush();
+    //     Auth::logout();
+    //     return redirect('/');
+    // }
 
-        return redirect('login');
-    }
-
+    // Register Applicant
     public function registerPage(){
         return view('_PekerjaPage.pages.register', [
             "title" => "Register"
@@ -108,7 +107,7 @@ class LoginRegisController extends Controller
             $request->session()->regenerate();
 
             if(Auth::user()->roles == "Pekerja") {
-                return redirect()->intended('/');
+                return redirect('/');
             }
 
         } else {
@@ -117,9 +116,4 @@ class LoginRegisController extends Controller
 
         
     }
-
-
-    // public function testHalaman(){
-    //     return view('_PekerjaPage.pages.register');
-    // }
 }

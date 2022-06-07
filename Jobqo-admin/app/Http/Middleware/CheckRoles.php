@@ -22,12 +22,12 @@ class CheckRoles
         // dd($roles);
         foreach ($roles as $role) {
             // dd($role);
+            // ini cuman ngececk apakah roles yang di bawa user sesuai dengan yang ada di database
             $user = Auth::user()->roles;
             if($user == $role) {
                 return $next($request);
             }
         }
-
-        return redirect('/home');
+        return redirect('/login');
     }
 }

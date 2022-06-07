@@ -37,19 +37,16 @@ use App\Http\Controllers\public\ApplicantProfileController;
 */
 
 
-Route::get('private/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::get('private/login', [LoginController::class, 'index'])->name('Adminlogin')->middleware('guest');
 Route::post('private/login', [LoginController::class, 'authenticate']);
 
 Route::get('/login', [LoginRegisController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/loginPost', [LoginRegisController::class, 'authenticate']);
 Route::get('/register', [LoginRegisController::class, 'registerPage']);
 Route::post('/register', [LoginRegisController::class, 'registerPost']);
-Route::get('/logout-user', [LoginRegisController::class, 'logout']);
 
-
-
-Route::get('/testPage', [PublicLoginController::class, 'testHalaman']);
-Route::get('/logout', [LoginController::class, 'logout']);
+// Route::get('/logout-user', [LoginRegisController::class, 'keluar']);
+Route::get('/logout-admin', [LoginController::class, 'logout']);
 
 // RUTE untuk web Publik
 Route::get('/', [DashboardController::class, 'HomePublic']);
@@ -58,7 +55,12 @@ Route::get('/job', [p_JobController::class, 'IndexJob']);
     Route::get('/job/detail/{id}', [p_JobController::class, 'DetailJobs']);
 
 //Rute untuk Applicant
-Route::get('/profile', [ApplicantProfileController::class, 'profile']);
+
+Route::group(['prefix' => 'applicant','middleware' => ['auth'],['checkRole:Pekerja']], function() {
+    Route::get('/profile', [ApplicantProfileController::class, 'profile']);
+    Route::get('/document', [ApplicantProfileController::class, 'cv_doc']);
+    Route::get('/lamaran', [ApplicantProfileController::class, 'lamaran']);
+});
 
 
 // Route untuk role admin

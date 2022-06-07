@@ -85,7 +85,7 @@
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="/logout">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -117,7 +117,7 @@
                       <a class="dropdown-item" href="{{ url('/hrd/setting-hrd/'.Auth::user()->id) }}">Edit Profile HRD <i class="fa fa-user pull-right"></i> </a>
                       <a class="dropdown-item" href="{{ url('/hrd/setting-company/'.Auth::user()->companies_id) }}">Ubah Profile Perusahaan <i class="fa fa-pencil-square-o pull-right"></i> </a>
                     @endif
-                    <form action="{{ url('/logout') }}" method="GET">
+                    <form action="{{ url('/logout-admin') }}" method="GET">
                       @csrf
                       <button type="submit" class="dropdown-item">Logout <i class="fa fa-sign-out pull-right"></i></button>
                     </form>

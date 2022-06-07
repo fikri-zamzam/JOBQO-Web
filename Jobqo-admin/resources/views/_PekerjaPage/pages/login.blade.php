@@ -5,7 +5,13 @@
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-md-7">
+                
                 <div class="register-area text-center">
+                    @if(session()->has('loginError'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('loginError') }}
+                    </div>
+                    @endif
                     <h2 class="section-title text-white">
                         Masuk <span>Sebagai Kandidat</span>
                     </h2>
