@@ -23,7 +23,7 @@ Route::get('/job',[api_jobController::class, 'all']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [\App\Http\Controllers\Api\ApllicantController::class,'logout']);
-    Route::get('user', [\App\Http\Controllers\Api\ApllicantController::class,'fetch']);
-    Route::post('user', [\App\Http\Controllers\Api\ApllicantController::class,'updateProfile']);
+    Route::get('/user', [\App\Http\Controllers\Api\ApllicantController::class,'fetch']);
+    Route::post('/user', [\App\Http\Controllers\Api\ApllicantController::class,'updateProfile']);
 
 });
