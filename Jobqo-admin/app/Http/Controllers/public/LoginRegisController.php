@@ -56,6 +56,9 @@ class LoginRegisController extends Controller
 
             if(Auth::user()->roles == "Pekerja") {
                 return redirect()->intended('/');
+            } 
+            else {
+                return back()->with('loginError', 'Login gagal');
             }
 
         } else {

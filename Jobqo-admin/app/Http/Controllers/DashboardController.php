@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Job;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -23,6 +24,10 @@ class DashboardController extends Controller
 
     public function indexHRD()
     {   $user = User::find(Auth::user()->id);
+
+        // $lamaran = User::withCount(['posts', 'comments'])->get();
+        // $job = Job::withCount(['company_id'])->get();
+
         return view('_HRDPage.dashboard.main',[
             "title" => "Dashboard",
             "subtitle1" => "Dashboard ".$user->getCompany->name_company,

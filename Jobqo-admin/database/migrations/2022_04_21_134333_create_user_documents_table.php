@@ -15,6 +15,7 @@ class CreateUserDocumentsTable extends Migration
     {
         Schema::create('user_documents', function (Blueprint $table) {
             $table->id();
+            $table->string('url');
             $table->timestamps();
         });
     }
