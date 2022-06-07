@@ -115,8 +115,13 @@ class ApllicantController extends Controller
                 'username' => $request->username,
                 'email' => $request->email,
             ]);
-
-            return ResponseFormatter::success($user, 'Profile Updated');
+            // false alarm
+            $tokenResult = $user->createToken('authToken')->plainTextToken;
+            return ResponseFormatter::success([
+                'access_token' => $tokenResult,
+                'token_type' => 'Bearer',
+                'user' => $user
+            ], 'Authenticated');
         } catch (Exception $error) {
             return ResponseFormatter::error([
                 'message' => 'something went wrong',
