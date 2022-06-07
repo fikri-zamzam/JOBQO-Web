@@ -8,7 +8,7 @@
         <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Email </label>
             <input type="text" class="form-control" value="{{ old('email') }}" name="email" required
-                    placeholder="Email User">
+                    placeholder="Email HRD">
         </div>
         @error('email')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -16,7 +16,7 @@
         <div class="form-group mt-2">
             <label for="exampleFormControlInput1">Password</label>
             <input type="password" class="form-control" name="password" required
-                    placeholder="Password User">
+                    placeholder="Password HRD">
         </div>
         @error('password')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -25,7 +25,7 @@
         {{-- Tombol Tambah --}}
         <div class="form-group mt-3">
             <button class="btn btn-primary" type="submit">Apply Data HRD</button>
-            <a href="/admin/verifyhrd">
+            <a href="{{ url('admin/verifyhrd') }}">
                 <button class="btn btn-danger" type="button" name="kembali">Kembali</button>
             </a>
         </div>

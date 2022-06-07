@@ -5,7 +5,7 @@
 <a href="{{ url('admin/jobs/create') }}" class="btn btn-primary mt-3"><i class="fa fa-plus-square mr-2"></i>Tambah {{ $title }}</a>
 <table class="table mt-3">
     <thead class="table-dark">
-      <th>Kode Pekerjaan</th>
+      <th>ID JOB</th>
       <th>Nama Pekerjaan</th>
       <th>Gaji</th>
       <th>Perusahaan</th>
@@ -18,7 +18,7 @@
       <tr>
         <td scope="row"> {{ $value->id }} </td>
         <td> {{ $value->name_job }} </td>
-        <td> {{ $value->rangeGaji->range_salary }} </td>
+        <td> {{ $value->rangeGaji->rupiah }} </td>
         <td> {{ $value->AsalJob->name_company }} </td>
         <td> {{ $value->Categories->name }} </td>
         <td> {{ $value->Positions->name }} </td>

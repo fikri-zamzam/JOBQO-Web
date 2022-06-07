@@ -96,7 +96,7 @@
 
         <div class="form-group mt-3">
             <button class="btn btn-primary" type="submit">Edit Perubahan</button>
-            <a href="/companies">
+            <a href="{{ url('admin/companies') }}">
                 <button class="btn btn-danger" type="button" name="kembali">Kembali</button>
             </a>
         </div>
