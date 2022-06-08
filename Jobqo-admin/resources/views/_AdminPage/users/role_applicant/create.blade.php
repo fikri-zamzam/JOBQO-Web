@@ -76,6 +76,16 @@
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror 
 
+        <div class="mt-2">
+            <label for="document">Pilih CV Document</label><br>
+            <input type="hidden" name="oldDoc" value="{{ $model->cv_doc }}">
+            <input type="file" name="cv_doc" class="">
+            </div>
+
+        @error('cv_doc')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
         {{-- Tombol Tambah --}}
         <div class="form-group mt-3">
             <button class="btn btn-primary" type="submit">Tambah</button>

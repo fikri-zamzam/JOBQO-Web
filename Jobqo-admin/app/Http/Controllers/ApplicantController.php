@@ -62,12 +62,17 @@ class ApplicantController extends Controller
             'tgl_lahir' => 'date',
             'alamat' => 'required',
             'gender' => 'required',
-            'img' => 'image|file|max:2048|dimensions:max_width=500,max_height=500'
+            'img' => 'image|file|max:2048|dimensions:max_width=500,max_height=500',
+            'cv_doc' => 'file|max:2048',
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
         $validatedData['roles'] = "Pekerja";
         if($request->file('img')){
             $validatedData['img'] = $request->file('img')->store('Applicant-profile');
+        }
+
+        if($request->file('cv_doc')){
+            $validatedData['cv_doc'] = $request->file('cv_doc')->store('Applicant-document');
         }
         User::create($validatedData);
         return redirect('/admin/applicant');
@@ -121,7 +126,8 @@ class ApplicantController extends Controller
             'tgl_lahir' => 'date',
             'gender' => 'required',
             'alamat' => 'required',
-            'img' => 'image|file|max:2048|dimensions:max_width=500,max_height=500'
+            'img' => 'image|file|max:2048|dimensions:max_width=500,max_height=500',
+            'cv_doc' => 'file|max:2048',
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
 

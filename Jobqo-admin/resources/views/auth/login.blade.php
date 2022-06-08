@@ -45,7 +45,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             @endif
-            <form class="mt-5" action="{{ route('login') }}" method="POST" >
+            <form class="mt-5" action="{{ route('Adminlogin') }}" method="POST" >
               @csrf
               <h1>Login Form</h1>
               <div>

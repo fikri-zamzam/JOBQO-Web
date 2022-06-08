@@ -25,7 +25,7 @@
             <label for="exampleFormControlInput1">Gaji</label>
             <select class="form-control" id="idsalary" name="salaries_id">
                 @foreach ($Salary as $s)
-                <option value="{{ $s->id }}">{{ $s->range_salary }}</option>
+                <option value="{{ $s->id }}">{{ $s->rupiah }}</option>
                 @endforeach
             </select>
         </div>

@@ -32,6 +32,7 @@
             <img style="display:block;" width="50px" height="50px" class="img-circle" src="{{ asset('storage/'. $value->img) }}" /></td>
           @endif
         <td>
+          {{-- <button><a href="{{ asset('storage/Applicant-document/ey7caYTNu7chBzbH8EJQpgDBZxwtI5HaYGvOPePF.pdf') }}">lihat file</a></button> --}}
           <div class="row">
             <div class="col-3">
                 <a class="btn btn-info" href="{{ url('admin/applicant/'.$value->id.'/edit') }}">Edit</a>

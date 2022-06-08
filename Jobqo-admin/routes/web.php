@@ -46,7 +46,7 @@ Route::get('/register', [LoginRegisController::class, 'registerPage']);
 Route::post('/register', [LoginRegisController::class, 'registerPost']);
 
 // Route::get('/logout-user', [LoginRegisController::class, 'keluar']);
-Route::get('/logout-admin', [LoginController::class, 'logout']);
+Route::post('/logout-admin', [LoginController::class, 'logout']);
 
 // RUTE untuk web Publik
 Route::get('/', [DashboardController::class, 'HomePublic']);

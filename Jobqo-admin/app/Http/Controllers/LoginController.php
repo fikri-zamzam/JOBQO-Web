@@ -62,9 +62,6 @@ class LoginController extends Controller
             } else if(Auth::user()->roles == "HRD") {
                 return redirect('/hrd');
             }
-            // } else if(Auth::user()->roles == "Pekerja") {
-            //     return redirect()->intended('/Pekerja');
-            // }
 
         } else {
             return back()->with('loginError', 'Login gagal');

@@ -74,7 +74,6 @@
         @else
             <img class="img-fluid mb-3" src="{{ asset('img/image-preview.png') }}" id="img-preview" style="height: 150px">
         @endif
-
         <div class="custom-file">
             <input type="file" class="custom-file-input" id="image" name="img" onchange="document.getElementById('img-preview').src = window.URL.createObjectURL(this.files[0])">
             <label class="custom-file-label" for="image">Choose file</label>
@@ -84,6 +83,14 @@
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
 
+        {{-- Code for cv Document --}}
+        <div class="mt-2">
+        <label for="document">Edit Document</label><br>
+        <input type="hidden" name="oldDoc" value="{{ $model->cv_doc }}">
+        {{-- <P>{{ $model->cv_doc }}</P> --}}
+        <input type="file" name="cv_doc" class="">
+        </div>
+        
         {{-- Tombol Tambah --}}
         <div class="form-group mt-3">
             <button class="btn btn-primary" type="submit">Edit Perubahan</button>
