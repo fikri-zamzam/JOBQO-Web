@@ -20,7 +20,23 @@
 
             <div class="col-8">
                 <div class="content">
-                    <li>LAMARAN</li>
+                    <h3>Upload Lamaran</h3>
+                    <hr>
+                    <div class="row gap-5">
+                        <div class="col-3">
+                            <div class="nama mt-2">
+                                <h5>Nama File:</h5>
+                            </div>
+                            <div class="row-md-2">
+                                <div class="col-md-5 mt-3">
+                                    <a class="btn btn-primary" href="#">Edit</a>
+                                </div>
+                                <div class="col-md-5 mt-3">
+                                    <a class="btn btn-info" href="#">Lihat</a>
+                                </div>
+                            </div>
+                        </div>
+                </div>
                 </div>
             </div>
         </div>

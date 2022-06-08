@@ -23,27 +23,52 @@
                     <h3>Biodata</h3>
                     <hr>
                     <div class="row gap-5">
+                        <form class="form-horizontal form-label-left">
+                          <div class="form-group row-mt-2">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">First Name <span class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                              <input type="text" id="first-name" required="required" class="form-control  ">
+                            </div>
+                          </div>
+                          <div class="form-group row-mt-2">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Telepon <span class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                              <input type="text" id="first-name" required="required" class="form-control  ">
+                            </div>
+                          </div>
+                          <div class="form-group row-mt-2">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Email <span class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                              <input type="text" id="first-name" required="required" class="form-control  ">
+                            </div>
+                          </div>
+                          <div class="form-group row-mt-2">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Alamat <span class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                              <input type="text" id="first-name" required="required" class="form-control  ">
+                            </div>
+                          </div>
+                        </form>
                         <div class="col-3">
-                            <div class="nama mt-5">
-                                <h5>Nama :</h5>
-                            </div>
-                            <div class="notelp mt-5">
-                                <h5>No Telepon :</h5>
-                            </div>
-                            <div class="email mt-5">
-                                <h5>Email :</h5>
-                            </div>
-                        </div>
-                        <div class="col-5">
-                            <div class="alamat mt-5">
-                                <h5>Alamat Anda:</h5>
-                            </div>
-                            <div class="aksi mt-5">
-                                <div class="row">
-                                    <div class="col-4">
-                                    </div>
-                                    <div class="col">
-                                    </div>
+                        <!--    <div class="nama mt-2">-->
+                        <!--        <h5>Nama :</h5>-->
+                        <!--    </div>-->
+                        <!--    <div class="notelp mt-5">-->
+                        <!--        <h5>No Telepon :</h5>-->
+                        <!--    </div>-->
+                        <!--    <div class="email mt-5">-->
+                        <!--        <h5>Email :</h5>-->
+                        <!--    </div>-->
+                        <!--    <div class="alamat mt-5">-->
+                        <!--        <h5>Alamat Anda:</h5>-->
+                        <!--    </div>-->
+                            <div class="row-md-2">
+                                <div class="col-md-5 mt-3">
+                                    <a class="btn btn-primary" href="#">Edit</a>
                                 </div>
                             </div>
                         </div>
