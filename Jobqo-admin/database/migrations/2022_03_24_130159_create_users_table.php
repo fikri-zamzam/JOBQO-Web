@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->enum('roles', ['Admin', 'HRD', 'Pekerja'])->default('Pekerja');
             $table->string('img')->nullable();
             $table->string('cv_doc')->nullable();
+            $table->string('cv_name')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

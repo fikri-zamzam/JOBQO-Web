@@ -75,14 +75,16 @@ class LoginController extends Controller
     }
 
     public function logout(){
+        $redirect = 'private/login';
+        if(Auth::user()->roles == "Pekerja"){
+            $redirect = '/login';
+        }
         Session::flush();
         Auth::logout();
-        // if(Auth::user()->roles == "Pekerja"){
-        //     return redirect('login'); 
-        // }
+        
 
         // ojo lali seleseikan ini
-        return redirect('private/login');
+        return redirect($redirect);
     }
 
     //bisa ditambah function logout

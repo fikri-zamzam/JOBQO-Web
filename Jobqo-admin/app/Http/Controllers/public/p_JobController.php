@@ -38,6 +38,8 @@ class p_JobController extends Controller
 
     public function DetailJobs($id){
         $model = Job::find($id);
+        $data_id = $model->id;
+        session()->put('id_job', $data_id);
         return view('_PekerjaPage.pages.jobdetail',[
             'isLogin' => ((Auth::check()) ? "true" : "false")
         ],compact('model'));

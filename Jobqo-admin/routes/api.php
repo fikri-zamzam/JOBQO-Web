@@ -25,5 +25,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [\App\Http\Controllers\Api\ApllicantController::class,'logout']);
     Route::get('/user', [\App\Http\Controllers\Api\ApllicantController::class,'fetch']);
     Route::post('/user', [\App\Http\Controllers\Api\ApllicantController::class,'updateProfile']);
+    Route::post('/submit', [\App\Http\Controllers\Api\api_lamaran::class,'submit_cv']);
 
 });

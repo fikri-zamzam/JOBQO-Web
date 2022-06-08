@@ -29,7 +29,9 @@
                 </h2>
             </div>
             <div class="col">
-                <a href="#" class="btn btn-yellow float-lg-end mt-sm-3 mt-lg-0">lamar Sekarang</a>
+                <form action="/apply_job/{{ $model->id }}" method="GET">
+                    <button class="btn btn-yellow float-lg-end mt-sm-3 mt-lg-0">Lamar Sekarang</button>
+                </form>
             </div>
         </div>
         <div class="row gaji">

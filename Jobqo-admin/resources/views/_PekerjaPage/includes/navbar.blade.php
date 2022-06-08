@@ -33,7 +33,10 @@
                           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                               <a class="dropdown-item" href="{{ url('applicant/profile') }}">Profile</a>
                               <a class="dropdown-item" href="{{ url('applicant/lamaran') }}">Lamaran</a>
-                              <a class="dropdown-item" href="{{ url('/logout-admin') }}">Logout</a>
+                              <form action="{{ url('/logout-admin') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item">Logout</button>
+                              </form>
                           </div>
                       </div>
                   </li>

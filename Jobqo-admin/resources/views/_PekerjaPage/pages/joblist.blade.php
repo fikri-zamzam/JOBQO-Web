@@ -48,7 +48,7 @@
                 </div>
             </div>
             @empty
-            <h1>Job tidak ditemukan</h1>
+            <h3 class="text-center" style="color: white">Job tidak ditemukan</h3>
             @endforelse
         </div>
     </div>

@@ -73,6 +73,7 @@ class ApplicantController extends Controller
 
         if($request->file('cv_doc')){
             $validatedData['cv_doc'] = $request->file('cv_doc')->store('Applicant-document');
+            $validatedData['cv_name'] = $request->file('cv_doc')->getClientOriginalName();
         }
         User::create($validatedData);
         return redirect('/admin/applicant');

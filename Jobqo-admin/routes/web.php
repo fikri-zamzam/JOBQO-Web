@@ -20,10 +20,11 @@ use App\Http\Controllers\CompanyTypeController;
 use App\Http\Controllers\JobPositionController;
 use App\Http\Controllers\PublicLoginController;
 use App\Http\Controllers\HRDJobSalaryController;
-use App\Http\Controllers\public\p_JobController;
 use App\Http\Controllers\CompanySectorController;
 use App\Http\Controllers\HRDEditProfileController;
+use App\Http\Controllers\public\p_JobController;
 use App\Http\Controllers\public\LoginRegisController;
+use App\Http\Controllers\public\ApplicationController;
 use App\Http\Controllers\public\ApplicantProfileController;
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,8 @@ Route::get('/', [DashboardController::class, 'HomePublic']);
 Route::get('/job', [p_JobController::class, 'IndexJob']);
     Route::get('/job/s/', [p_JobController::class, 'cariJob']);
     Route::get('/job/detail/{id}', [p_JobController::class, 'DetailJobs']);
+Route::get('/apply_job/{id}',[ApplicationController::class,'lamarPage'])->middleware('auth');
+    Route::post('/apply_job/post',[ApplicationController::class,'lamarPost']);
 
 //Rute untuk Applicant
 
