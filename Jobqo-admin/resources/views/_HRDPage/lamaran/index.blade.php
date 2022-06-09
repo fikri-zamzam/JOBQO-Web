@@ -9,24 +9,21 @@
 
 <table class="table mt-3">
     <thead class="table-dark">
-      <th>ID Applicant</th>
-      <th>Nama</th>
-      <th>Username</th>
-      <th>Gender</th>
-      <th>Email</th>
-      <th>Foto</th>
+      <th>Id Lamaran</th>
+      <th>Nama Pekerja</th>
+      <th>Pekerjaan</th>
+      <th>Nama Perusahaan</th>
+      <th>Status </th>
       <th>Aksi</th>
     </thead>
     <tbody>
-      @foreach ($admin as $key=>$value)
+    @foreach ($lamaran as $key=>$value)
       <tr>
-        <td> {{ $value->id }} </td>
-        <td> {{ $value->name }} </td>
-        <td> {{ $value->username }} </td>
-        <td> {{ ($value->gender == "L" ? "Laki-laki" : "Perempuan" ) }} </td>
-        <td> {{ $value->email }} </td>
-        <td><img style="display:block;" width="50px" height="50px" class="img-circle" src="{{ asset('storage/'. $value->img) }}" /></td>
-        
+        <td scope="row"> {{ $value->id }} </td>
+        <td> {{ $value->users_id }} </td>
+        <td> {{ $value->jobs_id }} </td>
+        <td> {{ $value->resume }} </td>
+        <td> {{ $value->status }} </td>
         <td>
           <div class="row">
             <div class="col-3">
