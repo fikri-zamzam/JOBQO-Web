@@ -23,52 +23,40 @@
                     <h3>Biodata</h3>
                     <hr>
                     <div class="row gap-5">
-                        <form class="form-horizontal form-label-left">
+                        <form action="" method="" class="form-horizontal form-label-left">
                           <div class="form-group row-mt-2">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">First Name <span class="required"></span>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="idname">First Name <span class="required"></span>
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                              <input type="text" id="first-name" required="required" class="form-control  ">
+                              <input type="text" id="idname" required="required" class="form-control" value="{{ $name }}" name="name" disabled>
                             </div>
                           </div>
                           <div class="form-group row-mt-2">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Telepon <span class="required"></span>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="id_username">Username <span class="required"></span>
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                              <input type="text" id="first-name" required="required" class="form-control  ">
+                              <input type="text" id="id_username" required="required" class="form-control" value="{{ $username }}" name="username" disabled>
                             </div>
                           </div>
                           <div class="form-group row-mt-2">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Email <span class="required"></span>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="idEmail">Email <span class="required"></span>
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                              <input type="text" id="first-name" required="required" class="form-control  ">
+                              <input type="text" id="idEmail" required="required" class="form-control" value="{{ $email }}" name="email" disabled>
                             </div>
                           </div>
                           <div class="form-group row-mt-2">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Alamat <span class="required"></span>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="idAlamat">Alamat <span class="required"></span>
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                              <input type="text" id="first-name" required="required" class="form-control  ">
+                              <textarea style="resize: none" name="alamat" class="form-control" id="idAlamat" cols="37" rows="3" disabled>jember kebonsari</textarea>
                             </div>
                           </div>
                         </form>
                         <div class="col-3">
-                        <!--    <div class="nama mt-2">-->
-                        <!--        <h5>Nama :</h5>-->
-                        <!--    </div>-->
-                        <!--    <div class="notelp mt-5">-->
-                        <!--        <h5>No Telepon :</h5>-->
-                        <!--    </div>-->
-                        <!--    <div class="email mt-5">-->
-                        <!--        <h5>Email :</h5>-->
-                        <!--    </div>-->
-                        <!--    <div class="alamat mt-5">-->
-                        <!--        <h5>Alamat Anda:</h5>-->
-                        <!--    </div>-->
                             <div class="row-md-2">
-                                <div class="col-md-5 mt-3">
-                                    <a class="btn btn-primary" href="#">Edit</a>
+                                <div class="col mt-3">
+                                    <button class="btn btn-primary">Edit data</button>
                                 </div>
                             </div>
                         </div>

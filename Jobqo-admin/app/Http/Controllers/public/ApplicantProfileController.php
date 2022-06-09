@@ -10,6 +10,10 @@ class ApplicantProfileController extends Controller
     public function profile(){
         return view('_PekerjaPage.pages.profile.biodata', [
             'isLogin' => ((Auth::check()) ? "true" : "false"),
+            'name' => Auth::user()->name,
+            'username' => Auth::user()->username,
+            'email' => Auth::user()->email,
+            'alamat' => Auth::user()->alamat
         ]);
     }
 
