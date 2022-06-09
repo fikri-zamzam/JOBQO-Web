@@ -23,10 +23,39 @@
                     <h3>Upload Lamaran</h3>
                     <hr>
                     <div class="row gap-5">
-                        <div class="col-3">
+                        <div class="col-md-12">
                             <div class="nama mt-2">
                                 <h5>Nama File:</h5>
                             </div>
+                            <table class="table mt-5 table-sm" style="font-size: 11px">
+                                <thead class="table-dark">
+                                <th>Id Job</th>
+                                <th>Nama Pekerjaan</th>
+                                <th>Gaji</th>
+                                <th>Perusahaan</th>
+                                <th>Kategori </th>
+                                <th>Aksi</th>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td scope="row"> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td>
+                                        <!-- <div class="col"> -->
+                                            <form action="#" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button type="button" class="btn-sm btn-danger" style="font-size: 11px">X</button>
+                                            </form>
+                                        <!-- </div> -->
+                                    </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
                             <div class="row-md-2">
                                 <div class="col-md-5 mt-3">
                                     <a class="btn btn-primary" href="#">Edit</a>
