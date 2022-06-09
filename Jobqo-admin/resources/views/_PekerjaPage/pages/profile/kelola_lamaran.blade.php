@@ -29,11 +29,11 @@
                             </div>
                             <table class="table mt-5 table-sm" style="font-size: 11px">
                                 <thead class="table-dark">
-                                <th>Id Job</th>
-                                <th>Nama Pekerjaan</th>
-                                <th>Gaji</th>
-                                <th>Perusahaan</th>
-                                <th>Kategori </th>
+                                <th>Id Lamaran</th>
+                                <th>Nama Pekerja</th>
+                                <th>Pekerjaan</th>
+                                <th>Resume</th>
+                                <th>Status </th>
                                 <th>Aksi</th>
                                 </thead>
                                 <tbody>

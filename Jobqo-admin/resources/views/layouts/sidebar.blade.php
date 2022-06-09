@@ -30,7 +30,7 @@
         </li>
         <li><a><i class="fa fa-file-text-o"></i>Lamaran <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="{{ url('admin/application') }}">List Lamaran</a></li>
+            <li><a href="{{ url('admin/lihat_lamaran') }}">List Lamaran</a></li>
             {{-- <li><a href="/">List Kuisoner</a></li> --}}
           </ul>
         </li>

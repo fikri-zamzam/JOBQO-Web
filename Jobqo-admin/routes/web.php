@@ -88,7 +88,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth'],['checkRole:Admin']],
         Route::post('/verifycompany/{id}',[VerifyController::class,'Accept']);
         Route::delete('/verifycompany/{id}',[VerifyController::class,'destroy']);
 
-    Route::get('/application',[admin_ApplicationController::class,'index']);
+    Route::get('/lihat_lamaran',[admin_ApplicationController::class,'index']);
     
     Route::get('/verifyhrd',[VerifyController::class,'indexHRD']);
     Route::get('/verifyhrd/create',[VerifyController::class,'createHRD']);

@@ -13,6 +13,8 @@ class ApplicantProfileController extends Controller
             'name' => Auth::user()->name,
             'username' => Auth::user()->username,
             'email' => Auth::user()->email,
+            'gender' => Auth::user()->gender,
+            'tgl_lahir' => Auth::user()->tgl_lahir,
             'alamat' => Auth::user()->alamat
         ]);
     }

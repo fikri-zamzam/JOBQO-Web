@@ -38,6 +38,26 @@
                               <input type="text" id="id_username" required="required" class="form-control" value="{{ $username }}" name="username" disabled>
                             </div>
                           </div>
+                          <label for="genderLabel">Gender</label><br>
+                          <div class="form-check-inline">
+                              <input class="form-check-input" type="radio"  value="{{ $gender }}" name="gender" id="lk" value="L" disabled {{ (( $gender == "L" ) ? "checked" : "" ) }}>
+                              <label class="form-check-label" for="lk">
+                                Laki-laki
+                              </label>
+                            </div>
+                            <div class="form-check-inline">
+                              <input class="form-check-input" type="radio" value="{{ $gender }}" name="gender" id="pr" value="P" disabled {{ (( $gender == "P" ) ? "checked" : "" ) }}>
+                              <label class="form-check-label" for="pr">
+                                Perempuan
+                              </label>
+                          </div>
+                          <!-- <div class="form-group row-mt-2">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="id_gender">Gender <span class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                              <input type="text" id="idGender" required="required" class="form-control" value="{{ $gender }}" name="gender" disabled>
+                            </div>
+                          </div> -->
                           <div class="form-group row-mt-2">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="idEmail">Email <span class="required"></span>
                             </label>
@@ -46,10 +66,17 @@
                             </div>
                           </div>
                           <div class="form-group row-mt-2">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="id_tglLahir">Tanggal Lahir <span class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                              <input type="text" id="idTgl_lahir" required="required" class="form-control" value="{{ $tgl_lahir }}" name="tgl_lahir" disabled>
+                            </div>
+                          </div>
+                          <div class="form-group row-mt-2">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="idAlamat">Alamat <span class="required"></span>
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                              <textarea style="resize: none" name="alamat" class="form-control" id="idAlamat" cols="37" rows="3" disabled>jember kebonsari</textarea>
+                              <textarea style="resize: none" name="alamat" class="form-control" id="idAlamat" cols="37" rows="3" disabled>{{ $alamat }}</textarea>
                             </div>
                           </div>
                         </form>
