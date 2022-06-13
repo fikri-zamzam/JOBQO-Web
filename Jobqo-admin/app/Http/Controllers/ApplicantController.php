@@ -67,16 +67,26 @@ class ApplicantController extends Controller
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
         $validatedData['roles'] = "Pekerja";
+
         if($request->file('img')){
-            $validatedData['img'] = $request->file('img')->store('Applicant-profile');
+            $file = $request->file('img');
+            $path = 'Applicant-profile';
+            $filename = $path.'/'.date('YmdHi').$file->getClientOriginalName();
+            $file->move('img/'.$path.'/', $filename);
+            $validatedData['img'] = $filename;
         }
 
         if($request->file('cv_doc')){
-            $validatedData['cv_doc'] = $request->file('cv_doc')->store('Applicant-document');
+            $file = $request->file('cv_doc');
+            $path = 'Applicant-documents';
+            $filename = $path.'/'.date('YmdHi').$file->getClientOriginalName();
+            $file->move('document/'.$path.'/', $filename);
+            $validatedData['cv_doc'] = $filename;
             $validatedData['cv_name'] = $request->file('cv_doc')->getClientOriginalName();
         }
+
         User::create($validatedData);
-        return redirect('/admin/applicant');
+        return redirect('/admin/applicant')->with('success', 'Selamat! Data Applicant berhasil Ditambah');
     }
 
     /**
@@ -134,15 +144,33 @@ class ApplicantController extends Controller
 
         if($request->file('img')){
             if($request->oldImage) {
-                Storage::delete($request->oldImage);
+                // menghapus file gambar lama
+                unlink("img/".$request->oldImage);
             }
-            $validatedData['img'] = $request->file('img')->store('Applicant-profile');
+            $file = $request->file('img');
+            $path = 'Applicant-profile';
+            $filename = $path.'/'.date('YmdHi').$file->getClientOriginalName();
+            $file->move('img/'.$path.'/', $filename);
+            $validatedData['img'] = $filename;
+        }
+
+        if($request->file('cv_doc')){
+            if($request->oldDoc) {
+                // menghapus file document lama
+                unlink("document/".$request->oldDoc);
+            }
+            $file = $request->file('cv_doc');
+            $path = 'Applicant-documents';
+            $filename = $path.'/'.date('YmdHi').$file->getClientOriginalName();
+            $file->move('document/'.$path.'/', $filename);
+            $validatedData['cv_doc'] = $filename;
+            $validatedData['cv_name'] = $request->file('cv_doc')->getClientOriginalName();
         }
 
         User::where('id', $applicant->id)
                ->update($validatedData);
 
-        return redirect('/admin/applicant');
+        return redirect('/admin/applicant')->with('success', 'Selamat! Data Applicant berhasil Diubah');
     }
 
     /**
@@ -154,10 +182,15 @@ class ApplicantController extends Controller
     public function destroy($id)
     {
         $model = User::find($id);
-        if($model->img) {
-            Storage::delete($model->img);
+        if($model->img != NULL) {
+            unlink("img/".$model->img);
         }
+
+        if($model->cv_doc != NULL) {
+            unlink("document/".$model->cv_doc);
+        }
+
         $model->delete();
-        return redirect('/admin/applicant');
+        return redirect('/admin/applicant')->with('success', 'Selamat! Data Applicant berhasil Dihapus');
     }
 }

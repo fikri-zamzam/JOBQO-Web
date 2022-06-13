@@ -7,6 +7,7 @@ use App\Models\Company_types;
 use App\Models\Company_sectors;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 
 class CompanyController extends Controller
@@ -74,11 +75,15 @@ class CompanyController extends Controller
         ]);
 
         if($request->file('img_logo')){
-            $validatedData['img_logo'] = $request->file('img_logo')->store('Company-logo');
+            $file = $request->file('img_logo');
+            $path = 'Company-logo';
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move('img/'.$path.'/', $filename);
+            $validatedData['img_logo'] = $filename;
         }
 
         Company::create($validatedData);
-        return redirect('admin/companies');
+        return redirect('admin/companies')->with('success', 'Data Perusahaan berhasil ditambah');
     }
 
     /**
@@ -138,15 +143,20 @@ class CompanyController extends Controller
 
         if($request->file('img_logo')){
             if($request->oldImage) {
-                Storage::delete($request->oldImage);
+                // menghapus file gambar lama
+                unlink("img/".$request->oldImage);
             }
-            $validatedData['img_logo'] = $request->file('img_logo')->store('Company-logo');
+            $file = $request->file('img_logo');
+            $path = 'Company-logo';
+            $filename = $path.'/'.date('YmdHi').$file->getClientOriginalName();
+            $file->move('img/'.$path.'/', $filename);
+            $validatedData['img_logo'] = $filename;
         }
 
         Company::where('id',$comp->id)
                 ->update($validatedData);
 
-        return redirect('admin/companies');
+        return redirect('admin/companies')->with('success', 'Data Perusahaan berhasil diubah');
     }
 
     /**
@@ -158,10 +168,10 @@ class CompanyController extends Controller
     public function destroy($id)
     {
         $model = Company::find($id);
-        if($model->img) {
-            Storage::delete($model->img);
+        if($model->img != NULL) {
+            unlink("img/".$model->img);
         }
         $model->delete();
-        return redirect('admin/companies');
+        return redirect('admin/companies')->with('success', 'Data Perusahaan berhasil dihapus');
     }
 }

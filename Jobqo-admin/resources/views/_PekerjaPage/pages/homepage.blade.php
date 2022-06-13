@@ -16,7 +16,7 @@
                 faucibus.
                 In pretium ante et nulla vulputate.
             </p>
-            <form action="/job/s/" method="GET" class="header-form d-flex align-items-center gap-3 bg-white p-4 rounded mt-5">
+            <form action="{{ url('/job/s/') }}" method="GET" class="header-form d-flex align-items-center gap-3 bg-white p-4 rounded mt-5">
                 <div class="icon">
                     <i class="bx bx-search fs-4"></i>
                 </div>

@@ -69,11 +69,17 @@ class AdminController extends Controller
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
         $validatedData['roles'] = "Admin";
+
         if($request->file('img')){
-            $validatedData['img'] = $request->file('img')->store('Admin-profile');
+            $file = $request->file('img');
+            $path = 'Admin-profile';
+            $filename = $path.'/'.date('YmdHi').$file->getClientOriginalName();
+            $file->move('img/'.$path.'/', $filename);
+            $validatedData['img'] = $filename;
         }
+
         User::create($validatedData);
-        return redirect('/admin/admin')->with('success', 'Selamat! Data berhasil Ditambah');
+        return redirect('/admin/admin')->with('success', 'Selamat! Data Admin berhasil Ditambah');
     }
 
     /**
@@ -128,15 +134,20 @@ class AdminController extends Controller
 
         if($request->file('img')){
             if($request->oldImage) {
-                Storage::delete($request->oldImage);
+                // menghapus file gambar lama
+                unlink("img/".$request->oldImage);
             }
-            $validatedData['img'] = $request->file('img')->store('Admin-profile');
+            $file = $request->file('img');
+            $path = 'Admin-profile';
+            $filename = $path.'/'.date('YmdHi').$file->getClientOriginalName();
+            $file->move('img/'.$path.'/', $filename);
+            $validatedData['img'] = $filename;
         }
 
         User::where('id', $admin->id)
                ->update($validatedData);
 
-        return redirect('/admin/admin')->with('success', 'Selamat! Data berhasil diperbarui');
+        return redirect('/admin/admin')->with('success', 'Selamat! Data Admin berhasil diperbarui');
         }
 
     /**
@@ -149,10 +160,10 @@ class AdminController extends Controller
     {
 
         $model = User::find($id);
-        if($model->img) {
-            Storage::delete($model->img);
+        if($model->img != NULL) {
+            unlink("img/".$model->img);
         }
         $model->delete();
-        return redirect('/admin/admin')->with('success', 'Data berhasil dihapus');
+        return redirect('/admin/admin')->with('success', 'Data Admin berhasil dihapus');
     }
 }

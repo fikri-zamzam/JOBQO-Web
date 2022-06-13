@@ -55,7 +55,7 @@
             <div class="profile clearfix">
               <div class="profile_pic">
                 @if ($imgProfile != NULL)
-                  <img src="{{ asset('storage/'.$imgProfile) }}" alt="..." class="img-circle profile_img">
+                  <img src="{{ asset('img/'.$imgProfile) }}" alt="..." class="img-circle profile_img">
                 @else
                   <img src="{{ asset('img/user-profile.png') }}" alt="..." class="img-circle profile_img">
                 @endif
@@ -105,7 +105,7 @@
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                     
                     @if ($imgProfile != NULL)
-                      <img src="{{ asset('storage/'.$imgProfile) }}" alt="..." class="img-circle">
+                      <img src="{{ asset('img/'.$imgProfile) }}" alt="..." class="img-circle">
                     @else
                       <img src="{{ asset('img/user-profile.png') }}" alt="..." class="img-circle">
                     @endif

@@ -32,7 +32,7 @@
                     <div class="row gap-5">
                         <div class="col">
                             <div class="mt-4 mb-3">
-                                <h5>Nama File: {{ $cv_name }}</h5>
+                                <h5>Nama File: {{ (($cv_name == NULL)? "*Belum ada file yang di upload" : $cv_name) }}</h5>
                             </div>
                             <div class="row-md-2">
                                 <div class="col mt-3">

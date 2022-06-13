@@ -16,7 +16,7 @@
 </header>
 <div class="container">
     <div class="d-flex justify-content-center align-items-center logodetail">
-        <img src="{{ asset('storage/'.$model->AsalJob->img_logo) }}" width="70%" alt="">
+        <img src="{{ asset('img/'.$model->AsalJob->img_logo) }}" width="70%" alt="">
     </div>
 </div>
 

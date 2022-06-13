@@ -1,6 +1,13 @@
 @extends('layouts.main')
 
 @section('content')
+
+@section('content')
+@if(session()->has('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('success') }}
+</div>
+@endif
     
 <a href="{{ url('admin/applicant/create') }}" class="btn btn-primary mt-3"><i class="fa fa-plus-square mr-2"></i>Tambah {{ $title }}</a>
 <table class="table mt-3">
@@ -29,7 +36,7 @@
           @if ($value->img == NULL)
             <img style="display:block;" width="50px" height="50px" class="img-circle" src="{{ asset('img/user-profile.png') }}" /></td>
           @else
-            <img style="display:block;" width="50px" height="50px" class="img-circle" src="{{ asset('storage/'. $value->img) }}" /></td>
+            <img style="display:block;" width="50px" height="50px" class="img-circle" src="{{ asset('img/'. $value->img) }}" /></td>
           @endif
         <td>
           {{-- <button><a href="{{ asset('storage/Applicant-document/ey7caYTNu7chBzbH8EJQpgDBZxwtI5HaYGvOPePF.pdf') }}">lihat file</a></button> --}}

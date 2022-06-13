@@ -59,8 +59,7 @@
         @enderror
         <div class="form-group mt-2">
             <label for="alamat">Alamat</label><br>
-            <textarea class="form-control" value="{{ old('alamat') }}" name="alamat" id="alamat" >
-            </textarea>
+            <textarea class="form-control" name="alamat" id="alamat" >{{ old('alamat') }}</textarea>
         </div>
         @error('alamat')
             <div class="alert alert-danger">{{ $message }}</div>

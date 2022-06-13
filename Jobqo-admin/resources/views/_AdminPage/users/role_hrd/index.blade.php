@@ -1,7 +1,13 @@
 @extends('layouts.main')
 
 @section('content')
-    
+
+@if(session()->has('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('success') }}
+</div>
+@endif
+
 <a href="{{ url('admin/hrd/create') }}" class="btn btn-primary mt-3"><i class="fa fa-plus-square mr-2"></i>Tambah {{ $title }}</a>
 <table class="table mt-3">
     <thead class="table-dark">
@@ -29,7 +35,7 @@
           @if ($value->img == NULL)
             <img style="display:block;" width="50px" height="50px" class="img-circle" src="{{ asset('img/user-profile.png') }}" /></td>
           @else
-            <img style="display:block;" width="50px" height="50px" class="img-circle" src="{{ asset('storage/'. $value->img) }}" /></td>
+            <img style="display:block;" width="50px" height="50px" class="img-circle" src="{{ asset('img/'. $value->img) }}" /></td>
           @endif
         <td>
           <div class="row">

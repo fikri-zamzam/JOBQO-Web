@@ -68,11 +68,15 @@ class HRDController extends Controller
         $validatedData['roles'] = "HRD";
 
         if($request->file('img')){
-            $validatedData['img'] = $request->file('img')->store('HRD-profile');
+            $file = $request->file('img');
+            $path = 'HRD-profile';
+            $filename = $path.'/'.date('YmdHi').$file->getClientOriginalName();
+            $file->move('img/'.$path.'/', $filename);
+            $validatedData['img'] = $filename;
         }
 
         User::create($validatedData);
-        return redirect('/admin/hrd');
+        return redirect('/admin/hrd')->with('success', 'Data HRD berhasil ditambah');
     }
 
     /**
@@ -127,15 +131,21 @@ class HRDController extends Controller
 
         if($request->file('img')){
             if($request->oldImage) {
-                Storage::delete($request->oldImage);
+                // menghapus file gambar lama
+                unlink("img/".$request->oldImage);
             }
-            $validatedData['img'] = $request->file('img')->store('HRD-profile');
+
+            $file = $request->file('img');
+            $path = 'HRD-profile';
+            $filename = $path.'/'.date('YmdHi').$file->getClientOriginalName();
+            $file->move('img/'.$path.'/', $filename);
+            $validatedData['img'] = $filename;
         }
 
         User::where('id', $HRD->id)
                ->update($validatedData);
 
-        return redirect('/admin/hrd');
+        return redirect('/admin/hrd')->with('success', 'Data HRD berhasil diubah');
     }
 
     /**
@@ -147,10 +157,10 @@ class HRDController extends Controller
     public function destroy($id)
     {
         $model = User::find($id);
-        if($model->img) {
-            Storage::delete($model->img);
+        if($model->img != NULL) {
+            unlink("img/".$model->img);
         }
         $model->delete();
-        return redirect('/admin/hrd');
+        return redirect('/admin/hrd')->with('success', 'Data HRD berhasil dihapus');
     }
 }

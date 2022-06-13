@@ -60,8 +60,7 @@
         @enderror
         <div class="form-group mt-2">
             <label for="alamat">Alamat</label><br>
-            <textarea class="form-control" name="alamat" id="alamat" >{{ old('alamat',$model->alamat) }}
-            </textarea>
+            <textarea class="form-control" name="alamat" id="alamat" >{{ old('alamat',$model->alamat) }}</textarea>
         </div>
         @error('alamat')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -70,7 +69,7 @@
         <label for="image">Pilih Foto Profile</label><br>
         <input type="hidden" name="oldImage" value="{{ $model->img }}">
         @if ($model->img != NULL)
-            <img class="img-fluid mb-3" src="{{ asset('storage/'.$model->img) }}" id="img-preview" alt="preview" style="height: 150px">
+            <img class="img-fluid mb-3" src="{{ asset('img/'.$model->img) }}" id="img-preview" alt="preview" style="height: 150px">
         @else
             <img class="img-fluid mb-3" src="{{ asset('img/image-preview.png') }}" id="img-preview" style="height: 150px">
         @endif

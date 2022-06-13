@@ -40,10 +40,11 @@ class HRDEditProfileController extends Controller
         ]);
 
         if($request->file('img')){
-            if($request->oldImage) {
-                Storage::delete($request->oldImage);
-            }
-            $validatedData['img'] = $request->file('img')->store('HRD-profile');
+            $file = $request->file('img');
+            $path = 'HRD-profile';
+            $filename = $path.'/'.date('YmdHi').$file->getClientOriginalName();
+            $file->move('img/'.$path.'/', $filename);
+            $validatedData['img'] = $filename;
         }
 
         User::where('id', $HRD->id)
@@ -83,10 +84,11 @@ class HRDEditProfileController extends Controller
         ]);
 
         if($request->file('img_logo')){
-            if($request->oldImage) {
-                Storage::delete($request->oldImage);
-            }
-            $validatedData['img_logo'] = $request->file('img_logo')->store('Company-logo');
+            $file = $request->file('img_logo');
+            $path = 'Company-logo';
+            $filename = $path.'/'.date('YmdHi').$file->getClientOriginalName();
+            $file->move('img/'.$path.'/', $filename);
+            $validatedData['img_logo'] = $filename;
         }
 
         Company::where('id',$comp->id)
