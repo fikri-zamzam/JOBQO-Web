@@ -70,7 +70,7 @@ class HRDJobSalaryController extends Controller
         $validatedData["rupiah"] = $gaji1." - ".$gaji2;
 
         Salary::create($validatedData);
-        return redirect('hrd/jobs_salary');
+        return redirect('hrd/jobs_salary')->with('success', 'Selamat! Range gaji baru Berhasil ditambah');
 
         
     }
@@ -128,7 +128,7 @@ class HRDJobSalaryController extends Controller
 
         Salary::where('id',$gaji->id)
              ->update($validatedData);
-        return redirect('hrd/jobs_salary');
+        return redirect('hrd/jobs_salary')->with('success', 'Selamat! data Range gaji Berhasil diubah');
     }
 
     /**
@@ -141,7 +141,7 @@ class HRDJobSalaryController extends Controller
     {
         $model = Salary::find($id);
         $model->delete();
-        return redirect('hrd/jobs_salary');
+        return redirect('hrd/jobs_salary')->with('success', 'Selamat! data Range gaji Berhasil dihapus');
     }
 
     public function rupiah($angka){

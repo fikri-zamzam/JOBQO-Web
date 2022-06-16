@@ -79,6 +79,6 @@ class ApplicantProfileController extends Controller
         User::where('id', $id)
                ->update($edit_doc);
 
-        return redirect('applicant/document');
+        return redirect('applicant/document')->with('success', 'CV Dokumen berhasil diperbarui');
     }
 }

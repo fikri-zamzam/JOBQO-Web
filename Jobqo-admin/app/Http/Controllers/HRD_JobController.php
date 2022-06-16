@@ -76,7 +76,7 @@ class HRD_JobController extends Controller
         $validatedData["company_id"] = Auth::user()->companies_id;
 
         Job::create($validatedData);
-        return redirect('hrd/jobs');
+        return redirect('hrd/jobs')->with('success', 'Selamat! Pekerjaan baru Berhasil ditambah');
     }
 
     /**
@@ -133,7 +133,7 @@ class HRD_JobController extends Controller
         Job::where('id',$job->id)
              ->update($validatedData);
 
-        return redirect('hrd/jobs');
+        return redirect('hrd/jobs')->with('success', 'Selamat! data Pekerjaan Berhasil diubah');
     }
 
     /**
@@ -146,6 +146,6 @@ class HRD_JobController extends Controller
     {
         $model = Job::find($id);
         $model->delete();
-        return redirect('hrd/jobs');
+        return redirect('hrd/jobs')->with('success', 'Selamat! data Pekerjaan Berhasil dihapus');
     }
 }

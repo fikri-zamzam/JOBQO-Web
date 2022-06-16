@@ -60,7 +60,7 @@ class JobTypeController extends Controller
         $model->deskripsi = $request->deskripsi;
         $model->save();
 
-        return redirect('admin/jobs_type');
+        return redirect('admin/jobs_type')->with('success', 'Selamat! Jenis Pekerjaan Berhasil ditambah');
     }
 
     /**
@@ -107,7 +107,7 @@ class JobTypeController extends Controller
         $model->deskripsi = $request->deskripsi;
         $model->save();
 
-        return redirect('admin/jobs_type');
+        return redirect('admin/jobs_type')->with('success', 'Selamat! Jenis Pekerjaan Berhasil diubah');
     }
 
     /**
@@ -120,6 +120,6 @@ class JobTypeController extends Controller
     {
         $model = Job_categories::find($id);
         $model->delete();
-        return redirect('admin/jobs_type');
+        return redirect('admin/jobs_type')->with('success', 'Selamat! Jenis Pekerjaan Berhasil dihapus');
     }
 }

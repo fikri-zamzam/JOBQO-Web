@@ -2,12 +2,6 @@
 
 @section('content')
 
-@if(session()->has('success'))
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{ session('success') }}
-</div>
-@endif
-
 <a href="{{ url('admin/companies/create') }}" class="btn btn-primary mt-3"><i class="fa fa-plus-square mr-2"></i>Tambah {{ $title }}</a>
 <table class="table mt-3">
     <thead class="table-dark">

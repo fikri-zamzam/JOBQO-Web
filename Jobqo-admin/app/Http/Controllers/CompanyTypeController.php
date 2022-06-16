@@ -61,7 +61,7 @@ class CompanyTypeController extends Controller
         ]);
 
         Company_types::create($validatedData);
-        return redirect('admin/companies_type');
+        return redirect('admin/companies_type')->with('success', 'Selamat! Jenis Perusahaan baru Berhasil ditambah');
     }
 
     /**
@@ -113,7 +113,7 @@ class CompanyTypeController extends Controller
         Company_types::where('id', $ComType->id)
                ->update($validatedData);
 
-        return redirect('admin/companies_type');
+        return redirect('admin/companies_type')->with('success', 'Selamat! Jenis Perusahaan Berhasil diubah');
     }
 
     /**
@@ -126,6 +126,6 @@ class CompanyTypeController extends Controller
     {
         $model = Company_types::find($id);
         $model->delete();
-        return redirect('admin/companies_type');
+        return redirect('admin/companies_type')->with('success', 'Selamat! Jenis Perusahaan Berhasil dihapus');
     }
 }

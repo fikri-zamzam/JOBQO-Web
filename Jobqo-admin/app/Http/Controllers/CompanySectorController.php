@@ -63,7 +63,7 @@ class CompanySectorController extends Controller
 
         Company_sectors::create($validatedData);
 
-        return redirect('admin/companies_sector');
+        return redirect('admin/companies_sector')->with('success', 'Selamat! Bidang Perusahaan baru Berhasil ditambah');
     }
 
     /**
@@ -116,7 +116,7 @@ class CompanySectorController extends Controller
         Company_sectors::where('id', $ComSector->id)
                ->update($validatedData);
 
-        return redirect('admin/companies_sector');
+        return redirect('admin/companies_sector')->with('success', 'Selamat! Bidang Perusahaan Berhasil diubah');
     }
 
     /**
@@ -129,6 +129,6 @@ class CompanySectorController extends Controller
     {
         $model = Company_sectors::find($id);
         $model->delete();
-        return redirect('admin/companies_sector');
+        return redirect('admin/companies_sector')->with('success', 'Selamat! Bidang Perusahaan Berhasil dihapus');
     }
 }

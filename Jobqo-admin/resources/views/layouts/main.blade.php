@@ -162,6 +162,11 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
+                    @if(session()->has('success'))
+                      <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          {{ session('success') }}
+                      </div>
+                    @endif
                     @yield('content')
                   </div>
                 </div>

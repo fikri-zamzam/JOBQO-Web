@@ -76,7 +76,7 @@ class JobController extends Controller
 
 
         Job::create($validatedData);
-        return redirect('admin/jobs');
+        return redirect('admin/jobs')->with('success', 'Pekerjaan baru berhasil ditambah');
     }
 
     /**
@@ -135,7 +135,7 @@ class JobController extends Controller
         Job::where('id',$job->id)
              ->update($validatedData);
 
-        return redirect('admin/jobs');
+        return redirect('admin/jobs')->with('success', 'Selamat! Pekerjaan berhasil diubah');
     }
 
     /**
@@ -148,6 +148,6 @@ class JobController extends Controller
     {
         $model = Job::find($id);
         $model->delete();
-        return redirect('jobs');
+        return redirect('jobs')->with('success', 'Berhasil menghapus pekerjaan');
     }
 }

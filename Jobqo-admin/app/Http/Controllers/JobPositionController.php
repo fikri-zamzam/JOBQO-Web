@@ -60,7 +60,7 @@ class JobPositionController extends Controller
         $model->deskripsi = $request->deskripsi;
         $model->save();
 
-        return redirect('admin/jobs_position');
+        return redirect('admin/jobs_position')->with('success', 'Selamat! Posisi Pekerjaan Berhasil ditambah');
     }
 
     /**
@@ -107,7 +107,7 @@ class JobPositionController extends Controller
         $model->deskripsi = $request->deskripsi;
         $model->save();
 
-        return redirect('admin/jobs_position');
+        return redirect('admin/jobs_position')->with('success', 'Selamat! Posisi Pekerjaan Berhasil diubah');
     }
 
     /**
@@ -120,6 +120,6 @@ class JobPositionController extends Controller
     {
         $model = Job_positions::find($id);
         $model->delete();
-        return redirect('admin/jobs_position');
+        return redirect('admin/jobs_position')->with('success', 'Selamat! Posisi Pekerjaan Berhasil dihapus');
     }
 }
