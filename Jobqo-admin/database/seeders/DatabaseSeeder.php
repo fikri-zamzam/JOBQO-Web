@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Database\Seeders\AdminSeeder;
 use Database\Seeders\CompaniesSeeder;
 use Database\Seeders\UsersSeeder;
 

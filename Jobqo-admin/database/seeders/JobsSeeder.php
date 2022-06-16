@@ -51,5 +51,14 @@ class JobsSeeder extends Seeder
             'job_requirement' => 'Bisa bekerja',
             'created_at'=> now()
         ]);
+
+        DB::table('salaries')->insert([
+            'companies_id' => '1',
+            'g_awal' => '5000000',
+            'g_akhir' => '6000000',
+            'rupiah' => 'Rp 5.000.000,00 - Rp 6.000.000,00',
+            'deskripsi' => 'Gaji awal',
+            'created_at'=> now()
+        ]);
     }
 }

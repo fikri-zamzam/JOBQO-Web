@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Job;
+use App\Models\Company;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -10,14 +11,15 @@ class DashboardController extends Controller
 {
     public function indexAdmin()
     {   
+        $job_total = Job::where('id', '!=', NULL)->count();
         return view('_AdminPage.dashboard.main',[
             "title" => "Dashboard",
             "subtitle1" => "Dashboard",
             "subtitle2" => "",
             "fullname"  => Auth::user()->name,
             "username"  => Auth::user()->username,
-            "imgProfile" => Auth::user()->img
-            // "imgProfile" => ""
+            "imgProfile" => Auth::user()->img,
+            "job_total" => $job_total
 
         ]);
     }
@@ -59,10 +61,16 @@ class DashboardController extends Controller
     }
 
     public function HomePublic(){
+        $job_total = Job::where('id', '!=', NULL)->count();
+        $comp_total = Company::where('id', '!=', NULL)->count();
+        $applicant_total = User::where('roles', 'LIKE', '%Pekerja%')->count();
         return view('_PekerjaPage.pages.homepage',[
             'isLogin' => ((Auth::check()) ? "true" : "false"),
             "fullname"  => ((Auth::check()) ? Auth::user()->name : ""),
             "imgProfile" => ((Auth::check()) ? Auth::user()->img : ""),
+            "job_total" => $job_total,
+            "comp_total" => $comp_total,
+            "applicant_total" => $applicant_total
         ]);
     }
 }

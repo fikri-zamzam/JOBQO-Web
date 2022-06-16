@@ -16,8 +16,26 @@ class ApplicantProfileController extends Controller
             'email' => Auth::user()->email,
             'gender' => Auth::user()->gender,
             'tgl_lahir' => Auth::user()->tgl_lahir,
-            'alamat' => Auth::user()->alamat
+            'alamat' => Auth::user()->alamat,
+            'see' => ''
         ]);
+    }
+
+    public function edit_profile(Request $request){
+        $validatedData = $request->validate([
+            'name' => 'required|min:10',
+            'username' => 'required|unique:users,username,'.Auth::user()->id,
+            'email' => 'required|unique:users,email,'.Auth::user()->id,
+            'tgl_lahir' => 'date',
+            'alamat' => 'required',
+            'gender' => 'required',
+        ]);
+
+
+        User::where('id', Auth::user()->id)
+               ->update($validatedData);
+        
+               return redirect('applicant/profile')->with('success', 'Selamat! Data anda berhasil Diperbarui');
     }
 
 
@@ -43,6 +61,21 @@ class ApplicantProfileController extends Controller
             'cv_doc' => 'file|max:2048',
         ]);
         // $request->old_doc;
+
+        if($request->file('cv_doc')){
+            if($request->oldDoc != NULL) {
+                // menghapus file document lama
+                unlink("document/".$request->oldDoc);
+            }
+            $file = $request->file('cv_doc');
+            $path = 'Applicant-documents';
+            $filename = $path.'/'.date('YmdHi').$file->getClientOriginalName();
+            $file->move('document/'.$path.'/', $filename);
+            
+            $edit_doc['cv_doc'] = $filename;
+            $edit_doc['cv_name'] = $request->file('cv_doc')->getClientOriginalName();
+        }
+
         User::where('id', $id)
                ->update($edit_doc);
 

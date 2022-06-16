@@ -21,8 +21,11 @@ class ApplicationController extends Controller
             'resume' => 'required',
         ]);
         $validatedData["users_id"] = Auth::user()->id;
-        $validatedData["jobs_id"] = session()->get('id_job');
-        session()->forget('id_job');
+        $data_id = session()->get('data_id');
+
+        $validatedData["jobs_id"] = $data_id["id_job"];
+        $validatedData["companies_id"] = $data_id["id_comp"];
+        session()->forget('data_id');
 
         Application::create($validatedData);
         return redirect('/');

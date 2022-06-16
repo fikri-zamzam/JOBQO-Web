@@ -12,13 +12,6 @@ use Illuminate\Support\Facades\Hash;
 
 class CheckdocHRDController extends Controller
 {
-    // public function index() {
-    //     return view('_HRDPage.dashboard.confirmDoc',[
-    //         "CompanySector" => Company_sectors::all(),
-    //         "CompanyType" => Company_types::all()
-    //     ]);
-    // }
-
     public function step_one_show(Request $request) {
         $hrd_doc = $request->session()->get('hrd_doc');
         return view('_HRDPage.dashboard.step-one',[
@@ -35,14 +28,9 @@ class CheckdocHRDController extends Controller
             'tgl_lahir' => 'date',
             'alamat' => 'required',
             'gender' => 'required',
-            // 'img' => 'image|file|max:2048|dimensions:max_width=500,max_height=500'
         ]);
 
         $validatedData['roles'] = "HRD";
-
-        // if($request->file('img')){
-        //     $validatedData['img']->store('HRD-profile');
-        // }
 
         $id = Auth::user()->id;
 

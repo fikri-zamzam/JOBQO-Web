@@ -104,9 +104,10 @@ class ApllicantController extends Controller
         try {
             $request->validate([
                 'name' => [ 'string', 'max:255'],
-                'username' => ['string', 'max:255', 'unique:users'],
-                'email' => [ 'string', 'email', 'max:255', 'unique:users'],
+                'username' => ['string', 'max:255', 'unique:users,username,'.Auth::user()->id],
+                'email' => [ 'string', 'email', 'max:255', 'unique:users,email,'.Auth::user()->id],
             ]);
+
 
             $user = Auth::user();
             // false alarm

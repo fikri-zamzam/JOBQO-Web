@@ -143,7 +143,7 @@ class ApplicantController extends Controller
         $validatedData['password'] = Hash::make($validatedData['password']);
 
         if($request->file('img')){
-            if($request->oldImage) {
+            if($request->oldImage != NULL) {
                 // menghapus file gambar lama
                 unlink("img/".$request->oldImage);
             }
@@ -155,7 +155,7 @@ class ApplicantController extends Controller
         }
 
         if($request->file('cv_doc')){
-            if($request->oldDoc) {
+            if($request->oldDoc != NULL) {
                 // menghapus file document lama
                 unlink("document/".$request->oldDoc);
             }

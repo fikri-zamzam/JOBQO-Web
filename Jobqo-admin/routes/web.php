@@ -61,6 +61,7 @@ Route::get('/apply_job/{id}',[ApplicationController::class,'lamarPage'])->middle
 
 Route::group(['prefix' => 'applicant','middleware' => ['auth'],['checkRole:Pekerja']], function() {
     Route::get('/profile', [ApplicantProfileController::class, 'profile']);
+        Route::post('/profile', [ApplicantProfileController::class, 'edit_profile']);
     Route::get('/document', [ApplicantProfileController::class, 'lihat_doc']);
         Route::post('/document/{id}', [ApplicantProfileController::class, 'upload_doc']);
     Route::get('/lamaran', [ApplicantProfileController::class, 'lamaran']);

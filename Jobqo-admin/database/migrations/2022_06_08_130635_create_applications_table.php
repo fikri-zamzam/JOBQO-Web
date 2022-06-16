@@ -17,6 +17,7 @@ class CreateApplicationsTable extends Migration
             $table->id();
             $table->foreignId('users_id')->nullable();
             $table->foreignId('jobs_id')->nullable();
+            $table->foreignId('companies_id')->nullable();
             $table->string('resume');
             $table->enum('status', ['Y', 'N'])->nullable();
             $table->timestamps();

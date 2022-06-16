@@ -20,6 +20,7 @@ class api_lamaran extends Controller
                 'users_id' => ['required', 'string', 'max:255'],
                 'jobs_id' => ['required', 'string', 'max:255'],
                 'resume' => ['required', 'string', 'max:255'],
+                'companies_id' => ['required', 'string', 'max:255'],
             ]);
 
             $user = Auth::user();
@@ -27,7 +28,8 @@ class api_lamaran extends Controller
             Application::create([
                 'users_id' => $request->users_id,
                 'jobs_id' => $request->jobs_id,
-                'resume' => $request->resume
+                'resume' => $request->resume,
+                'companies_id' => $request->companies_id
             ]);
             // false alarm
             $tokenResult = $user->createToken('authToken')->plainTextToken;

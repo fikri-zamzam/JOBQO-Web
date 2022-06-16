@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
+use Illuminate\Support\Facades\DB;
+
 
 class CompanyController extends Controller
 {
@@ -77,7 +79,7 @@ class CompanyController extends Controller
         if($request->file('img_logo')){
             $file = $request->file('img_logo');
             $path = 'Company-logo';
-            $filename = date('YmdHi').$file->getClientOriginalName();
+            $filename = $path.'/'.date('YmdHi').$file->getClientOriginalName();
             $file->move('img/'.$path.'/', $filename);
             $validatedData['img_logo'] = $filename;
         }
@@ -142,7 +144,7 @@ class CompanyController extends Controller
         ]);
 
         if($request->file('img_logo')){
-            if($request->oldImage) {
+            if($request->oldImage != NULL) {
                 // menghapus file gambar lama
                 unlink("img/".$request->oldImage);
             }
@@ -172,6 +174,9 @@ class CompanyController extends Controller
             unlink("img/".$model->img);
         }
         $model->delete();
+        DB::delete('DELETE from jobs WHERE company_id = ?', [$model->id]);
+        DB::delete('DELETE from salaries WHERE company_id = ?', [$model->id]);
+        DB::delete('DELETE from applications WHERE company_id = ?', [$model->id]);
         return redirect('admin/companies')->with('success', 'Data Perusahaan berhasil dihapus');
     }
 }
