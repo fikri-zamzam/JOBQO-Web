@@ -48,4 +48,33 @@ class api_lamaran extends Controller
             ], 'Aunthentication Failed', 500);
         }
     }
+
+    public function kelola_lamaran(){
+        
+        try {
+            $lamaran = Application::where('users_id', Auth::user()->id)->get();
+            $user = Auth::user();
+            $data = [[]];
+            foreach($lamaran as $key=>$value){
+                $data[$key]['id'] = $value->id;
+                $data[$key]['logo'] = $value->Data_comp->img_logo;
+                $data[$key]['pekerjaan'] = $value->Data_job->name_job;
+                $data[$key]['tanggal'] = $value->created_at->format('d M Y');
+                $data[$key]['status'] = $value->status;
+                $data[$key]['resume'] = $value->resume;
+            }
+
+            $tokenResult = $user->createToken('authToken')->plainTextToken;
+            return ResponseFormatter::success([
+                'access_token' => $tokenResult,
+                'token_type' => 'Bearer',
+                'data' => $data
+            ], 'Authenticated');
+        } catch (Exception $error) {
+            return ResponseFormatter::error([
+                'message' => 'something went wrong',
+                'error' => $error
+            ], 'Aunthentication Failed', 500);
+        }
+    }
 }

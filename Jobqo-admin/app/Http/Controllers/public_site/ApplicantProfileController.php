@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\public;
+namespace App\Http\Controllers\public_site;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Application;
 use Illuminate\Http\Request;
 
 class ApplicantProfileController extends Controller
@@ -50,9 +51,10 @@ class ApplicantProfileController extends Controller
     }
 
     public function lamaran(){
+        $lamaran = Application::where('users_id', Auth::user()->id)->get();
         return view('_PekerjaPage.pages.profile.kelola_lamaran', [
             'isLogin' => ((Auth::check()) ? "true" : "false"),
-        ]);
+        ],compact('lamaran'));
     }
 
     public function upload_doc($id,Request $request){

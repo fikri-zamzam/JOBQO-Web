@@ -67,13 +67,13 @@
       </li>
         <li><a><i class="fa fa-briefcase"></i> Jobs <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="/hrd/jobs">List Pekerjaan</a></li>
-            <li><a href="/hrd/jobs_salary">Range gaji</a></li>
+            <li><a href="{{ url('/hrd/jobs') }}">List Pekerjaan</a></li>
+            <li><a href="{{ url('/hrd/jobs_salary') }}">Range gaji</a></li>
           </ul>
         </li>
         <li><a><i class="fa fa-file-text-o"></i>Lamaran <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="/hrd/lamaran">List Lamaran</a></li>
+            <li><a href="{{ url('/hrd/lamaran') }}">List Lamaran</a></li>
             {{-- <li><a href="/">List Kuisoner</a></li> --}}
           </ul>
         </li>

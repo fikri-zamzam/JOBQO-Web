@@ -12,7 +12,7 @@
       <th>Id Lamaran</th>
       <th>Nama Pekerja</th>
       <th>Pekerjaan</th>
-      <th>Nama Perusahaan</th>
+      <th>Tanggal</th>
       <th>Status </th>
       <th>Aksi</th>
     </thead>
@@ -20,9 +20,9 @@
     @foreach ($lamaran as $key=>$value)
       <tr>
         <td scope="row"> {{ $value->id }} </td>
-        <td> {{ $value->users_id }} </td>
-        <td> {{ $value->jobs_id }} </td>
-        <td> {{ $value->resume }} </td>
+        <td> {{ $value->Data_user->name }} </td>
+        <td> {{ $value->Data_job->name_job }} </td>
+        <td> {{ $value->created_at->format('d-m-Y') }} </td>
         <td> {{ $value->status }} </td>
         <td>
           <div class="row">

@@ -18,4 +18,7 @@ class Application extends Model
     public function Data_job(){
         return $this->belongsTo(Job::class,'jobs_id');
     }
+    public function Data_comp(){
+        return $this->belongsTo(Company::class,'companies_id');
+    }
 }

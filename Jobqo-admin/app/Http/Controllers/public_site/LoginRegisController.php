@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\public;
+namespace App\Http\Controllers\public_site;
 
 use Illuminate\Http\Request;
 use App\Models\User;
