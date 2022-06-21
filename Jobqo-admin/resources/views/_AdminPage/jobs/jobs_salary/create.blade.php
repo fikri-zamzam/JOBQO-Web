@@ -5,12 +5,6 @@
 <div class="col-12">
     <form action="{{ url('admin/jobs_salary') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        {{-- <div class="form-group mt-2">
-            <label for="exampleFormControlInput1">Range gaji</label>
-            <input type="text" class="form-control" name="range_salary" required
-                    placeholder="Contoh : 2500000 - 5000000" >
-        </div> --}}
-
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -25,12 +19,12 @@
         <div class="form-inline">
             <div class="form-group mb-2">
               <input type="text" class="form-control" id="staticEmail2" placeholder="Minimum Gaji"
-              name="g_awal">
+              name="g_awal" onkeydown="return numbersonly(this, event);" onkeyup="javascript:tandaPemisahTitik(this);" >
             </div>
             
             <div class="form-group mx-sm-3 mb-2">
               <input type="text" class="form-control" id="inputPassword2" placeholder="Maximum Gaji"
-              name="g_akhir">
+              name="g_akhir" onkeydown="return numbersonly(this, event);" onkeyup="javascript:tandaPemisahTitik(this);" >
             </div>
         </div>
         <p id="gajiHelp" class="form-text text-muted">isi inputan dengan angka saja</p>
@@ -48,5 +42,4 @@
         </div>
     </form>
 </div>
-
 @endsection

@@ -10,8 +10,7 @@
                         Daftar <span>Akun Kandidat</span>
                     </h2>
                     <p class="section-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus eget leo sed
-                        faucibus. In pretium ante.
+                        Selamat datang di Jobqo, Mohon isi kolom dibawah dengan teliti dan benar
                     </p>
 
                     <form action="{{ url('/register') }}" method="POST" class="register-form">
@@ -22,7 +21,7 @@
                         <input type="password" class="form-control" placeholder="Password" name="password">
 
                         <button class="btn btn-yellow w-100 d-block" type="submit">Daftar Akun</button>
-                        <p class="section-description mt-3">Sudah punya akun? <a href="/login" class="text-orange">Masuk
+                        <p class="section-description mt-3">Sudah punya akun? <a href="{{ url('/login') }}" class="text-orange">Masuk
                                 sekarang juga</a></p>
                     </form>
                 </div>

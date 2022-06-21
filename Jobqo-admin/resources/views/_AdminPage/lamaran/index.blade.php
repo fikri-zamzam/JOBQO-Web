@@ -2,7 +2,6 @@
 
 @section('content')
     
-<a href="{{ url('admin/jobs/create') }}" class="btn btn-primary mt-3"><i class="fa fa-plus-square mr-2"></i>Tambah {{ $title }}</a>
 <table class="table mt-3">
     <thead class="table-dark">
       <th>Id Lamaran</th>
@@ -10,18 +9,27 @@
       <th>Pekerjaan</th>
       <th>Nama Perusahaan</th>
       <th>Status </th>
-      <th>Aksi</th>
+      {{-- <th>Aksi</th> --}}
     </thead>
     <tbody>
-      @foreach ($lamaran as $key=>$value)
+      @forelse ($lamaran as $key=>$value)
       <tr>
         <td scope="row"> {{ $value->id }} </td>
-        <td> {{ $value->users_id }} </td>
-        <td> {{ $value->jobs_id }} </td>
-        <td> {{ $value->resume }} </td>
+        <td> {{ $value->Data_user->name }} </td>
+        <td> {{ $value->Data_job->name_job }} </td>
+        <td> {{ $value->Data_comp->name_company }} </td>
         <td> {{ $value->status }} </td>
+        {{-- <td>
+          <div class="col-3">
+            <a class="btn btn-info" href="{{ url('admin/admin/'.$value->id.'/edit') }}">Lihat</a>
+          </div>
+        </td> --}}
       </tr>
-      @endforeach
+      @empty
+      <tr>
+        <td colspan="4"><h3 class="text-center">Data Kosong</h3></td>
+      </tr>
+      @endforelse
     </tbody>
   </table>
 

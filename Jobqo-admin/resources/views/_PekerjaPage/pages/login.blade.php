@@ -16,8 +16,7 @@
                         Masuk <span>Sebagai Kandidat</span>
                     </h2>
                     <p class="section-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus eget leo sed
-                        faucibus. In pretium ante.
+                        Selamat datang di Jobqo, Pastikan email dan password anda telah terdaftar.
                     </p>
 
                     <form action="{{ url('/loginPost') }}" method="POST" class="register-form">
@@ -26,7 +25,7 @@
                         <input type="password" class="form-control" placeholder="Password" name="password">
 
                         <button class="btn btn-yellow w-100 d-block" type="submit">Login</button>
-                        <p class="section-description mt-3">Belum punya akun? <a href="/register" class="text-orange">Daftar sekarang juga!</a></p>
+                        <p class="section-description mt-3">Belum punya akun? <a href="{{ url('/register') }}" class="text-orange">Daftar sekarang juga!</a></p>
                     </form>
                 </div>
             </div>

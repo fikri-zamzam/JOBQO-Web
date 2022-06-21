@@ -57,7 +57,6 @@ class JobSalaryController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            // 'range_salary' => 'required|min:5',
             'g_awal' => 'required',
             'g_akhir' => 'required',
             'deskripsi' => 'required'
@@ -144,7 +143,7 @@ class JobSalaryController extends Controller
 
 
     public function rupiah($angka){
-        $format_rupiah = "Rp " . number_format($angka,2,',','.');
+        $format_rupiah = "Rp ".$angka.",00";
         return $format_rupiah;
     }
 }

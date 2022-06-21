@@ -38,7 +38,8 @@
                 <a class="btn btn-info" href="{{ url('admin/applicant/'.$value->id.'/edit') }}">Edit</a>
             </div>
             <div class="col-3">
-                <form action="{{ url('admin/applicant/'.$value->id) }}" method="POST">
+                <form action="{{ url('admin/applicant/'.$value->id) }}" method="POST"
+                  onsubmit="return confirm('Apakah yakin ingin menghapus data Applicant ?')">
                     @csrf
                     <input type="hidden" name="_method" value="DELETE">
                     <button class="btn btn-danger">Hapus</button>

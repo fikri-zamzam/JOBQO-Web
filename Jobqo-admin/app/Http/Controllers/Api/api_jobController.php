@@ -11,7 +11,7 @@ class api_jobController extends Controller
 {
     public function all(Request $request){
         $id = $request->input('id');
-        $limit = $request->input('limit', 6);
+        $limit = $request->input('limit', 12);
         $name_job = $request->input('name_job');
         $desk_job = $request->input('desk_job');
         $job_requirement = $request->input('job_requirement');
@@ -32,7 +32,7 @@ class api_jobController extends Controller
                 );
         }
 
-        $jobs = Job::with(['AsalJob','rangeGaji']);
+        $jobs = Job::with(['AsalJob','rangeGaji'])->orderBy('created_at', 'DESC');
 
         if($name_job)
             $jobs->where('name', 'like', '%' . $name_job . '%');

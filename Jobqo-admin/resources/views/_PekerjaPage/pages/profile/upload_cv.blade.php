@@ -15,7 +15,7 @@
                 <div class="content">
                     <div class="row justify-content-between">
                         <div class="col">
-                            <h3>Upload</h3> 
+                            <h3>Upload CV</h3> 
                         </div>
                         <div class="col-auto">
                         <a href="{{ asset('document/'.$cv_doc) }}" class="btn btn-info btn-sm" href="#">Lihat</a>
@@ -27,6 +27,7 @@
                             {{ session('success') }}
                         </div>
                     @endif
+
                     <div class="row gap-5">
                         <div class="col">
                             <div class="mt-4 mb-3">

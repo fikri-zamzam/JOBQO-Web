@@ -145,7 +145,7 @@ class HRDJobSalaryController extends Controller
     }
 
     public function rupiah($angka){
-        $format_rupiah = "Rp " . number_format($angka,2,',','.');
+        $format_rupiah = "Rp ".$angka.",00";
         return $format_rupiah;
     }
 }

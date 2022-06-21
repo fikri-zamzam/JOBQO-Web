@@ -17,6 +17,11 @@
                     <hr>
                     <div class="row gap-5">
                         <div class="col-md-12">
+                            @if(session()->has('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
+                            </div>
+                            @endif
                             <table class="table mt-5 table-md" style="font-size: 11px">
 
                                 <thead class="table-dark">
@@ -28,7 +33,7 @@
                                 <th>Aksi</th>
                                 </thead>
                                 <tbody>
-                                    @foreach ($lamaran as $key=>$value)
+                                    @forelse ($lamaran as $key=>$value)
                                     <tr>
                                         <td scope="row"> {{ $key+1 }} </td>
                                         <td><img class="img-fluid" style="display:block;" width="50px" height="50px" class="img-circle" src="{{ asset('img/'.$value->Data_comp->img_logo) }}" /></td>
@@ -37,16 +42,21 @@
                                         <td> {{ $value->status }}</td>
                                         <td>
                                             <!-- <div class="col"> -->
-                                                <form action="#" method="POST">
+                                                <form action="{{ url('applicant/lamaran/'.$value->id) }}" method="POST"
+                                                    onsubmit="return confirm('Apakah anda yakin ? lamaran anda akan dibatalkan')">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <button type="button" class="btn-sm btn-danger" style="font-size: 11px">X</button>
+                                                    <button type="submit" class="btn-sm btn-danger" style="font-size: 11px">X</button>
                                                 </form>
                                             <!-- </div> -->
                                         </div>
                                         </td>
                                     </tr>
-                                    @endforeach
+                                    @empty
+                                    <tr>
+                                        <td colspan="6"><h6 class="text-center">Anda Belum melamar pekerjaan</h6></td>
+                                    </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

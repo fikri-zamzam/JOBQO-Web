@@ -66,17 +66,12 @@ class LoginRegisController extends Controller
         } else {
             Session::flush();
                 Auth::logout();
-                return redirect('/');
             return back()->with('loginError', 'Login error pastikan password dan email benar');
         }
 
     }
 
-    // public function keluar(){
-    //     Session::flush();
-    //     Auth::logout();
-    //     return redirect('/');
-    // }
+    //Login HRD
 
     // Register Applicant
     public function registerPage(){
@@ -113,7 +108,7 @@ class LoginRegisController extends Controller
         } else {
             return back()->with('loginError', 'Login gagal');
         }
-
-        
     }
+
+
 }

@@ -57,10 +57,16 @@ class ApplicantProfileController extends Controller
         ],compact('lamaran'));
     }
 
+    public function lamaran_del($id) {
+        $model = Application::find($id);
+        $model->delete();
+        return redirect('/applicant/lamaran')->with('success', 'Lamaran anda berhasil dibatalkan');
+    }
+
     public function upload_doc($id,Request $request){
 
         $edit_doc = $request->validate([
-            'cv_doc' => 'file|max:2048',
+            'cv_doc' => 'required|file|max:2048',
         ]);
         // $request->old_doc;
 

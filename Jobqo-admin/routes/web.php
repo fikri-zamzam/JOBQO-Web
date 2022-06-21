@@ -44,7 +44,7 @@ Route::post('private/login', [LoginController::class, 'authenticate']);
 
 Route::get('/login', [LoginRegisController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/loginPost', [LoginRegisController::class, 'authenticate']);
-Route::get('/register', [LoginRegisController::class, 'registerPage']);
+Route::get('/register', [LoginRegisController::class, 'registerPage'])->middleware('guest');
 Route::post('/register', [LoginRegisController::class, 'registerPost']);
 
 Route::post('/logout-admin', [LoginController::class, 'logout']);
@@ -65,6 +65,7 @@ Route::group(['prefix' => 'applicant','middleware' => ['auth'],['checkRole:Peker
     Route::get('/document', [ApplicantProfileController::class, 'lihat_doc']);
         Route::post('/document/{id}', [ApplicantProfileController::class, 'upload_doc']);
     Route::get('/lamaran', [ApplicantProfileController::class, 'lamaran']);
+        Route::delete('/lamaran/{id}', [ApplicantProfileController::class, 'lamaran_del']);
 });
 
 
@@ -110,7 +111,6 @@ Route::group(['prefix' => 'admin','middleware' => ['auth'],['checkRole:Admin']],
         // HRD_Application
 
     Route::get('lamaran',[HRD_Application::class,'lamaran_hrd']);
-
         Route::get('/check-step-one', [CheckdocHRDController::class,'step_one_show'])->name('step-one-show');
         Route::post('/check-step-one', [CheckdocHRDController::class,'step_one_post'])->name('step-one-post');
         Route::get('/check-step-two', [CheckdocHRDController::class,'step_two_show'])->name('step-two-show');

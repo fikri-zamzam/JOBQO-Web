@@ -23,6 +23,15 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+            <div class="collapse navbar-collapse justify-content" id="navbarSupportedContent">
+                <ul class="navbar-nav gap-2">
+                    <li class="nav-item">
+                        <a href="{{ url('/') }}" class="navbar-brand">
+                            <img src="{{ url('public_assets/images/logo.png') }}" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav gap-2">
                     <li class="nav-item">

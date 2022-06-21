@@ -18,8 +18,8 @@ class CreateApplicationsTable extends Migration
             $table->foreignId('users_id')->nullable();
             $table->foreignId('jobs_id')->nullable();
             $table->foreignId('companies_id')->nullable();
-            $table->string('resume');
-            $table->enum('status', ['Y', 'N'])->nullable();
+            $table->text('resume');
+            $table->enum('status', ['Menunggu diproses','Sedang diproses','Melanjutkan ke seleksi','Ditolak'])->default('Menunggu diproses')->nullable();
             $table->timestamps();
         });
     }

@@ -29,7 +29,7 @@
                 </h2>
             </div>
             <div class="col">
-                <form action="/apply_job/{{ $model->id }}" method="GET">
+                <form action="{{ url('/apply_job/'.$model->id) }}" method="GET">
                     <button class="btn btn-yellow float-lg-end mt-sm-3 mt-lg-0">Lamar Sekarang</button>
                 </form>
             </div>

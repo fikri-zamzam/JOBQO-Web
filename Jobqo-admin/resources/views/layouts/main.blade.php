@@ -232,6 +232,7 @@
     <script src="{{ asset('js/trix/attachments.js') }}"></script>
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('templates_assets/build/js/custom.min.js') }}"></script>
+    <script src="{{ asset('templates_assets/build/js/decimal.js') }}"></script>
 	
     {{-- akhir ubahan js menjadi asset --}}
   </body>
