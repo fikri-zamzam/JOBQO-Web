@@ -1,11 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-@if(session()->has('success'))
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{ session('success') }}
-</div>
-@endif
 
 <table class="table mt-3">
     <thead class="table-dark">
@@ -27,17 +22,22 @@
         <td>
           <div class="row">
             <div class="col-3">
-              <a class="btn btn-success" href="{{ url('admin/admin/'.$value->id.'/edit') }}">Terima</a>
+              <form action="{{ url('hrd/lamaran/'.$value->id.'/terima') }}" method="POST">
+                @csrf
+                <button class="btn btn-success" type="submit">Terima</button>
+              </form>
             </div>
             <div class="col-3">
-                <a class="btn btn-info" href="{{ url('admin/admin/'.$value->id.'/edit') }}">Lihat</a>
+                <form action="{{ url('hrd/lamaran/'.$value->id.'/tinjau') }}" method="POST">
+                  @csrf
+                  <button class="btn btn-info" type="submit">Lihat</a>
+                </form>
             </div>
             <div class="">
-                <form action="{{ url('admin/admin/'.$value->id) }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button class="btn btn-danger">Hapus</button>
-                </form>
+              <form action="{{ url('hrd/lamaran/'.$value->id.'/tolak') }}" method="POST">
+                @csrf
+                <button class="btn btn-danger" type="submit">Tolak</a>
+              </form>
             </div>
         </div>
         </td>

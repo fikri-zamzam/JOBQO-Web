@@ -85,7 +85,7 @@ class LoginRegisController extends Controller
             'name' => 'required|min:10',
             'username' => 'required|unique:users',
             'email' => 'required|unique:users',
-            'password' => 'required|min:5|',
+            'password' => 'required|min:5|confirmed',
         ]);
 
         $validatedData['password'] = Hash::make($validatedData['password']);

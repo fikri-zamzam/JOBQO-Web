@@ -6,6 +6,15 @@
         <div class="row align-items-center justify-content-center">
             <div class="col-md-7">
                 <div class="register-area text-center">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <h2 class="section-title text-white">
                         Daftar <span>Akun Kandidat</span>
                     </h2>
@@ -19,6 +28,7 @@
                         <input type="text" class="form-control" placeholder="Username" name="username">
                         <input type="email" class="form-control" placeholder="Email" name="email">
                         <input type="password" class="form-control" placeholder="Password" name="password">
+                        <input type="password" class="form-control" placeholder="Ulangi Password" name="password_confirmation">
 
                         <button class="btn btn-yellow w-100 d-block" type="submit">Daftar Akun</button>
                         <p class="section-description mt-3">Sudah punya akun? <a href="{{ url('/login') }}" class="text-orange">Masuk

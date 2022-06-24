@@ -116,6 +116,7 @@
                     @if (Auth::user()->roles == "HRD")
                       <a class="dropdown-item" href="{{ url('/hrd/setting-hrd/'.Auth::user()->id) }}">Edit Profile HRD <i class="fa fa-user pull-right"></i> </a>
                       <a class="dropdown-item" href="{{ url('/hrd/setting-company/'.Auth::user()->companies_id) }}">Ubah Profile Perusahaan <i class="fa fa-pencil-square-o pull-right"></i> </a>
+                      <a class="dropdown-item" href="{{ url('/') }}">Web Publik <i class="fa fa-globe pull-right"></i> </a>
                     @endif
                     <form action="{{ url('/logout-admin') }}" method="POST">
                       @csrf

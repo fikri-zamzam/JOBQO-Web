@@ -111,6 +111,8 @@ Route::group(['prefix' => 'admin','middleware' => ['auth'],['checkRole:Admin']],
         // HRD_Application
 
     Route::get('lamaran',[HRD_Application::class,'lamaran_hrd']);
+        Route::post('lamaran/{id}/{aksi}',[HRD_Application::class,'aksi_lamaran_hrd']);
+    // Route ketika hrd belum mengisi form pendaftaran
         Route::get('/check-step-one', [CheckdocHRDController::class,'step_one_show'])->name('step-one-show');
         Route::post('/check-step-one', [CheckdocHRDController::class,'step_one_post'])->name('step-one-post');
         Route::get('/check-step-two', [CheckdocHRDController::class,'step_two_show'])->name('step-two-show');

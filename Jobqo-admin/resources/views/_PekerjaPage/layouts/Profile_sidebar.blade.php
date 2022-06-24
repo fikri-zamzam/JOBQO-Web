@@ -3,7 +3,7 @@
       @if (Auth::user()->img != NULL)
         <img src="{{ asset('img/'.Auth::user()->img) }}" alt="">
       @endif
-        <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=random&font-size=0.37" alt="">
+        <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=E1FBFB&font-size=0.37" alt="">
             <p>{{ Auth::user()->name }}</p>
     </div>
     <hr class="hr-profile">

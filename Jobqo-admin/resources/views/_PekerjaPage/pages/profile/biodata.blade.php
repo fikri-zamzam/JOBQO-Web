@@ -25,6 +25,7 @@
                   </div>
                     <hr>
                     <div class="row gap-5">
+                      <div class="col-6">
                         <form action="{{ url('applicant/profile') }}" method="POST" class="form-horizontal form-label-left" enctype="multipart/form-data">
                           @csrf
                           @if(session()->has('success'))
@@ -43,20 +44,20 @@
                                 </div>
                             @endif
                           <div class="form-group row-mt-2">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="idname">Nama Lengkap <span class="required"></span>
+                            <label class="col label-align mt-2" for="idname">Nama Lengkap <span class="required"></span>
                             </label>
-                            <div class="col-md-6 col-sm-6 ">
+                            <div class="col mt-2">
                               <input type="text" id="idname" required="required" class="form-control" value="{{ $name }}" name="name" {{ $see }}>
                             </div>
                           </div>
                           <div class="form-group row-mt-2">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="id_username">Username <span class="required"></span>
+                            <label class="col label-align mt-2" for="id_username">Username <span class="required"></span>
                             </label>
-                            <div class="col-md-6 col-sm-6 ">
+                            <div class="col mt-2">
                               <input type="text" id="id_username" required="required" class="form-control" value="{{ $username }}" name="username" {{ $see }}>
                             </div>
                           </div>
-                          <label for="genderLabel">Gender</label><br>
+                          <label for="genderLabel" class="col label-align mt-2 mb-2">Gender</label><br>
                           <div class="form-check-inline">
                               <input class="form-check-input" type="radio" name="gender" id="lk" value="L" {{ $see }} {{ (( $gender == "L" ) ? "checked" : "" ) }}>
                               <label class="form-check-label" for="lk">
@@ -70,23 +71,23 @@
                               </label>
                           </div>
                           <div class="form-group row-mt-2">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="idEmail">Email <span class="required"></span>
+                            <label class="col label-align mt-2" for="idEmail">Email <span class="required"></span>
                             </label>
-                            <div class="col-md-6 col-sm-6 ">
+                            <div class="col mt-2">
                               <input type="text" id="idEmail" required="required" class="form-control" value="{{ $email }}" name="email" {{ $see }}>
                             </div>
                           </div>
                           <div class="form-group row-mt-2">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="id_tglLahir">Tanggal Lahir <span class="required"></span>
+                            <label class="col label-align mt-2" for="id_tglLahir">Tanggal Lahir <span class="required"></span>
                             </label>
-                            <div class="col-md-6 col-sm-6 ">
+                            <div class="col mt-2">
                               <input type="date" id="idTgl_lahir" required="required" class="form-control" value="{{ $tgl_lahir }}" name="tgl_lahir" {{ $see }}>
                             </div>
                           </div>
                           <div class="form-group row-mt-2">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="idAlamat">Alamat <span class="required"></span>
+                            <label class="col label-align mt-2" for="idAlamat">Alamat <span class="required"></span>
                             </label>
-                            <div class="col-md-6 col-sm-6 ">
+                            <div class="col mt-2">
                               <textarea style="resize: none" name="alamat" class="form-control" id="idAlamat" cols="37" rows="3" {{ $see }}>{{ $alamat }}</textarea>
                             </div>
                           </div>
@@ -96,8 +97,18 @@
                                     <button type="submit" {{ $see }} class="btn btn-primary">Konfirmasi</button>
                                 </div>
                             </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="col mt-3">
+                        <div class="">
+                          <label class="col label-align" >Foto Profil <br>
+                          <img class="mt-3" width="230px" height="230px" src="{{ asset('img/image-preview.png') }}" alt="..." >
                         </div>
-                      </form>
+                        <div class="mt-3">
+                          <button type="submit" {{ $see }} class="btn btn-primary">Edit gambar</button>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
