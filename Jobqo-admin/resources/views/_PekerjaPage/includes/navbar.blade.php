@@ -9,11 +9,11 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav gap-2">
             <li class="nav-item">
-                <a href="#" class="nav-link">Pelajari</a>
+                <a href="/learn-more" class="nav-link">Pelajari</a>
             </li>
             <hr class="navbar-inline">
             <li class="nav-item me-lg-3">
-                <a href="/logout-user" class="nav-link">FAQ</a>
+                <a href="/faq" class="nav-link">FAQ</a>
             </li>
 
             @if ($isLogin == "true")

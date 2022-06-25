@@ -24,6 +24,7 @@ use App\Http\Controllers\HRDJobSalaryController;
 use App\Http\Controllers\CompanySectorController;
 use App\Http\Controllers\HRDEditProfileController;
 use App\Http\Controllers\public_site\p_JobController;
+use App\Http\Controllers\public_site\StaticPageController;
 use App\Http\Controllers\public_site\LoginRegisController;
 use App\Http\Controllers\public_site\ApplicationController;
 use App\Http\Controllers\public_site\ApplicantProfileController;
@@ -56,6 +57,8 @@ Route::get('/job', [p_JobController::class, 'IndexJob']);
     Route::get('/job/detail/{id}', [p_JobController::class, 'DetailJobs']);
 Route::get('/apply_job/{id}',[ApplicationController::class,'lamarPage'])->middleware('auth');
     Route::post('/apply_job/post',[ApplicationController::class,'lamarPost']);
+Route::get('/learn-more', [StaticPageController::class, 'learn_more']);
+Route::get('/faq', [StaticPageController::class, 'faqPage']);
 
 //Rute untuk Applicant
 

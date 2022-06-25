@@ -278,10 +278,8 @@
                         <img src="{{ url('public_assets/images/icons/ic-star-2.svg') }}" alt="">
                     </div>
                     <p class="quote">
-                        “ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur elit semper libero
-                        commodo sagittis. In quis aliquet mauris, pellentesque ullamcorper purus. Curabitur ac
-                        lobortis justo. Duis efficitur, nulla sed posuere posuere, est nulla tempor urna, in
-                        ullamcorper mauris leo vel lectus “
+                        “Saya fresh graduate yang mencoba mencari lowongan pekerjaan, kemudian saya mendapat rekomendasi dari teman tentang adanya aplikasi "Jobqo" portal lowongan pekerjaan. Akhirnya puji syukur saya sudah mendapatkan pekerjaan yang tepat sesuai kompetensi saya.
+                        Aplikasi ini sangat membantu bagi para pencari kerja terutama fresh graduate. Saya sudah mencoba, kamu harus juga. “
                     </p>
                     <div class="people d-flex align-items-center gap-3">
                         <img src="{{ url('public_assets/images/neng-gelis.png') }}" alt="">
