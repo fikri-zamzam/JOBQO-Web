@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\public_site;
 
 use App\Http\Controllers\Controller;
+use App\Models\Faq;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -15,20 +16,18 @@ class StaticPageController extends Controller
     }
 
     public function faqPage(){
-        $data = [
-            [
-                'Bagaimana HRD dapat mendaftar kan perusahaan ?',
-                'HRD dapat mendaftarkan perusahaan dengan mengirimkan email kepada admin jobqo, lalu admin akan memberikan username dan password untuk login ke aplikasi jobqo'
-            ],
-            [
-                'ini soal 2 bang',
-                'jawaban 2 bang'
-            ]
-        ];
-
-        // dd($data);
+        $allFaq = Faq::all();
         return view('_PekerjaPage.pages.faq',[
             'isLogin' => ((Auth::check()) ? "true" : "false")
-        ],compact('data'));
+        ],compact('allFaq'));
+    }
+
+    public function faqSearch(Request $request){
+        $nameFAQ = $request->cari;
+
+        $allFaq = Faq::where('soal','LIKE',"%".$nameFAQ."%")->get();
+        return view('_PekerjaPage.pages.faq',[
+            'isLogin' => ((Auth::check()) ? "true" : "false")
+        ],compact('allFaq'));
     }
 }

@@ -20,9 +20,11 @@
 <section class="joblist" id="joblist">
     <div class="container">
         <div class="row align-items-center justify-content-between">
+            @if(!$jobs->isEmpty())
             <h2 class="section-title text-white text-center">
                 Rekomendasi untuk anda
             </h2>
+            @endif
         </div>
 
         <div class="row joblist-items">
@@ -48,7 +50,9 @@
                 </div>
             </div>
             @empty
-            <h3 class="text-center" style="color: white">Job tidak ditemukan</h3>
+            <h3 class="text-center" style="color: white">Kami tidak dapat menemukan Lowongan yang anda cari </h3>
+            <h5 class="text-center mt-2" style="color: rgba(226, 220, 220, 0.678)">Pastikan ejaan yang anda tulis dengan benar </h5>
+
             @endforelse
         </div>
     </div>

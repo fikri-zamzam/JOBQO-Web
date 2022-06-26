@@ -59,6 +59,7 @@ Route::get('/apply_job/{id}',[ApplicationController::class,'lamarPage'])->middle
     Route::post('/apply_job/post',[ApplicationController::class,'lamarPost']);
 Route::get('/learn-more', [StaticPageController::class, 'learn_more']);
 Route::get('/faq', [StaticPageController::class, 'faqPage']);
+    Route::get('/faq/s/', [StaticPageController::class, 'faqSearch']);
 
 //Rute untuk Applicant
 
