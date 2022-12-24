@@ -1,6 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
+@if ($gaji->isEmpty())
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">Anda belum mengisi daftar range gaji,Harap mengisi gaji di halaman range gaji, <a href="{{ url('/hrd/jobs_salary') }}">Klik disini</a></div>
+@endif
     
 <a href="{{ url('hrd/jobs/create') }}" class="btn btn-primary mt-3"><i class="fa fa-plus-square mr-2"></i>Tambah {{ $title }}</a>
 <table class="table mt-3">

@@ -11,9 +11,9 @@ class admin_ApplicationController extends Controller
         $lamaran = Application::all();
 
         return view('_AdminPage.lamaran.index',[
-            "title" => "Pekerjaan",
-            "subtitle1" => "Pekerjaan",
-            "subtitle2" => "List Data Pekerjaan",
+            "title" => "Pantau Lamaran",
+            "subtitle1" => "Lamaran",
+            "subtitle2" => "List Data Lamaran",
             "fullname"  => Auth::user()->name,
             "username"  => Auth::user()->username,
             "imgProfile" => Auth::user()->img

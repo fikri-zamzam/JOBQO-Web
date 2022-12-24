@@ -12,9 +12,11 @@
                 Untuk <span>Jember Yang <br>Lebih Baik</span>
             </h1>
             <p class="header-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus eget<br>leo sed
+                {{-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus eget<br>leo sed
                 faucibus.
-                In pretium ante et nulla vulputate.
+                In pretium ante et nulla vulputate. --}}
+                JOBQO Berkomitmen untuk membuka lebih banyak Kesempatan untuk para Applicant dan perusahaan di luar sana <br>
+                Ayo Buka Kesempatan Berkarirmu Sekarang Juga
             </p>
             <form action="{{ url('/job/s/') }}" method="GET" class="header-form d-flex align-items-center gap-3 bg-white p-4 rounded mt-5">
                 <div class="icon">
@@ -172,8 +174,7 @@
                     </div>
                     <h4 class="title">Koneksi Perusahaan</h4>
                     <p class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus eget leo sed
-                        faucibus.
+                       Jelajahi kemungkinan yang ada bersama dengan 100 perusahaan lainnya
                     </p>
                 </div>
             </div>
@@ -184,8 +185,7 @@
                     </div>
                     <h4 class="title">Konsultasi Karir</h4>
                     <p class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus eget leo sed
-                        faucibus.
+                        Tersedia konsultasi terkait karir yang ingin anda raih bersama kami
                     </p>
                 </div>
             </div>
@@ -196,8 +196,7 @@
                     </div>
                     <h4 class="title">Event Perusahaan</h4>
                     <p class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus eget leo sed
-                        faucibus.
+                        Merayakan keberhasilan perusahaan bersama dengan segenap staff perusahaan
                     </p>
                 </div>
             </div>
@@ -208,8 +207,7 @@
                     </div>
                     <h4 class="title">Penyesuaian Karir</h4>
                     <p class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus eget leo sed
-                        faucibus.
+                        Anda dapat melakukan penyesuaian pekerjaan berdasarkan kemampuan yang dimiliki.
                     </p>
                 </div>
             </div>
@@ -220,8 +218,7 @@
                     </div>
                     <h4 class="title">Pelatihan Kerja</h4>
                     <p class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus eget leo sed
-                        faucibus.
+                        Anda dapat melakukan pelatihan pekerjaan sesuai dengan apa yang anda inginkan.
                     </p>
                 </div>
             </div>
@@ -232,8 +229,7 @@
                     </div>
                     <h4 class="title">Bursa Kerja</h4>
                     <p class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus eget leo sed
-                        faucibus.
+                        Anda dapat melakukan bursa kerja dengan perusahaan untuk bertemu secara langsung dalam waktu yang singkat.
                     </p>
                 </div>
             </div>
@@ -260,7 +256,7 @@
                                 <img src="{{ url('public_assets/images/icons/ic-star-2.svg') }}" alt="Star">
                                 <img src="{{ url('public_assets/images/icons/ic-star-2.svg') }}" alt="Star">
                             </div>
-                            <p class="title">Lorem ipsum dolor sit amet.</p>
+                            {{-- <p class="title">8 dari 10 orang percaya</p> --}}
                         </div>
                     </div>
                 </div>
@@ -284,7 +280,7 @@
                     <div class="people d-flex align-items-center gap-3">
                         <img src="{{ url('public_assets/images/neng-gelis.png') }}" alt="">
                         <div class="bio">
-                            <h4>Neng Gelis</h4>
+                            <h4>Veronica Salim</h4>
                             <p>Designer</p>
                         </div>
                     </div>
@@ -304,11 +300,11 @@
                     Download aplikasi JOBQO untuk memudahkan anda
                 </h2>
                 <p class="section-description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus eget leo sed
-                    faucibus. In pretium ante et nulla vulputate.
+                    Ingin Lamar kerja tapi jarang buka PC, Tenang saja, download aplikasi JOBQO 
+                    Untuk memudahkan anda kapanpun dan dimanapun
                 </p>
 
-                <a href="#" class="d-inline-block google-play">
+                <a href="{{ url('https://play.google.com/store/apps/details?id=com.jobteams.jobqo') }}" class="d-inline-block google-play">
                     <img src="{{ url('public_assets/images/badge_playstore.png') }}" alt="">
                 </a>
             </div>

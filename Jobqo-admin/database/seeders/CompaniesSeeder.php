@@ -49,7 +49,7 @@ class CompaniesSeeder extends Seeder
             'company_type_id' => '1',
             'website' => 'www.kentir.com',
             'status_izin' => 'N',
-            'img_logo' => 'www.logo.com',
+            'img_logo' => NULL,
             'created_at'=> now()
         ]);
     }

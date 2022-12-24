@@ -18,6 +18,7 @@ class ApplicantProfileController extends Controller
             'gender' => Auth::user()->gender,
             'tgl_lahir' => Auth::user()->tgl_lahir,
             'alamat' => Auth::user()->alamat,
+            'img_profile' => Auth::user()->img,
             'see' => ''
         ]);
     }
@@ -28,9 +29,23 @@ class ApplicantProfileController extends Controller
             'username' => 'required|unique:users,username,'.Auth::user()->id,
             'email' => 'required|unique:users,email,'.Auth::user()->id,
             'tgl_lahir' => 'date',
+            'gender' => 'required',
             'alamat' => 'required',
             'gender' => 'required',
+            'img' => 'image|file|max:2048|dimensions:max_width=500,max_height=500',
         ]);
+
+        if($request->file('img')){
+            if($request->oldImage != NULL) {
+                // menghapus file gambar lama
+                unlink("img/".$request->oldImage);
+            }
+            $file = $request->file('img');
+            $path = 'Applicant-profile';
+            $filename = $path.'/'.date('YmdHi').$file->getClientOriginalName();
+            $file->move('img/'.$path.'/', $filename);
+            $validatedData['img'] = $filename;
+        }
 
 
         User::where('id', Auth::user()->id)

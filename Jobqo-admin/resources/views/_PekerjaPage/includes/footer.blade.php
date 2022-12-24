@@ -4,9 +4,8 @@
             <div class="col-md-3">
                 <div class="footer-item">
                     <img src="{{ url('public_assets/images/logo.png') }}" class="logo" alt="">
-                    <p class="section-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus eget leo sed
-                        faucibus.
+                    <p class="copyright">
+                        JOBQO Merupakan Aplikasi yang dilindungi Hukum dan dibawahi oleh Jobteams <span class="copyright"> &copy;</span>
                     </p>
                     <p class="copyright">Copyright &copy; 2022 JOBQO</p>
                 </div>
@@ -57,7 +56,7 @@
                         </a>
                     </div>
                     <p class="section-description">
-                        Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod.
+                        For another information please visit <br> our Social Media
                     </p>
                 </div>
             </div>

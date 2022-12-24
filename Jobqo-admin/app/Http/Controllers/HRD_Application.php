@@ -38,6 +38,10 @@ class HRD_Application extends Controller
             $lamaran->status = 'Ditolak';
             $lamaran->save();
             return redirect('/hrd/lamaran')->with('success', 'Lamaran Applicant berhasil ditolak');
+        } else if($aksi == "draft"){
+            $lamaran->status = 'Menunggu diproses';
+            $lamaran->save();
+            return redirect('/hrd/lamaran');
         }
     }
 }

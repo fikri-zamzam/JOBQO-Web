@@ -20,6 +20,7 @@ class HRD_JobController extends Controller
     public function index()
     {
         $jobs = Job::all();
+        $gaji = Salary::all();
         $jobs = Job::where('company_id',Auth::user()->companies_id)->get();
 
         return view('_HRDPage.jobs.index',[
@@ -30,7 +31,7 @@ class HRD_JobController extends Controller
             "username"  => Auth::user()->username,
             "imgProfile" => Auth::user()->img
 
-        ], compact('jobs'));
+        ], compact('jobs','gaji'));
     }
 
     /**

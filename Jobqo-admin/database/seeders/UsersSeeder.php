@@ -45,12 +45,5 @@ class UsersSeeder extends Seeder
             'created_at'=> now()
         ]);
 
-        DB::table('user_details')->insert([
-        	'education' => 'Universitas Terbuka',
-            'quote' => 'Semua adalah all',
-            'current_job' => 'Kang HRD',
-            'phone' => '082233291212',
-            'created_at'=> now()
-        ]);
     }
 }

@@ -8,6 +8,7 @@
       <th>Nama Pekerja</th>
       <th>Pekerjaan</th>
       <th>Nama Perusahaan</th>
+      <th>logo</th>
       <th>Status </th>
       {{-- <th>Aksi</th> --}}
     </thead>
@@ -18,6 +19,7 @@
         <td> {{ $value->Data_user->name }} </td>
         <td> {{ $value->Data_job->name_job }} </td>
         <td> {{ $value->Data_comp->name_company }} </td>
+        <td><img class="img-fluid" style="display:block;" width="50px" height="50px" class="img-circle" src="{{ asset('img/'.$value->Data_comp->img_logo) }}" /></td>
         <td> {{ $value->status }} </td>
         {{-- <td>
           <div class="col-3">

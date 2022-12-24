@@ -98,17 +98,25 @@
                                 </div>
                             </div>
                           </div>
-                        </form>
                       </div>
+                      {{-- Foto Profile --}}
                       <div class="col mt-3">
                         <div class="">
                           <label class="col label-align" >Foto Profil <br>
-                          <img class="mt-3" width="230px" height="230px" src="{{ asset('img/image-preview.png') }}" alt="..." >
+                          @if ($img_profile != NULL)
+                          <img class="mt-3" width="230px" height="230px" src="{{ asset('img/'.$img_profile) }}" id="img-preview" alt="..." >
+                          @else
+                          <img class="mt-3" width="230px" height="230px" src="{{ asset('img/image-preview.png') }}" id="img-preview" alt="..." >
+                          @endif
                         </div>
                         <div class="mt-3">
-                          <button type="submit" {{ $see }} class="btn btn-primary">Edit gambar</button>
+                          <input type="file" class="custom-file-input" id="image" name="img" onchange="document.getElementById('img-preview').src = window.URL.createObjectURL(this.files[0])">
+
+
+                          {{-- <button type="submit" {{ $see }} class="btn btn-primary">Edit gambar</button> --}}
                         </div>
                       </div>
+                    </form>
                     </div>
                 </div>
             </div>

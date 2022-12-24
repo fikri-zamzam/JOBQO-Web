@@ -2,9 +2,10 @@
     <div class="d-flex m-auto">
       @if (Auth::user()->img != NULL)
         <img src="{{ asset('img/'.Auth::user()->img) }}" alt="">
-      @endif
+      @else
         <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=E1FBFB&font-size=0.37" alt="">
-            <p>{{ Auth::user()->name }}</p>
+      @endif
+        <p>{{ Auth::user()->name }}</p>
     </div>
     <hr class="hr-profile">
 </div>

@@ -17,18 +17,21 @@
                         Konfirmasi <span>Lamaran</span>
                     </h2>
                     <p class="section-description text-center">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus eget leo sed
-                        faucibus. In pretium ante.
+                        Tulis Resume dengan bahasa yang mudah dipahami dan pastikan <br> CV sudah terupload dengan benar
                     </p>
 
                     <form action="{{ url('/apply_job/post') }}" method="POST" class="register-form">
                         @csrf
+                        @error('resume')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                         <textarea name="resume" class="form-control" cols="30" rows="10" placeholder="Ceritakan sedikit tentang Diri Anda"></textarea>
                         <label style="color: white">Dokumen Cv</label>
                         <div class="mt-2">
-                            <input type="text" class="form-control" value="{{ (($doc !== NULL) ? $doc : "Tidak dapat menemukan cv") }}" disabled>
+                            <input type="text" class="form-control" value="{{ (($doc !== NULL) ? $doc : "Upload CV untuk melamar pekerjaan") }}" disabled>
                         </div>
-                        <button class="btn btn-yellow w-100 d-block" type="submit">Submit Lamaran</button>
+                        
+                        <button class="btn btn-yellow w-100 d-block" {{ (($doc !== NULL) ? '' : 'disabled') }} type="submit">Submit Lamaran</button>
                     </form>
                         
                 </div>

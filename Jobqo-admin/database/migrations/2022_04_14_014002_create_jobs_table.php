@@ -16,7 +16,7 @@ class CreateJobsTable extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->string('name_job');
-            $table->string('desk_job');
+            $table->text('desk_job');
             $table->foreignId('salaries_id')->nullable();
             $table->foreignId('company_id')->nullable();
             $table->foreignId('job_category_id')->nullable();

@@ -18,7 +18,7 @@ class ApplicationController extends Controller
 
     public function lamarPost(Request $request){
         $validatedData = $request->validate([
-            'resume' => 'required',
+            'resume' => 'required|min:10',
         ]);
         $validatedData["users_id"] = Auth::user()->id;
         $data_id = session()->get('data_id');

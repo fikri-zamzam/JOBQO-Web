@@ -34,9 +34,10 @@ class DashboardController extends Controller
 
     public function indexHRD()
     {   $user = User::find(Auth::user()->id);
+        $job_total = Job::where('id', '!=', NULL)->count();
+        $lamaran_total = Application::where('id', '!=', NULL)->count();
 
-        // $lamaran = User::withCount(['posts', 'comments'])->get();
-        // $job = Job::withCount(['company_id'])->get();
+
 
         return view('_HRDPage.dashboard.main',[
             "title" => "Dashboard",
@@ -45,7 +46,9 @@ class DashboardController extends Controller
             "fullname"  => Auth::user()->name,
             "username"  => Auth::user()->username,
             "imgProfile"=> Auth::user()->img,
-            "company" => $user->getCompany->name_company
+            "company" => $user->getCompany->name_company,
+            "job_total" => $job_total,
+            "lamaran_total" => $lamaran_total,
 
         ]);
     }
